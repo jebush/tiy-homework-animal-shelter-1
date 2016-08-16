@@ -7,7 +7,7 @@ import java.util.ArrayList;
 //private properties ONLY
 public class AnimalsService {
     //internal structure to hold list of animals
-    private ArrayList<Animal> animalList = new ArrayList<Animal>();
+    private ArrayList<Animal> animalList = new ArrayList<>();
 
     //return private list of animals
     protected ArrayList<Animal> listAnimals() {
@@ -22,5 +22,10 @@ public class AnimalsService {
     //add animal to the list of animals
     protected void addAnimal(Animal animal) {
         animalList.add(animal);
+    }
+
+    //remove animal from the list of animals
+    protected void removeAnimal(int index) {
+        animalList.remove(index);
     }
 }

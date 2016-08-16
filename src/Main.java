@@ -5,10 +5,10 @@
 public class Main {
 
     public static void main(String[] args) {
-        //instantiation of menu service
+        //instantiation of main menu service
         MenuService menu = new MenuService();
 
-        //loop that drives program
+        //loop that drives main program
         while(true) {
             int action = menu.promptForMainMenuSelection();
             if(action == MenuService.LIST_ANIMALS) {

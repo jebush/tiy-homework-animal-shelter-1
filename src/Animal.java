@@ -3,67 +3,61 @@
  */
 
 public class Animal {
-    String name = "";
-    String species = "";
-    String breed = "";
-    String description = "";
+    private String name = "";
+    private String species = "";
+    private String breed = "";
+    private String description = "";
 
-    public Animal() {}
+    protected Animal(String name, String species, String description) {
+        this.name = name;
+        this.species = species;
+        this.description = description;
+    }
 
-    public Animal(String name, String species) {
+    protected Animal(String name, String species, String breed, String description) {
         this.name = name;
         this.species = species;
         this.breed = breed;
         this.description = description;
     }
 
-    public Animal(String name, String species, String description) {
-        this.name = name;
-        this.species = species;
-        this.breed = breed;
-        this.description = description;
-    }
-
-    public Animal(String name, String species, String breed, String description) {
-        this.name = name;
-        this.species = species;
-        this.breed = breed;
-        this.description = description;
-    }
-
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
-    public void setSpecies(String species) {
+    protected void setSpecies(String species) {
         this.species = species;
     }
 
-    public void setBreed(String breed) {
+    protected void setBreed(String breed) {
         this.breed = breed;
     }
 
-    public void setDescription(String description) {
+    protected void setDescription(String description) {
         this.description = description;
     }
 
-    public String getName() {
+    protected String getName() {
         return this.name;
     }
 
-    public String getSpecies() {
+    protected String getSpecies() {
         return this.species;
     }
 
-    public String getBreed() {
+    protected String getBreed() {
         return this.breed;
     }
 
-    public String getDescription() {
+    protected String getDescription() {
         return this.description;
     }
 
     public String toString() {
-        return (this.name + ", " + this.breed);
+        return String.format("%-12s %-16s\n%-12s %-16s\n%-12s %-16s\n%-12s %-16s",
+                "Name:", this.name,
+                "Species:", this.species,
+                "Breed:", this.breed,
+                "Description:", this.description);
     }
 }

@@ -1,30 +1,31 @@
-import java.util.ArrayList;
-
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:33 PM EST.
  */
 
-//private properties ONLY
+import java.util.ArrayList;
+
 public class AnimalsService {
-    //internal structure to hold list of animals
+    //object properties
+    //must be private per assignment constraints
     private ArrayList<Animal> animalList = new ArrayList<>();
 
-    //return private list of animals
+    //methods
+    //return local arrayList holding stored animals
     protected ArrayList<Animal> listAnimals() {
         return animalList;
     }
 
-    //return animal from specified index
+    //return animal from specified index in local arrayList
     protected Animal getAnimal(int index) {
         return animalList.get(index);
     }
 
-    //add animal to the list of animals
+    //add animal to end of local arrayList
     protected void addAnimal(Animal animal) {
         animalList.add(animal);
     }
 
-    //remove animal from the list of animals
+    //remove animal from specified index in local arrayList
     protected void removeAnimal(int index) {
         animalList.remove(index);
     }

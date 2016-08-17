@@ -3,17 +3,15 @@
  */
 
 public class Animal {
-    private String name = "";
-    private String species = "";
-    private String breed = "";
-    private String description = "";
+    //object properties
+    //core attributes of any Animal object
+    private String name, species, breed, description;
 
-    protected Animal(String name, String species, String description) {
-        this.name = name;
-        this.species = species;
-        this.description = description;
-    }
+    //constructors
+    //default constructor
+    protected Animal() {}
 
+    //constructor with breed(opt)
     protected Animal(String name, String species, String breed, String description) {
         this.name = name;
         this.species = species;
@@ -21,22 +19,17 @@ public class Animal {
         this.description = description;
     }
 
-    protected void setName(String name) {
-        this.name = name;
+    //methods
+    //toString (formatted)
+    public String toString() {
+        return String.format("%-12s %-16s\n%-12s %-16s\n%-12s %-16s\n%-12s %-16s",
+                "Name:", this.name,
+                "Species:", this.species,
+                "Breed:", this.breed,
+                "Description:", this.description);
     }
 
-    protected void setSpecies(String species) {
-        this.species = species;
-    }
-
-    protected void setBreed(String breed) {
-        this.breed = breed;
-    }
-
-    protected void setDescription(String description) {
-        this.description = description;
-    }
-
+    //getters
     protected String getName() {
         return this.name;
     }
@@ -53,11 +46,20 @@ public class Animal {
         return this.description;
     }
 
-    public String toString() {
-        return String.format("%-12s %-16s\n%-12s %-16s\n%-12s %-16s\n%-12s %-16s",
-                "Name:", this.name,
-                "Species:", this.species,
-                "Breed:", this.breed,
-                "Description:", this.description);
+    //setters
+    protected void setName(String name) {
+        this.name = name;
+    }
+
+    protected void setSpecies(String species) {
+        this.species = species;
+    }
+
+    protected void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    protected void setDescription(String description) {
+        this.description = description;
     }
 }

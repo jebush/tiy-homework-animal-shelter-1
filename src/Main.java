@@ -3,12 +3,19 @@
  */
 
 public class Main {
-
+    //methods
+    //main method
     public static void main(String[] args) {
-        //instantiation of main menu service
+        //call menuDriver method
+        menuDriver();
+    }
+
+    //menu driving method
+    private static void menuDriver() {
+        //instantiate main menu service
         MenuService menu = new MenuService();
 
-        //loop that drives main program
+        //console-based menu system driven via while loop
         while(true) {
             int action = menu.promptForMainMenuSelection();
             if(action == MenuService.LIST_ANIMALS) {

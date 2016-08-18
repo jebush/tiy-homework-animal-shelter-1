@@ -85,7 +85,7 @@ public class MenuService {
         //process input (if animal arrayList has at least 1 entry)
         if (result != 0) {
             System.out.printf("Please enter changes below. Press <Enter> to retain current value.");
-            int animalNum = result--;
+            int animalNum = result - 1;
 
             //cycle through four parameters, overwrite data with entry other than ""
             String tempName = optionalInput(String.format("\nName [%s]: ",

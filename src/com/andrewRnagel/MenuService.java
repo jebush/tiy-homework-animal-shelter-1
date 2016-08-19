@@ -1,11 +1,12 @@
-/**
- * Created by Andrew Nagel on 8/15/16 at 12:34 PM EST.
- */
+package com.andrewRnagel;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-
 import static java.lang.System.exit;
+
+/**
+ * Created by Andrew Nagel on 8/15/16 at 12:34 PM EST.
+ */
 
 public class MenuService {
     //object properties
@@ -15,11 +16,10 @@ public class MenuService {
     //instantiate scanner to read console input
     private Scanner scanner = new Scanner(System.in);
     //instantiate animal service
-    private AnimalsService animalsService = new AnimalsService();
 
     //methods (protected)
     //menu prompt
-    protected int promptForMainMenuSelection() {
+    protected int promptForMainMenuSelection(AnimalsService animalsService) {
         //interface with user
         System.out.printf("\n***** Main Menu *****\n" +
                 "<1> List Animals\n" +
@@ -28,12 +28,12 @@ public class MenuService {
                 "<4> Edit Animal details\n" +
                 "<5> Delete Animal\n" +
                 "<6> Quit\n");
-        return waitForInt("Please choose an option:", true);
+        return waitForInt(animalsService, "Please choose an option:", true);
     }
 
     //submenu prompts
     //list subroutine (format: ### name species)
-    protected void listAnimals() {
+    protected void listAnimals(AnimalsService animalsService) {
         //local properties
         ArrayList<Animal> animals = animalsService.listAnimals();
         int numberAnimals = animals.size();
@@ -47,7 +47,7 @@ public class MenuService {
     }
 
     //create entry subroutine
-    protected void createNewAnimal() {
+    protected void createNewAnimal(AnimalsService animalsService) {
         //local properties
         String tempName, tempSpecies, tempBreedOpt, tempDescription;
 
@@ -65,10 +65,10 @@ public class MenuService {
     }
 
     //view entry subroutine
-    protected void viewAnimalDetails() {
+    protected void viewAnimalDetails(AnimalsService animalsService) {
         //interface with user
         System.out.printf("\n*** View Animal details ***\n");
-        int result = waitForInt("Please enter the ID# of the animal to view: ", false);
+        int result = waitForInt(animalsService, "Please enter the ID# of the animal to view: ", false);
 
         //process input (if animal arrayList has at least 1 entry)
         if (result != 0) {
@@ -77,10 +77,10 @@ public class MenuService {
     }
 
     //edit entry subroutine
-    protected void editAnimal() {
+    protected void editAnimal(AnimalsService animalsService) {
         //interface with user
         System.out.printf("\n*** Edit Animal details ***\n");
-        int result = waitForInt("Please enter the ID# of the animal to edit: ", false);
+        int result = waitForInt(animalsService, "Please enter the ID# of the animal to edit: ", false);
 
         //process input (if animal arrayList has at least 1 entry)
         if (result != 0) {
@@ -115,10 +115,10 @@ public class MenuService {
     }
 
     //delete entry subroutine
-    protected void deleteAnimal() {
+    protected void deleteAnimal(AnimalsService animalsService) {
         //interface with user
         System.out.printf("\n*** Delete Animal ***\n");
-        int result = waitForInt("Please enter the ID# of the animal to delete: ", false);
+        int result = waitForInt(animalsService, "Please enter the ID# of the animal to delete: ", false);
 
         //process input (if animal arrayList has at least 1 entry)
         if (result != 0) {
@@ -138,7 +138,7 @@ public class MenuService {
                 case "no":
                 case "n":
                     System.out.printf("Deletion operation has been cancelled.\n");
-                    deleteAnimal();
+                    deleteAnimal(animalsService);
                     break;
                 //didn't input 'yes' or 'no'
                 default:
@@ -177,7 +177,7 @@ public class MenuService {
 
     //supporting private functions
     //user input integer validator, for menu and/or submenu user selections
-    private int waitForInt(String message, boolean mainMenu) {
+    private int waitForInt(AnimalsService animalsService, String message, boolean mainMenu) {
         //verify animal records exist first
         if (animalsService.listAnimals().isEmpty() && (!mainMenu)) {
             System.out.printf("[0] total animal(s) are on record.\n");
@@ -194,13 +194,13 @@ public class MenuService {
             value = Integer.parseInt(input);
         } catch (Exception e) {
             System.out.printf("Please try again, \"%s\" is not a valid number!\n", input);
-            value = waitForInt(message, mainMenu);
+            value = waitForInt(animalsService, message, mainMenu);
         }
         if ((value < 1) ||
                 ((value > 6) && (mainMenu)) ||
                 ((value > animalsService.listAnimals().size()) && (!mainMenu))) {
             System.out.printf("Please try again. \"%s\" is not a valid number!\n", input);
-            value = waitForInt(message, mainMenu);
+            value = waitForInt(animalsService, message, mainMenu);
         }
         return value;
     }

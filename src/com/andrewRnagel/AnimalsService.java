@@ -1,3 +1,5 @@
+package com.andrewRnagel;
+
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:33 PM EST.
  */
@@ -8,6 +10,15 @@ public class AnimalsService {
     //object properties
     //must be private per assignment constraints
     private ArrayList<Animal> animalList = new ArrayList<>();
+
+    //constructors
+    //default constructor
+    public AnimalsService() {}
+
+    //constructor with Data Repository
+    public AnimalsService(AnimalRepository animalRepository) {
+        this.animalList = animalRepository.loadAllAnimals();
+    }
 
     //methods
     //return local arrayList holding stored animals

@@ -1,10 +1,12 @@
+package com.andrewRnagel;
+
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:30 PM EST.
  */
 
 public class Animal {
     //object properties
-    //core attributes of any Animal object
+    //core attributes of any com.andrewRnagel.Animal object
     private String name, species, breed, description;
 
     //constructors

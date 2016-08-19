@@ -4,6 +4,7 @@ package com.andrewRnagel;
  * Created by Andrew Nagel on 8/15/16 at 12:33 PM EST.
  */
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AnimalsService {
@@ -16,7 +17,7 @@ public class AnimalsService {
     public AnimalsService() {}
 
     //constructor with Data Repository
-    public AnimalsService(AnimalRepository animalRepository) {
+    public AnimalsService(AnimalRepository animalRepository) throws IOException {
         this.animalList = animalRepository.loadAllAnimals();
     }
 

@@ -18,7 +18,7 @@ public class Main {
         //instantiate dependent service classes
         MenuService menu = new MenuService();
         AnimalRepository dataRepo = new AnimalRepository();
-        AnimalsService animalsService = new AnimalsService();
+        AnimalsService animalsService = new AnimalsService(dataRepo);
 
         //make file to write data to, if not already present
         dataRepo.makeFile();

@@ -1,0 +1,4 @@
+Fred|Frog||Green
+Bob|Bobcat||Ferocious
+Leo|Lion||Tame
+Cleo|Cat|Siamese|Grey

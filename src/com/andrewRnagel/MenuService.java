@@ -15,7 +15,6 @@ public class MenuService {
             EDIT_ANIMAL_DETAILS = 4, DELETE_ANIMAL = 5, QUIT = 6;
     //instantiate scanner to read console input
     private Scanner scanner = new Scanner(System.in);
-    //instantiate animal service
 
     //methods (protected)
     //menu prompt
@@ -161,6 +160,7 @@ public class MenuService {
             case "yes":
             case "y":
                 scanner.close();
+
                 System.out.printf("Goodbye!\n");
                 exit(0);
                 break;

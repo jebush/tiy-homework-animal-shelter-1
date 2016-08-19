@@ -64,4 +64,14 @@ public class Animal {
     protected void setDescription(String description) {
         this.description = description;
     }
+
+    //disk operations
+    protected String serialize() {
+        return String.format("%s|%s|%s|%s\n", name, species, breed, description);
+    }
+
+    protected static Animal deserialize(String data){
+        String[] parsedData = data.split("\\|");
+        return new Animal(parsedData[0], parsedData[1], parsedData[2], parsedData[3]);
+    }
 }

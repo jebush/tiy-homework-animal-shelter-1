@@ -17,7 +17,7 @@ public class AnimalsService {
 
     //constructor with Data Repository
     public AnimalsService(AnimalRepository animalRepository) throws IOException {
-        this.animalList = animalRepository.loadAllAnimals();
+        syncAllAnimals(animalRepository);
     }
 
     //methods
@@ -39,5 +39,11 @@ public class AnimalsService {
     //remove animal from specified index in local arrayList
     protected void removeAnimal(int index) {
         animalList.remove(index);
+    }
+
+    //supporting methods
+    //sync animal list with Animal Repo post-initialization
+    protected void syncAllAnimals(AnimalRepository animalRepository) throws IOException{
+        this.animalList = animalRepository.loadAllAnimals();
     }
 }

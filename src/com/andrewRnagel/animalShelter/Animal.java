@@ -10,9 +10,6 @@ public class Animal {
     private String name, species, breed, description;
 
     //constructors
-    //default constructor
-    protected Animal() {}
-
     //constructor with breed(opt)
     protected Animal(String name, String species, String breed, String description) {
         this.name = name;

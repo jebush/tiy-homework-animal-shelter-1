@@ -17,16 +17,15 @@ public class Main {
     private static void menuDriver() throws IOException {
         //instantiate dependent services via classes
         MenuService menu = new MenuService();
-        AnimalRepository dataRepo = new AnimalRepository();
+        //passing string will specify file name in Data directory
+        AnimalRepository dataRepo = new AnimalRepository("Animals.txt");
         //passing dataRepo as argument clones ArrayList from disk to local program
         AnimalsService animalsService = new AnimalsService(dataRepo);
-
-        //make file to write data to, if not already present
-        dataRepo.makeFile();
 
         //console-based menu system driven via while loop
         while(true) {
             int action = menu.promptForMainMenuSelection(animalsService);
+
             if(action == MenuService.LIST_ANIMALS) {
                 menu.listAnimals(animalsService);
             } else if(action == MenuService.CREATE_ANIMAL) {

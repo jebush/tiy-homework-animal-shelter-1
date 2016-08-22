@@ -1,5 +1,4 @@
-package com.andrewRnagel;
-
+package com.andrewRnagel.animalShelter;
 import java.util.Scanner;
 import java.util.ArrayList;
 import static java.lang.System.exit;
@@ -61,6 +60,7 @@ public class MenuService {
         //create object based on data entered from breed entry and add to arrayList
         Animal newEntry = new Animal(tempName, tempSpecies, tempBreedOpt, tempDescription);
         animalsService.addAnimal(newEntry);
+
     }
 
     //view entry subroutine

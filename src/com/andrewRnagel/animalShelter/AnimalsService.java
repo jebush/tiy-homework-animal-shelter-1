@@ -1,11 +1,10 @@
-package com.andrewRnagel;
+package com.andrewRnagel.animalShelter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:33 PM EST.
  */
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class AnimalsService {
     //object properties

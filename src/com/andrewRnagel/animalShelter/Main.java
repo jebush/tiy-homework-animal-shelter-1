@@ -1,4 +1,4 @@
-package com.andrewRnagel;
+package com.andrewRnagel.animalShelter;
 import java.io.IOException;
 
 /**
@@ -15,9 +15,10 @@ public class Main {
 
     //menu driving method
     private static void menuDriver() throws IOException {
-        //instantiate dependent service classes
+        //instantiate dependent services via classes
         MenuService menu = new MenuService();
         AnimalRepository dataRepo = new AnimalRepository();
+        //passing dataRepo as argument clones ArrayList from disk to local program
         AnimalsService animalsService = new AnimalsService(dataRepo);
 
         //make file to write data to, if not already present
@@ -30,12 +31,18 @@ public class Main {
                 menu.listAnimals(animalsService);
             } else if(action == MenuService.CREATE_ANIMAL) {
                 menu.createNewAnimal(animalsService);
+                //sync repo with local program ArrayList
+                dataRepo.saveAllAnimals(animalsService.listAnimals());
             } else if(action == MenuService.VIEW_ANIMAL_DETAILS) {
                 menu.viewAnimalDetails(animalsService);
             } else if(action == MenuService.EDIT_ANIMAL_DETAILS) {
                 menu.editAnimal(animalsService);
+                //sync repo with local program ArrayList
+                dataRepo.saveAllAnimals(animalsService.listAnimals());
             } else if(action == MenuService.DELETE_ANIMAL) {
                 menu.deleteAnimal(animalsService);
+                //sync repo with local program ArrayList
+                dataRepo.saveAllAnimals(animalsService.listAnimals());
             } else if(action == MenuService.QUIT) {
                 menu.quitProgram();
             } else {

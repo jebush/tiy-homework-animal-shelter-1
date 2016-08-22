@@ -1,4 +1,4 @@
-package com.andrewRnagel;
+package com.andrewRnagel.animalShelter;
 
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:30 PM EST.
@@ -65,7 +65,7 @@ public class Animal {
         this.description = description;
     }
 
-    //disk operations
+    //disk ops
     protected String serialize() {
         return String.format("%s|%s|%s|%s\n", name, species, breed, description);
     }

@@ -1,4 +1,7 @@
 Fred|Frog||Green
 Bob|Bobcat||Ferocious
-Leo|Lion||Tame
 Cleo|Cat|Siamese|Grey
+Bob|Bison|Beautiful|Black
+Patty|Panther||Black
+Leo|Leopard||Spotted
+Ricky|Raccoon||Feral

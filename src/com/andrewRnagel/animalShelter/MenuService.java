@@ -17,7 +17,7 @@ public class MenuService {
 
     //methods (protected)
     //menu prompt
-    protected int promptForMainMenuSelection(AnimalsService animalsService) {
+    protected int promptForMainMenuSelection(int dataSize) {
         //interface with user
         System.out.printf("\n***** Main Menu *****\n" +
                 "<1> List Animals\n" +
@@ -26,14 +26,13 @@ public class MenuService {
                 "<4> Edit Animal details\n" +
                 "<5> Delete Animal\n" +
                 "<6> Quit\n");
-        return waitForInt(animalsService, "Please choose an option:", true);
+        return waitForInt(dataSize, "Please choose an option:", true);
     }
 
     //submenu prompts
     //list subroutine (format: ### name species)
-    protected void listAnimals(AnimalsService animalsService) {
+    protected void listAnimals(ArrayList<Animal> animals) {
         //local properties
-        ArrayList<Animal> animals = animalsService.listAnimals();
         int numberAnimals = animals.size();
 
         //interface with user
@@ -45,7 +44,7 @@ public class MenuService {
     }
 
     //create entry subroutine
-    protected void createNewAnimal(AnimalsService animalsService) {
+    protected Animal createNewAnimal() {
         //local properties
         String tempName, tempSpecies, tempBreedOpt, tempDescription;
 
@@ -59,27 +58,26 @@ public class MenuService {
 
         //create object based on data entered from breed entry and add to arrayList
         Animal newEntry = new Animal(tempName, tempSpecies, tempBreedOpt, tempDescription);
-        animalsService.addAnimal(newEntry);
-
+        return newEntry;
     }
 
     //view entry subroutine
-    protected void viewAnimalDetails(AnimalsService animalsService) {
+    protected void viewAnimalDetails(ArrayList<Animal> animals) {
         //interface with user
         System.out.printf("\n*** View Animal details ***\n");
-        int result = waitForInt(animalsService, "Please enter the ID# of the animal to view: ", false);
+        int result = waitForInt(animals.size(), "Please enter the ID# of the animal to view: ", false);
 
         //process input (if animal arrayList has at least 1 entry)
         if (result != 0) {
-            System.out.print(animalsService.getAnimal(result - 1) + "\n");
+            System.out.print(animals.get(result - 1) + "\n");
         }
     }
 
     //edit entry subroutine
-    protected void editAnimal(AnimalsService animalsService) {
+    protected void editAnimal(ArrayList<Animal> animals) {
         //interface with user
         System.out.printf("\n*** Edit Animal details ***\n");
-        int result = waitForInt(animalsService, "Please enter the ID# of the animal to edit: ", false);
+        int result = waitForInt(animals.size(), "Please enter the ID# of the animal to edit: ", false);
 
         //process input (if animal arrayList has at least 1 entry)
         if (result != 0) {
@@ -88,40 +86,41 @@ public class MenuService {
 
             //cycle through four parameters, overwrite data with entry other than ""
             String tempName = optionalInput(String.format("\nName [%s]: ",
-                    animalsService.getAnimal(animalNum).getName()));
+                    animals.get(animalNum).getName()));
             if (!tempName.equals("")) {
-                animalsService.getAnimal(animalNum).setName(tempName);
+                animals.get(animalNum).setName(tempName);
             }
             String tempSpecies = optionalInput(String.format("Species [%s]: ",
-                    animalsService.getAnimal(animalNum).getSpecies()));
+                    animals.get(animalNum).getSpecies()));
             if (!tempSpecies.equals("")) {
-                animalsService.getAnimal(animalNum).setSpecies(tempSpecies);
+                animals.get(animalNum).setSpecies(tempSpecies);
             }
             String tempBreedOpt = optionalInput(String.format("Breed [%s]: ",
-                    animalsService.getAnimal(animalNum).getBreed()));
+                    animals.get(animalNum).getBreed()));
             if (!tempBreedOpt.equals("")) {
-                animalsService.getAnimal(animalNum).setBreed(tempBreedOpt);
+                animals.get(animalNum).setBreed(tempBreedOpt);
             }
             String tempDescription = optionalInput(String.format("Description [%s]: ",
-                    animalsService.getAnimal(animalNum).getDescription()));
+                    animals.get(animalNum).getDescription()));
             if (!tempDescription.equals("")) {
-                animalsService.getAnimal(animalNum).setDescription(tempDescription);
+                animals.get(animalNum).setDescription(tempDescription);
             }
 
             System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
-            System.out.printf(animalsService.getAnimal(result - 1) + "\n");
+            System.out.printf(animals.get(animalNum) + "\n");
         }
     }
 
     //delete entry subroutine
-    protected void deleteAnimal(AnimalsService animalsService) {
+    protected void deleteAnimal(ArrayList<Animal> animals) {
         //interface with user
         System.out.printf("\n*** Delete Animal ***\n");
-        int result = waitForInt(animalsService, "Please enter the ID# of the animal to delete: ", false);
+        int result = waitForInt(animals.size(), "Please enter the ID# of the animal to delete: ", false);
+        int animalNum = result - 1;
 
         //process input (if animal arrayList has at least 1 entry)
         if (result != 0) {
-            System.out.print(animalsService.getAnimal(result - 1) + "\n");
+            System.out.print(animals.get(animalNum) + "\n");
             System.out.printf("\nAre you sure you want to delete this animal?\n");
             System.out.printf("Type \"yes\" to confirm, \"no\" to select a different animal.\n" +
                     "Any other data entry will return to the main menu.\n");
@@ -130,14 +129,14 @@ public class MenuService {
                 //confirm delete request
                 case "yes":
                 case "y":
-                    animalsService.removeAnimal(result - 1);
+                    animals.remove(animalNum);
                     System.out.printf("Deletion operation successful!\n");
                     break;
                 //abort request and return to delete entry subroutine
                 case "no":
                 case "n":
                     System.out.printf("Deletion operation has been cancelled.\n");
-                    deleteAnimal(animalsService);
+                    deleteAnimal(animals);
                     break;
                 //didn't input 'yes' or 'no'
                 default:
@@ -177,9 +176,9 @@ public class MenuService {
 
     //supporting private functions
     //user input integer validator, for menu and/or submenu user selections
-    private int waitForInt(AnimalsService animalsService, String message, boolean mainMenu) {
+    private int waitForInt(int dataSize, String message, boolean mainMenu) {
         //verify animal records exist first
-        if (animalsService.listAnimals().isEmpty() && (!mainMenu)) {
+        if ((dataSize == 0) && (!mainMenu)) {
             System.out.printf("[0] total animal(s) are on record.\n");
             return 0;
         }
@@ -194,13 +193,13 @@ public class MenuService {
             value = Integer.parseInt(input);
         } catch (Exception e) {
             System.out.printf("Please try again, \"%s\" is not a valid number!\n", input);
-            value = waitForInt(animalsService, message, mainMenu);
+            value = waitForInt(dataSize, message, mainMenu);
         }
         if ((value < 1) ||
                 ((value > 6) && (mainMenu)) ||
-                ((value > animalsService.listAnimals().size()) && (!mainMenu))) {
+                ((value > dataSize) && (!mainMenu))) {
             System.out.printf("Please try again. \"%s\" is not a valid number!\n", input);
-            value = waitForInt(animalsService, message, mainMenu);
+            value = waitForInt(dataSize, message, mainMenu);
         }
         return value;
     }

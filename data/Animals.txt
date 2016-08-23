@@ -6,4 +6,7 @@ Leo|Leopard||Spotted
 Ricky|Raccoon||Feral
 Holly|Hippo||Grey
 Bob|Bison|Beautiful|Black
-Terry|Spider|Tarantula|Hairy
+Dan|Dingo||Australian
+Leonard|Lion||Large
+Kim|Koala||Cuddly
+Jim|Jaguar||Fast

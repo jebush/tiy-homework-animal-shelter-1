@@ -55,9 +55,7 @@ public class AnimalRepository {
     }
 
     //Save all animals to disk (from ArrayList on this class)
-    protected void saveAllAnimals(ArrayList<Animal> animals) throws IOException {
-        //copy working list from AnimalsService Class
-        animalList = animals;
+    protected void saveAllAnimals() throws IOException {
         //data collector for file writing
         String animalData = "";
 
@@ -74,6 +72,7 @@ public class AnimalRepository {
         return animalList;
     }
 
+    //deprecated methods
     //return animal from specified index in local arrayList
     protected Animal getAnimal(int index) {
         return animalList.get(index);

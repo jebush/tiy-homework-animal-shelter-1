@@ -1,5 +1,6 @@
 package com.andrewRnagel.animalShelter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:35 PM EST.
@@ -22,26 +23,30 @@ public class Main {
         //passing dataRepo as argument clones ArrayList from disk to local program
         AnimalsService animalsService = new AnimalsService(dataRepo);
 
+        //data source declaration
+        ArrayList<Animal> dataStore = dataRepo.listAnimals();
+        ArrayList<Animal> dataStoreOld = animalsService.listAnimals();
+
         //console-based menu system driven via while loop
         while(true) {
-            int action = menu.promptForMainMenuSelection(animalsService);
+            int action = menu.promptForMainMenuSelection(dataStore.size());
 
             if(action == MenuService.LIST_ANIMALS) {
-                menu.listAnimals(animalsService);
+                menu.listAnimals(dataStore);
             } else if(action == MenuService.CREATE_ANIMAL) {
-                menu.createNewAnimal(animalsService);
-                //sync repo with local program ArrayList
-                dataRepo.saveAllAnimals(animalsService.listAnimals());
+                dataStore.add(menu.createNewAnimal());
+                //sync repo with local ArrayList
+                dataRepo.saveAllAnimals();
             } else if(action == MenuService.VIEW_ANIMAL_DETAILS) {
-                menu.viewAnimalDetails(animalsService);
+                menu.viewAnimalDetails(dataStore);
             } else if(action == MenuService.EDIT_ANIMAL_DETAILS) {
-                menu.editAnimal(animalsService);
-                //sync repo with local program ArrayList
-                dataRepo.saveAllAnimals(animalsService.listAnimals());
+                menu.editAnimal(dataStore);
+                //sync repo with local ArrayList
+                dataRepo.saveAllAnimals();
             } else if(action == MenuService.DELETE_ANIMAL) {
-                menu.deleteAnimal(animalsService);
-                //sync repo with local program ArrayList
-                dataRepo.saveAllAnimals(animalsService.listAnimals());
+                menu.deleteAnimal(dataStore);
+                //sync repo with local ArrayList
+                dataRepo.saveAllAnimals();
             } else if(action == MenuService.QUIT) {
                 menu.quitProgram();
             } else {

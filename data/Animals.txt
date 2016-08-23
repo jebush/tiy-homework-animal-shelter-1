@@ -2,7 +2,6 @@ Fred|Frog||Green
 Bob|Bobcat||Ferocious
 Cleo|Cat|Siamese|Grey
 Patty|Panther||Black
-Leo|Leopard||Spotted
 Ricky|Raccoon||Feral
 Holly|Hippo||Grey
 Bob|Bison|Beautiful|Black
@@ -10,3 +9,4 @@ Dan|Dingo||Australian
 Leonard|Lion||Large
 Kim|Koala||Cuddly
 Jim|Jaguar||Fast
+Wendy|Whale|Humpback|Blue

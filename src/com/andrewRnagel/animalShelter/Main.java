@@ -20,12 +20,11 @@ public class Main {
         MenuService menu = new MenuService();
         //passing string will specify file name in Data directory
         AnimalRepository dataRepo = new AnimalRepository("Animals.txt");
-        //passing dataRepo as argument clones ArrayList from disk to local program
+        //passing dataRepo as argument points to ArrayList from disk by address for local program
         AnimalsService animalsService = new AnimalsService(dataRepo);
 
         //data source declaration
-        ArrayList<Animal> dataStore = dataRepo.listAnimals();
-        ArrayList<Animal> dataStoreOld = animalsService.listAnimals();
+        ArrayList<Animal> dataStore = animalsService.listAnimals();
 
         //console-based menu system driven via while loop
         while(true) {

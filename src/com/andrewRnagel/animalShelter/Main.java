@@ -33,23 +33,25 @@ public class Main {
             if(action == MenuService.LIST_ANIMALS) {
                 menu.listAnimals(dataStore);
             } else if(action == MenuService.CREATE_ANIMAL) {
-                dataStore.add(menu.createNewAnimal());
-                //sync repo with local ArrayList
+                //push change to AnimalsService, duplicated in AnimalRepository (pass by ref)
+                Animal animal = (menu.createNewAnimal());
+                animalsService.addAnimal(animal);
+                //synced ArrayList on AnimalRepository is saved to disk
                 dataRepo.saveAllAnimals();
             } else if(action == MenuService.VIEW_ANIMAL_DETAILS) {
                 menu.viewAnimalDetails(dataStore);
             } else if(action == MenuService.EDIT_ANIMAL_DETAILS) {
+                //change made to AnimalsService ArrayList
                 menu.editAnimal(dataStore);
-                //sync repo with local ArrayList
+                //synced ArrayList on AnimalRepository is saved to disk
                 dataRepo.saveAllAnimals();
             } else if(action == MenuService.DELETE_ANIMAL) {
+                //change made to AnimalsService ArrayList
                 menu.deleteAnimal(dataStore);
-                //sync repo with local ArrayList
+                //synced ArrayList on AnimalRepository is saved to disk
                 dataRepo.saveAllAnimals();
             } else if(action == MenuService.QUIT) {
                 menu.quitProgram();
-            } else {
-                //unreachable block
             }
         }
     }

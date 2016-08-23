@@ -27,15 +27,15 @@ public class AnimalsService {
         return animalList;
     }
 
+    //add animal to end of local arrayList
+    protected void addAnimal(Animal animal) {
+        animalList.add(animal);
+    }
+
     //deprecated methods
     //return animal from specified index in local arrayList
     protected Animal getAnimal(int index) {
         return animalList.get(index);
-    }
-
-    //add animal to end of local arrayList
-    protected void addAnimal(Animal animal) {
-        animalList.add(animal);
     }
 
     //remove animal from specified index in local arrayList

@@ -10,3 +10,4 @@ Leonard|Lion||Large
 Kim|Koala||Cuddly
 Jim|Jaguar||Fast
 Wendy|Whale|Humpback|Blue
+Victor|Vole||Grey

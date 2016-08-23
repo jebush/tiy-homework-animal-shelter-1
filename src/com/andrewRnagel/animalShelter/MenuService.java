@@ -208,7 +208,7 @@ public class MenuService {
     private String requiredInput(String prompt) {
         System.out.printf("%s", prompt);
         String input = scanner.nextLine();
-        while (input.isEmpty()) {
+        while ((input.isEmpty()) || (input.trim().isEmpty())) {
             System.out.printf("%s is required. Please try again.\n" +
                     "%s", prompt, prompt);
             input = scanner.nextLine();

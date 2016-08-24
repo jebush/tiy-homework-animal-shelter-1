@@ -18,13 +18,11 @@ public class Main {
     private static void menuDriver() throws IOException {
         //instantiate dependent services via classes
         MenuService menu = new MenuService();
-        //passing string will specify file name in Data directory
         AnimalRepository dataRepo = new AnimalRepository("Animals.txt");
-        //passing dataRepo as argument points to ArrayList from disk by address for local program
         AnimalsService animalsService = new AnimalsService(dataRepo);
 
         //data source declaration
-        ArrayList<Animal> dataStore = animalsService.listAnimals();
+        ArrayList<Animal> dataStore = dataRepo.listAnimals();
 
         //console-based menu system driven via while loop
         while(true) {
@@ -33,23 +31,25 @@ public class Main {
             if(action == MenuService.LIST_ANIMALS) {
                 menu.listAnimals(dataStore);
             } else if(action == MenuService.CREATE_ANIMAL) {
-                //push change to AnimalsService, duplicated in AnimalRepository (pass by ref)
                 Animal animal = (menu.createNewAnimal());
-                animalsService.addAnimal(animal);
-                //synced ArrayList on AnimalRepository is saved to disk
-                dataRepo.saveAllAnimals();
+                dataRepo.addAnimal(animal);
             } else if(action == MenuService.VIEW_ANIMAL_DETAILS) {
-                menu.viewAnimalDetails(dataStore);
+                int viewMe = menu.viewAnimalDetails(dataStore);
+                if (viewMe != 0) {
+                    System.out.print(dataRepo.getAnimal(viewMe) + "\n");
+                }
             } else if(action == MenuService.EDIT_ANIMAL_DETAILS) {
                 //change made to AnimalsService ArrayList
                 menu.editAnimal(dataStore);
                 //synced ArrayList on AnimalRepository is saved to disk
+                //TODO update animal (return index and animal object, then overwrite in repo)
+                //dataRepo.updateAnimal(index, animal);
                 dataRepo.saveAllAnimals();
             } else if(action == MenuService.DELETE_ANIMAL) {
-                //change made to AnimalsService ArrayList
-                menu.deleteAnimal(dataStore);
-                //synced ArrayList on AnimalRepository is saved to disk
-                dataRepo.saveAllAnimals();
+                int deleteMe = menu.deleteAnimal(dataStore);
+                if(deleteMe > 0) {
+                    dataRepo.removeAnimal(deleteMe);
+                }
             } else if(action == MenuService.QUIT) {
                 menu.quitProgram();
             }

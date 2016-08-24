@@ -21,7 +21,7 @@ public class AnimalsService {
         this.animalList = animalRepository.loadAllAnimals();
     }
 
-    //methods
+    //deprecated methods
     //return local arrayList holding stored animals
     protected ArrayList<Animal> listAnimals() {
         return animalList;

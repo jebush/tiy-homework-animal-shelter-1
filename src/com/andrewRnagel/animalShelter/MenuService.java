@@ -62,15 +62,11 @@ public class MenuService {
     }
 
     //view entry subroutine
-    protected void viewAnimalDetails(ArrayList<Animal> animals) {
+    protected int viewAnimalDetails(ArrayList<Animal> animals) {
         //interface with user
         System.out.printf("\n*** View Animal details ***\n");
         int result = waitForInt(animals.size(), "Please enter the ID# of the animal to view: ", false);
-
-        //process input (if animal arrayList has at least 1 entry)
-        if (result != 0) {
-            System.out.print(animals.get(result - 1) + "\n");
-        }
+        return result - 1;
     }
 
     //edit entry subroutine
@@ -112,7 +108,7 @@ public class MenuService {
     }
 
     //delete entry subroutine
-    protected void deleteAnimal(ArrayList<Animal> animals) {
+    protected int deleteAnimal(ArrayList<Animal> animals) {
         //interface with user
         System.out.printf("\n*** Delete Animal ***\n");
         int result = waitForInt(animals.size(), "Please enter the ID# of the animal to delete: ", false);
@@ -129,9 +125,8 @@ public class MenuService {
                 //confirm delete request
                 case "yes":
                 case "y":
-                    animals.remove(animalNum);
                     System.out.printf("Deletion operation successful!\n");
-                    break;
+                    return animalNum;
                 //abort request and return to delete entry subroutine
                 case "no":
                 case "n":
@@ -143,6 +138,7 @@ public class MenuService {
                     System.out.printf("\"%s\" is not a valid entry! Returning to main menu.\n", input);
             }
         }
+        return -1;
     }
 
     //quit subroutine

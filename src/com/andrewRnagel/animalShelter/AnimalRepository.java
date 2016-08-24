@@ -66,13 +66,12 @@ public class AnimalRepository {
         Files.write(Paths.get(animalDataFilePath), animalData.getBytes());
     }
 
-    //methods reproduced from AnimalsService
+    //methods cloned from AnimalsService
     //return local arrayList holding stored animals
     protected ArrayList<Animal> listAnimals() {
         return animalList;
     }
 
-    //deprecated methods
     //return animal from specified index in local arrayList
     protected Animal getAnimal(int index) {
         return animalList.get(index);
@@ -81,11 +80,21 @@ public class AnimalRepository {
     //add animal to end of local arrayList
     protected void addAnimal(Animal animal) {
         animalList.add(animal);
+        try {
+            saveAllAnimals();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //remove animal from specified index in local arrayList
     protected void removeAnimal(int index) {
         animalList.remove(index);
+        try {
+            saveAllAnimals();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //supporting private functions

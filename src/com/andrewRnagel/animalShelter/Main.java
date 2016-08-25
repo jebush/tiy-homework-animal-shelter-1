@@ -1,6 +1,5 @@
 package com.andrewRnagel.animalShelter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:35 PM EST.
@@ -17,38 +16,63 @@ public class Main {
     //menu driving method
     private static void menuDriver() throws IOException {
         //instantiate dependent services via classes
-        MenuService menu = new MenuService();
         AnimalRepository dataRepo = new AnimalRepository("Animals.txt");
         AnimalsService animalsService = new AnimalsService(dataRepo);
-
-        //data source declaration
-        ArrayList<Animal> dataStore = dataRepo.listAnimals();
+        MenuService menu = new MenuService();
 
         //console-based menu system driven via while loop
         while(true) {
-            int action = menu.promptForMainMenuSelection(dataStore.size());
+            int action = menu.promptForMainMenuSelection(animalsService.listAnimals().size());
 
             if(action == MenuService.LIST_ANIMALS) {
-                menu.listAnimals(dataStore);
+                menu.listAnimals(animalsService.listAnimals());
             } else if(action == MenuService.CREATE_ANIMAL) {
-                Animal animal = (menu.createNewAnimal());
-                dataRepo.addAnimal(animal);
+                Animal animal = menu.createNewAnimal();
+                animalsService.addAnimal(animal);
             } else if(action == MenuService.VIEW_ANIMAL_DETAILS) {
-                int viewMe = menu.viewAnimalDetails(dataStore);
-                if (viewMe != 0) {
-                    System.out.print(dataRepo.getAnimal(viewMe) + "\n");
-                }
+                int animalIndex = menu.viewAnimalDetails(animalsService.listAnimals());
+                System.out.println(animalsService.getAnimal(animalIndex));
             } else if(action == MenuService.EDIT_ANIMAL_DETAILS) {
-                //change made to AnimalsService ArrayList
-                menu.editAnimal(dataStore);
-                //synced ArrayList on AnimalRepository is saved to disk
-                //TODO update animal (return index and animal object, then overwrite in repo)
-                //dataRepo.updateAnimal(index, animal);
-                dataRepo.saveAllAnimals();
+                String[] results = menu.editAnimal(animalsService.listAnimals());
+                //process input
+                if (results != null) {
+                    //local variables
+                    int animalIndex = Integer.parseInt(results[0]);
+                    String tempName = results[1];
+                    String tempSpecies = results[2];
+                    String tempBreed = results[3];
+                    String tempDescription = results[4];
+                    Animal tempAnimal = new Animal();
+                    //configure temp animal correctly and replace
+                    if (!tempName.equals("")) {
+                        tempAnimal.setName(tempName);
+                    } else {
+                        tempAnimal.setName(animalsService.listAnimals().get(animalIndex).getName());
+                    }
+                    if (!tempSpecies.equals("")) {
+                        tempAnimal.setSpecies(tempSpecies);
+                    } else {
+                        tempAnimal.setSpecies(animalsService.listAnimals().get(animalIndex).getSpecies());
+                    }
+                    if (!tempBreed.equals("")) {
+                        tempAnimal.setBreed(tempBreed);
+                    } else {
+                        tempAnimal.setBreed(animalsService.listAnimals().get(animalIndex).getBreed());
+                    }
+                    if (!tempDescription.equals("")) {
+                        tempAnimal.setDescription(tempDescription);
+                    } else {
+                        tempAnimal.setDescription(animalsService.listAnimals().get(animalIndex).getDescription());
+                    }
+                    animalsService.updateAnimal(animalIndex, tempAnimal);
+                    //output
+                    System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
+                    System.out.printf(animalsService.getAnimal(animalIndex) + "\n");
+                }
             } else if(action == MenuService.DELETE_ANIMAL) {
-                int deleteMe = menu.deleteAnimal(dataStore);
-                if(deleteMe > 0) {
-                    dataRepo.removeAnimal(deleteMe);
+                int deleteMe = menu.deleteAnimal(animalsService.listAnimals());
+                if(deleteMe >= 0) {
+                    animalsService.removeAnimal(deleteMe);
                 }
             } else if(action == MenuService.QUIT) {
                 menu.quitProgram();

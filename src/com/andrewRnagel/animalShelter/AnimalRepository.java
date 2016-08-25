@@ -15,11 +15,10 @@ import org.apache.commons.lang.StringUtils;
 
 public class AnimalRepository {
     //object properties
-    //local private copy of animals from AnimalService
+    //local private copy of animal objects
     private ArrayList<Animal> animalList = new ArrayList<>();
 
     //file instantiation
-    //File currentDirectory = new File(".");
     private String animalDataDir, animalDataFilePath;
     private File dataDir, animalDataFile;
 
@@ -31,50 +30,13 @@ public class AnimalRepository {
         animalDataFilePath = animalDataDir + "/" + fileName;
         animalDataFile = new File(animalDataFilePath);
         makeFile();
+        loadAllAnimals();
     }
 
-    //methods (protected)
-    //Load all animals from disk (to ArrayList on this class)
-    protected ArrayList<Animal> loadAllAnimals() throws IOException {
-        //read all lines from file as a string, parse, and push to ArrayList in AnimalService
-        String animalData = new String(Files.readAllBytes(Paths.get(animalDataFilePath)));
-
-        //verify file info is not empty nor has mismatch on delimiters
-        int delimiterCount = StringUtils.countMatches(animalData, "|");
-        if (animalData.isEmpty() || ((delimiterCount % 3) != 0)) {
-            System.out.printf(">>>Error opening ./%s. Operation aborted.<<<", animalDataFilePath);
-            return animalList;
-        }
-
-        //initial integrity checks passed, deserialize Animals parsing by newline character
-        List<String> lines = Files.readAllLines(Paths.get(animalDataFilePath));
-        for(String line : lines) {
-          animalList.add(Animal.deserialize(line));
-        }
-        return animalList;
-    }
-
-    //Save all animals to disk (from ArrayList on this class)
-    protected void saveAllAnimals() throws IOException {
-        //data collector for file writing
-        String animalData = "";
-
-        //go through each animal, turn serializable, and write to file
-        for(Animal animal : animalList) {
-            animalData = animalData + animal.serialize();
-        }
-        Files.write(Paths.get(animalDataFilePath), animalData.getBytes());
-    }
-
-    //methods cloned from AnimalsService
+    //methods cloned from AnimalsService (protected)
     //return local arrayList holding stored animals
     protected ArrayList<Animal> listAnimals() {
         return animalList;
-    }
-
-    //return animal from specified index in local arrayList
-    protected Animal getAnimal(int index) {
-        return animalList.get(index);
     }
 
     //add animal to end of local arrayList
@@ -87,6 +49,11 @@ public class AnimalRepository {
         }
     }
 
+    //return animal from specified index in local arrayList
+    protected Animal getAnimal(int index) {
+        return animalList.get(index);
+    }
+
     //remove animal from specified index in local arrayList
     protected void removeAnimal(int index) {
         animalList.remove(index);
@@ -97,8 +64,22 @@ public class AnimalRepository {
         }
     }
 
+    //update animal at specified index in local arrayList
+    protected void updateAnimal(int index, Animal animal) {
+        animalList.get(index).setName(animal.getName());
+        animalList.get(index).setSpecies(animal.getSpecies());
+        animalList.get(index).setBreed(animal.getBreed());
+        animalList.get(index).setDescription(animal.getDescription());
+        try {
+            saveAllAnimals();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //supporting private functions
     //Create data directory and data file on disk
+    //called by: AnimalRepository constructor
     private void makeFile() throws IOException {
         //verify and create directory
         if(!dataDir.exists()) {
@@ -109,5 +90,39 @@ public class AnimalRepository {
         {
             animalDataFile.createNewFile();
         }
+    }
+
+    //Load all animals from disk to List on this class
+    //Called by: AnimalRepository constructor
+    protected ArrayList<Animal> loadAllAnimals() throws IOException {
+        //read all lines from file as a string, parse, and push to ArrayList in AnimalService
+        String animalData = new String(Files.readAllBytes(Paths.get(animalDataFilePath)));
+
+        //verify file info is not empty nor has mismatch on delimiters
+        int delimiterCount = StringUtils.countMatches(animalData, "|");
+        if (!(animalData.isEmpty()) && ((delimiterCount % 3) != 0)) {
+            System.out.printf(">>>Error opening ./%s. Operation aborted.<<<", animalDataFilePath);
+            return animalList;
+        }
+
+        //initial integrity checks passed, deserialize Animals parsing by newline character
+        List<String> lines = Files.readAllLines(Paths.get(animalDataFilePath));
+        for(String line : lines) {
+            animalList.add(Animal.deserialize(line));
+        }
+        return animalList;
+    }
+
+    //Save all animals to disk from List on this class
+    //Called by: addAnimal, removeAnimal, updateAnimal
+    protected void saveAllAnimals() throws IOException {
+        //data collector for file writing
+        String animalData = "";
+
+        //go through each animal, turn serializable, and write to file
+        for(Animal animal : animalList) {
+            animalData = animalData + animal.serialize();
+        }
+        Files.write(Paths.get(animalDataFilePath), animalData.getBytes());
     }
 }

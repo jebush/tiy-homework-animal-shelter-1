@@ -1,0 +1,14 @@
+Fred|Frog||Green
+Bob|Bobcat||Ferocious
+Cleo|Cat|Siamese|Grey
+Patty|Panther||Black
+Ricky|Raccoon||Feral
+Holly|Hippo||Grey
+Bob|Bison|Beautiful|Black
+Dan|Dingo||Australian
+Leonard|Lion||Large
+Kim|Koala||Cuddly
+Jim|Jaguar||Fast
+Wendy|Whale|Humpback|Blue
+Victor|Vole|Wild|Grey
+George|Giraffe||Tall

@@ -1,5 +1,4 @@
 package com.andrewRnagel.animalShelter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -9,37 +8,38 @@ import java.util.ArrayList;
 public class AnimalsService {
     //object properties
     //must be private per assignment constraints
-    private ArrayList<Animal> animalList = new ArrayList<>();
+    private AnimalRepository animalRepository;
 
     //constructors
-    //default constructor
-    public AnimalsService() {}
-
-    //constructor with Data Repository
-    public AnimalsService(AnimalRepository animalRepository) throws IOException {
+    //constructor with specific data repository
+    public AnimalsService(AnimalRepository animalRepository) {
         //copy by reference (all changes to Repo will be effective here!)
-        this.animalList = animalRepository.loadAllAnimals();
+        this.animalRepository = animalRepository;
     }
 
-    //deprecated methods
-    //return local arrayList holding stored animals
+    //methods
+    //return list holding stored animal objects
     protected ArrayList<Animal> listAnimals() {
-        return animalList;
+        return animalRepository.listAnimals();
     }
 
-    //add animal to end of local arrayList
+    //add animal to end of list
     protected void addAnimal(Animal animal) {
-        animalList.add(animal);
+        animalRepository.addAnimal(animal);
     }
 
-    //deprecated methods
-    //return animal from specified index in local arrayList
+    //return animal from specified index
     protected Animal getAnimal(int index) {
-        return animalList.get(index);
+        return animalRepository.getAnimal(index);
     }
 
-    //remove animal from specified index in local arrayList
+    //remove animal from specified index
     protected void removeAnimal(int index) {
-        animalList.remove(index);
+        animalRepository.removeAnimal(index);
+    }
+
+    //update animal from specified index
+    protected void updateAnimal(int index, Animal animal) {
+        animalRepository.updateAnimal(index, animal);
     }
 }

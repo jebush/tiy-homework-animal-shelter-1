@@ -70,7 +70,7 @@ public class MenuService {
     }
 
     //edit entry subroutine
-    protected void editAnimal(ArrayList<Animal> animals) {
+    protected String[] editAnimal(ArrayList<Animal> animals) {
         //interface with user
         System.out.printf("\n*** Edit Animal details ***\n");
         int result = waitForInt(animals.size(), "Please enter the ID# of the animal to edit: ", false);
@@ -83,28 +83,18 @@ public class MenuService {
             //cycle through four parameters, overwrite data with entry other than ""
             String tempName = optionalInput(String.format("\nName [%s]: ",
                     animals.get(animalNum).getName()));
-            if (!tempName.equals("")) {
-                animals.get(animalNum).setName(tempName);
-            }
             String tempSpecies = optionalInput(String.format("Species [%s]: ",
                     animals.get(animalNum).getSpecies()));
-            if (!tempSpecies.equals("")) {
-                animals.get(animalNum).setSpecies(tempSpecies);
-            }
             String tempBreedOpt = optionalInput(String.format("Breed [%s]: ",
                     animals.get(animalNum).getBreed()));
-            if (!tempBreedOpt.equals("")) {
-                animals.get(animalNum).setBreed(tempBreedOpt);
-            }
             String tempDescription = optionalInput(String.format("Description [%s]: ",
                     animals.get(animalNum).getDescription()));
-            if (!tempDescription.equals("")) {
-                animals.get(animalNum).setDescription(tempDescription);
-            }
 
-            System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
-            System.out.printf(animals.get(animalNum) + "\n");
+            //return results to main for action
+            String[] results = new String[]{Integer.toString(animalNum), tempName, tempSpecies, tempBreedOpt, tempDescription};
+            return results;
         }
+        return null;
     }
 
     //delete entry subroutine
@@ -145,7 +135,7 @@ public class MenuService {
     protected void quitProgram() {
         //interface with user
         System.out.printf("\n*** Quit ***\n");
-        System.out.printf("Are you sure you want to quit? All data will be lost!\n");
+        System.out.printf("Are you sure you want to quit?\n");
         System.out.printf("Type \"yes\" to confirm, \"no\" to cancel.\n");
         String input = scanner.nextLine().toLowerCase();
 

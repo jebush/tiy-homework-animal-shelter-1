@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ad3b9fc-a1b4-41c5-a34f-97587c7fde39" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/Main.class" afterPath="$PROJECT_DIR$/out/production/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/Animal.class" afterPath="$PROJECT_DIR$/out/production/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/Animal.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/MenuService.class" afterPath="$PROJECT_DIR$/out/production/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/MenuService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/AnimalTest.class" afterPath="$PROJECT_DIR$/out/test/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/AnimalTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/AnimalsServiceTest.class" afterPath="$PROJECT_DIR$/out/test/tiy-homework-animal-shelter/com/andrewRnagel/animalShelter/AnimalsServiceTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Main.java" afterPath="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/MenuService.java" afterPath="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/MenuService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/Test.txt" afterPath="$PROJECT_DIR$/data/Test.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Animal.java" afterPath="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Animal.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalTest.java" afterPath="$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalsServiceTest.java" afterPath="$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalsServiceTest.java" />
     </list>
     <ignored path="tiy-homework-animal-shelter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,6 +22,17 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/tiy-homework-animal-shelter$AnimalsServiceTest.coverage" NAME="AnimalsServiceTest Coverage Results" MODIFIED="1472159744232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.andrewRnagel.animalShelter.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/tiy-homework-animal-shelter$AnimalTest.coverage" NAME="AnimalTest Coverage Results" MODIFIED="1472155689261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.andrewRnagel.animalShelter.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -41,32 +56,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/MenuService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-              <folding>
-                <element signature="method#promptForMainMenuSelection#0;class#MenuService#0" expanded="false" />
-                <element signature="method#listAnimals#0;class#MenuService#0" expanded="false" />
-                <element signature="method#createNewAnimal#0;class#MenuService#0" expanded="false" />
-                <element signature="method#viewAnimalDetails#0;class#MenuService#0" expanded="false" />
-                <element signature="method#editAnimal#0;class#MenuService#0" expanded="false" />
-                <element signature="method#deleteAnimal#0;class#MenuService#0" expanded="false" />
-                <element signature="method#quitProgram#0;class#MenuService#0" expanded="false" />
-                <element signature="method#waitForInt#0;class#MenuService#0" expanded="false" />
-                <element signature="method#requiredInput#0;class#MenuService#0" expanded="false" />
-                <element signature="method#optionalInput#0;class#MenuService#0" expanded="false" />
-                <element signature="method#optionalInputRetainer#0;class#MenuService#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AnimalsService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/AnimalsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="328">
               <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
               <folding>
                 <element signature="docComment;class#AnimalsService#0" expanded="false" />
@@ -76,51 +69,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimalRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/AnimalRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;class#AnimalRepository#0" expanded="false" />
-                <element signature="method#AnimalRepository#0;class#AnimalRepository#0" expanded="false" />
-                <element signature="method#addAnimal#0;class#AnimalRepository#0" expanded="false" />
-                <element signature="method#removeAnimal#0;class#AnimalRepository#0" expanded="false" />
-                <element signature="method#updateAnimal#0;class#AnimalRepository#0" expanded="false" />
-                <element signature="method#makeFile#0;class#AnimalRepository#0" expanded="false" />
-                <element signature="method#loadAllAnimals#0;class#AnimalRepository#0" expanded="false" />
-                <element signature="method#saveAllAnimals#0;class#AnimalRepository#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Animal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Animal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="74" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-              <folding>
-                <element signature="docComment;class#Animal#0" expanded="false" />
-                <element signature="method#Animal#1;class#Animal#0" expanded="false" />
-                <element signature="method#toString#0;class#Animal#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Test.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/Test.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Animals.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/Animals.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -129,12 +79,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimalsBU.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/AnimalsBU.txt">
+      <file leaf-file-name="AnimalsServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalsServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="358">
+              <caret line="147" column="23" selection-start-line="147" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
+              <folding>
+                <element signature="docComment;class#AnimalsServiceTest#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -171,16 +123,16 @@
         <option value="$PROJECT_DIR$/src/com/andrewRnagel/AnimalRepository.java" />
         <option value="$PROJECT_DIR$/test/AnimalsServiceTest.java" />
         <option value="$PROJECT_DIR$/test/AnimalTest.java" />
-        <option value="$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalTest.java" />
-        <option value="$PROJECT_DIR$/data/Test.txt" />
-        <option value="$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalsServiceTest.java" />
         <option value="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/AnimalsService.java" />
         <option value="$PROJECT_DIR$/data/AnimalsBU.txt" />
         <option value="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/AnimalRepository.java" />
-        <option value="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Animal.java" />
         <option value="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Main.java" />
         <option value="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/MenuService.java" />
         <option value="$PROJECT_DIR$/data/Animals.txt" />
+        <option value="$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Animal.java" />
+        <option value="$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalTest.java" />
+        <option value="$PROJECT_DIR$/data/Test.txt" />
+        <option value="$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalsServiceTest.java" />
       </list>
     </option>
   </component>
@@ -198,9 +150,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="325" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="493" />
+    <option name="height" value="829" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -404,7 +356,7 @@
       <recent name="com.andrewRnagel.animalShelter" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.AnimalsServiceTest">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -945,9 +897,9 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AnimalsServiceTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AnimalTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AnimalsServiceTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AnimalTest" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.All in tiy-homework-animal-shelter" />
       </list>
     </recent_temporary>
@@ -975,76 +927,77 @@
       <workItem from="1471969159234" duration="4431000" />
       <workItem from="1471979115131" duration="303000" />
       <workItem from="1472070626380" duration="3126000" />
-      <workItem from="1472128565154" duration="18397000" />
+      <workItem from="1472128565154" duration="23192000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AnimalTest - 2016.08.23 at 14h 33m 50s.xml">
-      <configuration name="AnimalTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.23 at 14h 41m 50s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 10m 33s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.23 at 14h 42m 29s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 10m 58s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.23 at 14h 45m 46s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 11m 09s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.23 at 14h 50m 38s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 12m 45s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.23 at 14h 51m 31s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 13m 10s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.23 at 14h 53m 47s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 14m 12s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.23 at 14h 54m 46s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 14m 36s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.23 at 14h 57m 10s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 15m 09s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AnimalsServiceTest - 2016.08.24 at 17h 15m 17s.xml">
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 15m 36s.xml">
+      <configuration name="AnimalsServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AnimalsServiceTest - 2016.08.25 at 17h 15m 45s.xml">
       <configuration name="AnimalsServiceTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119280000" />
+    <option name="totallyTimeSpent" value="124075000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="325" width="1440" height="493" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="829" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39716312" sideWeight="0.51329243" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6809045" sideWeight="0.48670757" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33923706" sideWeight="0.48670757" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28194445" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16458334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907802" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="552" y="124" width="778" height="600" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="552" y="124" width="778" height="600" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32907802" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1146,7 +1099,7 @@
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
@@ -1224,7 +1177,7 @@
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
@@ -1293,7 +1246,7 @@
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
@@ -1371,7 +1324,7 @@
           <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
@@ -1425,7 +1378,7 @@
           <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
@@ -1448,7 +1401,7 @@
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
@@ -1502,7 +1455,7 @@
           <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
@@ -1576,7 +1529,7 @@
           <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
@@ -1593,45 +1546,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalsServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/data/Animals.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="101" column="13" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#AnimalsServiceTest#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/AnimalsBU.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="219" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+        <state relative-caret-position="1950">
+          <caret line="135" column="16" selection-start-line="135" selection-start-column="16" selection-end-line="135" selection-end-column="16" />
           <folding>
             <element signature="docComment;class#AnimalTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/AnimalsService.java">
+    <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/MenuService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+        <state relative-caret-position="120">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
           <folding>
-            <element signature="docComment;class#AnimalsService#0" expanded="false" />
-            <element signature="method#AnimalsService#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#promptForMainMenuSelection#0;class#MenuService#0" expanded="false" />
+            <element signature="method#listAnimals#0;class#MenuService#0" expanded="false" />
+            <element signature="method#createNewAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#viewAnimalDetails#0;class#MenuService#0" expanded="false" />
+            <element signature="method#editAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#deleteAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#quitProgram#0;class#MenuService#0" expanded="false" />
+            <element signature="method#waitForInt#0;class#MenuService#0" expanded="false" />
+            <element signature="method#requiredInput#0;class#MenuService#0" expanded="false" />
+            <element signature="method#optionalInput#0;class#MenuService#0" expanded="false" />
+            <element signature="method#optionalInputRetainer#0;class#MenuService#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/Animal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="74" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        <state relative-caret-position="-272">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#0;class#Animal#0" expanded="false" />
             <element signature="method#toString#0;class#Animal#0" expanded="false" />
+            <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1653,23 +1622,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/andrewRnagel/animalShelter/AnimalsServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="147" column="23" selection-start-line="147" selection-start-column="23" selection-end-line="147" selection-end-column="23" />
+          <folding>
+            <element signature="docComment;class#AnimalsServiceTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/Test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/AnimalsBU.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/Animals.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1677,22 +1640,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/MenuService.java">
+    <entry file="file://$PROJECT_DIR$/src/com/andrewRnagel/animalShelter/AnimalsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        <state relative-caret-position="328">
+          <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
           <folding>
-            <element signature="method#promptForMainMenuSelection#0;class#MenuService#0" expanded="false" />
-            <element signature="method#listAnimals#0;class#MenuService#0" expanded="false" />
-            <element signature="method#createNewAnimal#0;class#MenuService#0" expanded="false" />
-            <element signature="method#viewAnimalDetails#0;class#MenuService#0" expanded="false" />
-            <element signature="method#editAnimal#0;class#MenuService#0" expanded="false" />
-            <element signature="method#deleteAnimal#0;class#MenuService#0" expanded="false" />
-            <element signature="method#quitProgram#0;class#MenuService#0" expanded="false" />
-            <element signature="method#waitForInt#0;class#MenuService#0" expanded="false" />
-            <element signature="method#requiredInput#0;class#MenuService#0" expanded="false" />
-            <element signature="method#optionalInput#0;class#MenuService#0" expanded="false" />
-            <element signature="method#optionalInputRetainer#0;class#MenuService#0" expanded="false" />
+            <element signature="docComment;class#AnimalsService#0" expanded="false" />
+            <element signature="method#AnimalsService#0;class#AnimalsService#0" expanded="false" />
           </folding>
         </state>
       </provider>

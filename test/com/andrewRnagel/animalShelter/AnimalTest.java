@@ -132,9 +132,9 @@ public class AnimalTest {
         //Arrange
         Animal animal = new Animal("Fred", "Frog", "Poison Dart", "Green");
         //Act
-        animal.setName("Bobcat");
+        animal.setSpecies("Bobcat");
         //Assert
-        assertThat(animal.getName(), equalTo("Bobcat"));
+        assertThat(animal.getSpecies(), equalTo("Bobcat"));
     }
 
     @Test

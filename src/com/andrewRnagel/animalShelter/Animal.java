@@ -11,7 +11,7 @@ public class Animal {
 
     //constructors
     //default constructor
-    protected Animal() {}
+    //protected Animal() {}
 
     //constructor with breed(opt)
     protected Animal(String name, String species, String breed, String description) {

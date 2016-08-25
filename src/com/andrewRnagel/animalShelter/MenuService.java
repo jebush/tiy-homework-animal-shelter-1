@@ -76,22 +76,23 @@ public class MenuService {
         int result = waitForInt(animals.size(), "Please enter the ID# of the animal to edit: ", false);
 
         //process input (if animal arrayList has at least 1 entry)
-        if (result != 0) {
+        if (result != -1) {
             System.out.printf("Please enter changes below. Press <Enter> to retain current value.");
             int animalNum = result - 1;
 
             //cycle through four parameters, overwrite data with entry other than ""
-            String tempName = optionalInput(String.format("\nName [%s]: ",
-                    animals.get(animalNum).getName()));
-            String tempSpecies = optionalInput(String.format("Species [%s]: ",
-                    animals.get(animalNum).getSpecies()));
-            String tempBreedOpt = optionalInput(String.format("Breed [%s]: ",
-                    animals.get(animalNum).getBreed()));
-            String tempDescription = optionalInput(String.format("Description [%s]: ",
-                    animals.get(animalNum).getDescription()));
+            String tempName = optionalInputRetainer(String.format("\nName [%s]: ",
+                    animals.get(animalNum).getName()), animals.get(animalNum).getName());
+            String tempSpecies = optionalInputRetainer(String.format("Species [%s]: ",
+                    animals.get(animalNum).getSpecies()), animals.get(animalNum).getSpecies());
+            String tempBreedOpt = optionalInputRetainer(String.format("Breed [%s]: ",
+                    animals.get(animalNum).getBreed()), animals.get(animalNum).getBreed());
+            String tempDescription = optionalInputRetainer(String.format("Description [%s]: ",
+                    animals.get(animalNum).getDescription()), animals.get(animalNum).getDescription());
 
-            //return results to main for action
+            //return results to main to complete action
             String[] results = new String[]{Integer.toString(animalNum), tempName, tempSpecies, tempBreedOpt, tempDescription};
+            System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
             return results;
         }
         return null;
@@ -105,7 +106,7 @@ public class MenuService {
         int animalNum = result - 1;
 
         //process input (if animal arrayList has at least 1 entry)
-        if (result != 0) {
+        if (result != -1) {
             System.out.print(animals.get(animalNum) + "\n");
             System.out.printf("\nAre you sure you want to delete this animal?\n");
             System.out.printf("Type \"yes\" to confirm, \"no\" to select a different animal.\n" +
@@ -160,13 +161,18 @@ public class MenuService {
         }
     }
 
+    //print subroutine
+    protected void printAnimal(Animal animal) {
+        System.out.println(animal);
+    }
+
     //supporting private functions
     //user input integer validator, for menu and/or submenu user selections
     private int waitForInt(int dataSize, String message, boolean mainMenu) {
         //verify animal records exist first
         if ((dataSize == 0) && (!mainMenu)) {
             System.out.printf("[0] total animal(s) are on record.\n");
-            return 0;
+            return -1;
         }
 
         //interface with user
@@ -206,5 +212,16 @@ public class MenuService {
     private String optionalInput(String prompt) {
         System.out.printf(prompt);
         return scanner.nextLine();
+    }
+
+    //optional input: single pass accept empty, retains previous value
+    private String optionalInputRetainer(String prompt, String returnValue) {
+        System.out.printf(prompt);
+        String input = scanner.nextLine();
+        if (input.trim().equals("")) {
+            return returnValue;
+        } else {
+            return input.trim();
+        }
     }
 }

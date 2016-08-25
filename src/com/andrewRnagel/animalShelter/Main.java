@@ -31,43 +31,16 @@ public class Main {
                 animalsService.addAnimal(animal);
             } else if(action == MenuService.VIEW_ANIMAL_DETAILS) {
                 int animalIndex = menu.viewAnimalDetails(animalsService.listAnimals());
-                System.out.println(animalsService.getAnimal(animalIndex));
+                if(animalIndex >= 0) {
+                    menu.printAnimal(animalsService.getAnimal(animalIndex));
+                }
             } else if(action == MenuService.EDIT_ANIMAL_DETAILS) {
                 String[] results = menu.editAnimal(animalsService.listAnimals());
-                //process input
-                if (results != null) {
-                    //local variables
+                if (results != null && !results[0].equals(-1)) {
                     int animalIndex = Integer.parseInt(results[0]);
-                    String tempName = results[1];
-                    String tempSpecies = results[2];
-                    String tempBreed = results[3];
-                    String tempDescription = results[4];
-                    Animal tempAnimal = new Animal();
-                    //configure temp animal correctly and replace
-                    if (!tempName.equals("")) {
-                        tempAnimal.setName(tempName);
-                    } else {
-                        tempAnimal.setName(animalsService.listAnimals().get(animalIndex).getName());
-                    }
-                    if (!tempSpecies.equals("")) {
-                        tempAnimal.setSpecies(tempSpecies);
-                    } else {
-                        tempAnimal.setSpecies(animalsService.listAnimals().get(animalIndex).getSpecies());
-                    }
-                    if (!tempBreed.equals("")) {
-                        tempAnimal.setBreed(tempBreed);
-                    } else {
-                        tempAnimal.setBreed(animalsService.listAnimals().get(animalIndex).getBreed());
-                    }
-                    if (!tempDescription.equals("")) {
-                        tempAnimal.setDescription(tempDescription);
-                    } else {
-                        tempAnimal.setDescription(animalsService.listAnimals().get(animalIndex).getDescription());
-                    }
-                    animalsService.updateAnimal(animalIndex, tempAnimal);
-                    //output
-                    System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
-                    System.out.printf(animalsService.getAnimal(animalIndex) + "\n");
+                    Animal animal = new Animal(results[1], results[2], results[3], results[4]);
+                    animalsService.updateAnimal(animalIndex, animal);
+                    menu.printAnimal(animalsService.getAnimal(animalIndex));
                 }
             } else if(action == MenuService.DELETE_ANIMAL) {
                 int deleteMe = menu.deleteAnimal(animalsService.listAnimals());

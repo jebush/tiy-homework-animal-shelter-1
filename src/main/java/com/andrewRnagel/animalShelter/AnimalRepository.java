@@ -60,7 +60,7 @@ public class AnimalRepository {
     protected ResultSet getAnimal(int index) throws SQLException{
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalid = ?");
-        stmt.setString(1, Integer.toString(index));
+        stmt.setInt(1, index);
         return stmt.executeQuery();
     }
 

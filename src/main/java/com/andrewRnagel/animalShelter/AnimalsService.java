@@ -78,7 +78,7 @@ public class AnimalsService {
                 animal.setBreed(results.getString("breed"));
                 animal.setDescription("desc");
                 animal.setAnimalTypeID(results.getInt("type"));
-                animal.setType(results.getString(this.animalRepository.getType(results.getInt("type"))));
+                animal.setType(this.animalRepository.getType(results.getInt("type")));
                 animal.setAnimalNotes(getAnimalNotesList(index));
             }
         } catch (SQLException e) {

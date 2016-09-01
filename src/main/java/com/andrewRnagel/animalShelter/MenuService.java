@@ -52,10 +52,10 @@ public class MenuService {
         //search for animal by type, name, id, or all animals
         //interface with user
         System.out.printf("\n*** Manage an existing animal ***\n");
-        searchAnimals(animalService);
+        int tempID = searchAnimals(animalService);
     }
 
-    private void searchAnimals(AnimalsService animalService) throws SQLException {
+    private int searchAnimals(AnimalsService animalService) throws SQLException {
         //local properties
         int result = -1;
         ArrayList<String> types = animalService.getTypesALL();
@@ -75,20 +75,37 @@ public class MenuService {
         //use search methods to return animalID
         switch (input) {
             case 1:
+                System.out.printf("Please input a type below:\n");
                 query = requiredInputType("Type (" + listToString(types) + "): ", types);
                 printAnimal(animalService.listAnimalsByType(query));
+                System.out.printf("\nWhich animal do you want to manage?: ");
+                //get valid int(check), then set result equal
                 break;
             case 2:
+                System.out.printf("Please input a name below:\n");
+                query = requiredInput("Name");
+                printAnimal(animalService.listAnimalsByName(query));
+                System.out.printf("\nWhich animal do you want to manage?: ");
+                //get valid int(check), then set result equal
                 break;
             case 3:
+                System.out.printf("Please input an ID below:\n");
+                int tempID = waitForInt("Animal ID: ", animalService.listAnimalsAll().size());
+                printAnimal(animalService.getAnimal(tempID));
+                System.out.printf("\nWhich animal do you want to manage?: ");
+                //get valid int(check), then set result equal
                 break;
             case 4:
+                System.out.printf("Listing all animals below:\n");
+                printAnimal(animalService.listAnimalsAll());
+                System.out.printf("\nWhich animal do you want to manage?: ");
+                //get valid int(check), then set result equal
                 break;
             case 5:
             default:
                 break;
         }
-        //return result;
+        return result;
     }
 
     //TODO edit or delete type via menu
@@ -169,6 +186,18 @@ public class MenuService {
             type = animal.getType();
             System.out.printf("%-3s | %-16s | %-16s\n", id, name, type);
         }
+    }
+
+    //print animal search results
+    protected void printAnimal(Animal animal) {
+        String id = "ID", name  = "NAME", type = "TYPE";
+        System.out.printf("\n*** List of animals ***\n" +
+                "\n%-3s | %-16s | %-16s\n" +
+                "++++++++++++++++++++++++++++++++++++++\n", id, name, type);
+            id = Integer.toString(animal.getAnimalID());
+            name = animal.getName();
+            type = animal.getType();
+            System.out.printf("%-3s | %-16s | %-16s\n", id, name, type);
     }
 
     //print types subroutine

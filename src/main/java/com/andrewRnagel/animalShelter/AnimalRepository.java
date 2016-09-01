@@ -52,7 +52,7 @@ public class AnimalRepository {
         stmt.setString(2, animal.getSpecies());
         stmt.setString(3, animal.getBreed());
         stmt.setString(4, animal.getDescription());
-        stmt.setInt(5, animal.getAnimalType());
+        stmt.setInt(5, animal.getAnimalTypeID());
         stmt.executeUpdate();
     }
 
@@ -81,30 +81,36 @@ public class AnimalRepository {
         stmt.setString(2, animal.getSpecies());
         stmt.setString(3, animal.getBreed());
         stmt.setString(4, animal.getDescription());
-        stmt.setInt(5, animal.getAnimalType());
+        stmt.setInt(5, animal.getAnimalTypeID());
         stmt.executeQuery();
     }
 
     //add animal type to type table
     protected void addType(String type) throws SQLException {
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("INSERT INTO type (type) VALUES (?)");
+        PreparedStatement stmt = this.conn.prepareStatement("INSERT INTO type (typeName) VALUES (?)");
         stmt.setString(1, type);
+        stmt.executeUpdate();
     }
 
     //get animal type from specified index in type table (index from type table --> String type name)
     protected String getType(int index) throws SQLException{
+        String returnString = "";
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT type FROM type WHERE typeid = ?");
-        stmt.setString(1, Integer.toString(index));
-        return stmt.executeQuery().toString();
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT typename FROM type WHERE typeid = ?");
+        stmt.setInt(1, index);
+        ResultSet strResult = stmt.executeQuery();
+        if(strResult.next()) {
+            returnString = strResult.getString(1);
+        }
+        return returnString;
     }
 
     //get animal type from specified index in type table (String type in table --> int typeid from type table)
     protected int getTypeID(String type) throws SQLException{
-        int returnInt = 0;
+        int returnInt = -1;
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM type WHERE upper(type) = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM type WHERE upper(typeName) = ?");
         type = type.toUpperCase();
         stmt.setString(1, type);
         ResultSet intResult = stmt.executeQuery();
@@ -119,13 +125,13 @@ public class AnimalRepository {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM type WHERE typeid = ?");
         stmt.setString(1, Integer.toString(index));
-        stmt.executeQuery();
+        stmt.executeUpdate();
     }
 
     //update animal type at specified index in type table
     protected void updateType(int index, String type) throws SQLException {
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("UPDATE type SET type = ? WHERE typeid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("UPDATE type SET typeName = ? WHERE typeid = ?");
         stmt.setString(1, type);
         stmt.setInt(2, index);
         stmt.executeQuery();
@@ -133,6 +139,6 @@ public class AnimalRepository {
 
     public ResultSet getTypes() throws SQLException {
         Statement stmt = this.conn.createStatement();
-        return stmt.executeQuery("SELECT type FROM type");
+        return stmt.executeQuery("SELECT typeName FROM type");
     }
 }

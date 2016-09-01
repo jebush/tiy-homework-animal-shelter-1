@@ -28,12 +28,12 @@ public class Main {
             int action = menu.promptForMainMenuSelection();
 
             if(action == MenuService.ADD_ANIMAL) {
-                Animal newAnimal = menu.addNewAnimal(animalsService.getTypes());
+                Animal newAnimal = menu.addNewAnimal(animalsService.getTypesALL());
                 animalsService.addAnimal(newAnimal);
             } else if(action == MenuService.MANAGE_ANIMAL) {
-                //stuff
+                menu.manageAnimal(animalsService);
             } else if(action == MenuService.MANAGE_ANIMAL_TYPES) {
-                //stuff
+                menu.manageTypes(animalsService);
             } else if(action == MenuService.QUIT) {
                 menu.quitProgram();
             }

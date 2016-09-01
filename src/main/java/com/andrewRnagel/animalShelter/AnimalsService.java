@@ -1,6 +1,4 @@
 package com.andrewRnagel.animalShelter;
-import com.sun.tools.internal.xjc.generator.bean.ImplStructureStrategy;
-import com.sun.tools.javap.LocalVariableTableWriter;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,8 +60,8 @@ public class AnimalsService {
 
     //add animal to end of list after ensuring typeID is present
     protected void addAnimal(Animal animal) throws SQLException {
-        if(!animal.getType().isEmpty() && animal.getAnimalType() == -1) {
-            animal.setAnimalType(this.animalRepository.getTypeID(animal.getType()));
+        if(!animal.getType().isEmpty() && animal.getAnimalTypeID() == -1) {
+            animal.setAnimalTypeID(this.animalRepository.getTypeID(animal.getType()));
         }
         this.animalRepository.addAnimal(animal);
     }
@@ -79,7 +77,7 @@ public class AnimalsService {
                 animal.setSpecies(results.getString("species"));
                 animal.setBreed(results.getString("breed"));
                 animal.setDescription("desc");
-                animal.setAnimalType(results.getInt("type"));
+                animal.setAnimalTypeID(results.getInt("type"));
                 animal.setType(results.getString(this.animalRepository.getType(results.getInt("type"))));
                 animal.setAnimalNotes(getAnimalNotesList(index));
             }
@@ -140,23 +138,28 @@ public class AnimalsService {
         }
     }
 
-    //add type to type lookup table
-    protected void addType(String type) throws SQLException {
-        this.animalRepository.addType(type);
-    }
-
     //get all types from type lookup table
-    protected ArrayList<String> getTypes() throws SQLException {
+    protected ArrayList<String> getTypesALL() throws SQLException {
         ArrayList<String> types = new ArrayList<>();
         try {
             ResultSet results = this.animalRepository.getTypes();
             while (results.next()) {
-                types.add(results.getString("type"));
+                types.add(results.getString("typeName"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return types;
+    }
+
+    //get typeID from lookup table
+    protected int getTypeID(String string) throws SQLException {
+        return animalRepository.getTypeID(string);
+    }
+
+    //add type to type lookup table
+    protected void addType(String type) throws SQLException {
+        this.animalRepository.addType(type);
     }
 
     //supporting private functions
@@ -169,9 +172,9 @@ public class AnimalsService {
                     results.getString("name"),
                     results.getString("species"),
                     results.getString("breed"),
-                    results.getString("desc"),
+                    results.getString("description"),
                     results.getInt("type"),
-                    results.getString(this.animalRepository.getType(results.getInt("type")))
+                    this.animalRepository.getType(results.getInt("type"))
             );
             animals.add(animal);
         }

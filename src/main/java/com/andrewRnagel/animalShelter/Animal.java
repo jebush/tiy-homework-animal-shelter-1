@@ -9,9 +9,8 @@ public class Animal {
     //object properties
     //core attributes of any com.andrewRnagel.Animal object
     private String name, species, breed, description, type;
-    //the id is the primary key value assigned by the database, and id for animalType from types lookup table
-    private int animalID = -1;
-    private int animalType = -1;
+    //the id is the primary key value assigned by the database, and id for animalTypeID from types lookup table
+    private int animalID = -1, animalTypeID = -1;
     //the ArrayList that holds notes for this animal
     private ArrayList<Note> animalNotes = new ArrayList<>();
 
@@ -27,7 +26,7 @@ public class Animal {
         this.description = desc;
     }
 
-    //constructor with breed(opt), including type
+    //constructor with breed(opt), including type; missing animalID and typeID (created inside of AnimalShelter
     protected Animal(String name, String species, String breed, String desc, String type) {
         this.name = name;
         this.species = species;
@@ -43,7 +42,7 @@ public class Animal {
         this.species = species;
         this.breed = breed;
         this.description = desc;
-        this.animalType = typeID;
+        this.animalTypeID = typeID;
         this.type = type;
     }
 
@@ -82,8 +81,8 @@ public class Animal {
         return this.animalID;
     }
 
-    protected int getAnimalType() {
-        return this.animalType;
+    protected int getAnimalTypeID() {
+        return this.animalTypeID;
     }
 
     protected ArrayList<Note> getAnimalNotes() {
@@ -115,8 +114,8 @@ public class Animal {
         this.animalID = animalID;
     }
 
-    protected void setAnimalType(int animalType) {
-        this.animalType = animalType;
+    protected void setAnimalTypeID(int animalTypeID) {
+        this.animalTypeID = animalTypeID;
     }
 
     protected void setAnimalNotes(ArrayList<Note> animalNotes) {

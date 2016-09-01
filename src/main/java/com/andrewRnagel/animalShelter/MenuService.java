@@ -1,4 +1,5 @@
 package com.andrewRnagel.animalShelter;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import static java.lang.System.exit;
@@ -23,7 +24,243 @@ public class MenuService {
                 "<2> Manage an existing animal\n" +
                 "<3> Manage animal types\n" +
                 "<4> Quit\n");
-        return waitForInt("Please choose an option:", true);
+        return waitForInt("Please choose an option:", 4);
+    }
+
+    //create entry subroutine
+    protected Animal addNewAnimal(ArrayList<String> types) {
+        //local properties
+        String tempName, tempSpecies, tempBreedOpt, tempDescription, tempType;
+
+        //interface with user
+        System.out.printf("\n*** Add a new Animal ***\n");
+        System.out.printf("Please answer the following:\n");
+        tempName = requiredInput("Name");
+        tempType = requiredInputType("Type (" + listToString(types) + "): ", types);
+        tempSpecies = requiredInput("Species" );
+        tempBreedOpt = optionalInput("Breed (opt.): " );
+        tempDescription = requiredInput("Description");
+
+        //create object based on data entered from breed entry and add to arrayList
+        Animal newEntry = new Animal(tempName, tempSpecies, tempBreedOpt, tempDescription, tempType);
+        System.out.printf("\nOperation successful! Animal %s added.\n", tempName);
+        return newEntry;
+    }
+
+    //TODO
+    protected void manageAnimal(AnimalsService animalService) throws SQLException {
+        //search for animal by type, name, id, or all animals
+        //interface with user
+        System.out.printf("\n*** Manage an existing animal ***\n");
+        searchAnimals(animalService);
+    }
+
+    private void searchAnimals(AnimalsService animalService) throws SQLException {
+        //local properties
+        int result = -1;
+        ArrayList<String> types = animalService.getTypesALL();
+        String query;
+
+        //interface with user
+        System.out.printf("Search for animals:");
+        System.out.printf("\n<1> Type\n" +
+                "<2> Name\n" +
+                "<3> ID Number\n" +
+                "<4> All Animals\n" +
+                "<5> Return to main menu\n");
+        System.out.printf("How would you like to search for an animal:\n");
+        int input = waitForInt("Please choose an option:", 5);
+
+        //process input
+        //use search methods to return animalID
+        switch (input) {
+            case 1:
+                query = requiredInputType("Type (" + listToString(types) + "): ", types);
+                printAnimal(animalService.listAnimalsByType(query));
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+            default:
+                break;
+        }
+        //return result;
+    }
+
+    //TODO edit or delete type via menu
+    protected void manageTypes(AnimalsService animalService) throws SQLException {
+        //local properties
+        String tempType;
+
+        //interface with user
+        System.out.printf("\n*** Manage types ***\n" +
+                "<1> List existing types\n" +
+                "<2> Add a new type\n" +
+                "<3> Return to main menu\n");
+        int input = waitForInt("Please choose an option:", 3);
+
+        //process input
+        switch (input) {
+            //list existing types
+            case 1:
+                printTypes(animalService.getTypesALL());
+                break;
+            //add new type
+            case 2:
+                System.out.printf("Please input the type to add:\n");
+                tempType = requiredInput("Type");
+                tempType = normalizeString(tempType);
+                if(animalService.getTypesALL().contains(tempType)) {
+                    System.out.printf("\nOperation failed! Type %s already exists!\n", tempType);
+                } else {
+                    animalService.addType(tempType);
+                    System.out.printf("\nOperation successful! Type %s added.\n", tempType);
+                }
+                break;
+            case 3:
+            default:
+                break;
+        }
+    }
+
+    //quit subroutine
+    protected void quitProgram() {
+        //interface with user
+        System.out.printf("\n*** Quit ***\n");
+        System.out.printf("Are you sure you want to quit?\n");
+        System.out.printf("Type \"yes\" to confirm, \"no\" to cancel.\n");
+        String input = scanner.nextLine().toLowerCase();
+
+        //process input
+        switch (input) {
+            //confirm exit request
+            case "yes":
+            case "y":
+                scanner.close();
+
+                System.out.printf("Goodbye!\n");
+                exit(0);
+                break;
+            //abort exit request, return to menu prompt
+            case "no":
+            case "n":
+                break;
+            //invalid input, rerun the quit subroutine
+            default:
+                System.out.printf("Please try again, \"%s\" is not a valid entry!\n", input);
+                quitProgram();
+        }
+    }
+
+    //supporting functions
+    //print animal search results
+    protected void printAnimal(ArrayList<Animal> animals) {
+        String id = "ID", name  = "NAME", type = "TYPE";
+        System.out.printf("\n*** List of animals ***\n" +
+                "\n%-3s | %-16s | %-16s\n" +
+                "++++++++++++++++++++++++++++++++++++++\n", id, name, type);
+        for(Animal animal : animals) {
+            id = Integer.toString(animal.getAnimalID());
+            name = animal.getName();
+            type = animal.getType();
+            System.out.printf("%-3s | %-16s | %-16s\n", id, name, type);
+        }
+    }
+
+    //print types subroutine
+    protected void printTypes(ArrayList<String> types) {
+        for(String string : types) {
+            System.out.println(string);
+        }
+    }
+
+    //user input integer validator, for menu and/or submenu user selections
+    private int waitForInt(String message, int validOptions) {
+        //interface with user
+        System.out.println(message);
+        String input = scanner.nextLine();
+
+        //process input
+        int value;
+        try {
+            value = Integer.parseInt(input);
+        } catch (Exception e) {
+            System.out.printf("Please try again, \"%s\" is not a valid number!\n", input);
+            value = waitForInt(message, validOptions);
+        }
+        if ((value < 1) || (value > validOptions)) {
+            System.out.printf("Please try again. \"%s\" is not a valid number!\n", input);
+            value = waitForInt(message, validOptions);
+        }
+        return value;
+    }
+
+    //required input: repeated loop on empty
+    private String requiredInput(String prompt) {
+        System.out.printf("%s: ", prompt);
+        String input = scanner.nextLine();
+        while ((input.isEmpty()) || (input.trim().isEmpty())) {
+            System.out.printf("%s is required. Please try again.\n" +
+                    "%s: ", prompt, prompt);
+            input = scanner.nextLine();
+        }
+        return input;
+    }
+
+    //required input: repeated loop on empty
+    private String requiredInputType(String prompt, ArrayList<String> types) {
+        System.out.printf("%s", prompt);
+        String input = scanner.nextLine();
+        while ((input.isEmpty()) || (input.trim().isEmpty()) || (!types.contains(input))) {
+            if(!types.contains(input)) {
+                System.out.printf("Please choose from (%s): ", listToString(types));
+            } else {
+                System.out.printf("%s is required. Please try again.\n" +
+                        "%s", prompt, prompt);
+            }
+            input = scanner.nextLine();
+        }
+        return input;
+    }
+
+    //optional input: single pass accepts empty
+    private String optionalInput(String prompt) {
+        System.out.printf(prompt);
+        return scanner.nextLine();
+    }
+
+    //make type arrayList toString pretty
+    private String listToString(ArrayList<String> list) {
+        String result = "";
+        switch (list.size()) {
+            case 1:
+                result = result + list.get(0);
+                break;
+            case 2:
+                result = result + list.get(0) + " or " + list.get(1);
+                break;
+            default:
+                for(int i = 0; i < list.size(); i++) {
+                    if((i + 1) != list.size()) {
+                        result = result + list.get(i) + ", ";
+                    } else {
+                        result = result +  "or " + list.get(i);
+                    }
+                }
+                break;
+        }
+        return result;
+    }
+
+    //Standardized strings to first uppercase letter, then remaining characters are lower case
+    private String normalizeString(String string) {
+        char firstLetter = string.toUpperCase().charAt(0);
+        String remaining = string.substring(1).toLowerCase();
+        return firstLetter + remaining;
     }
 
 //    //submenu prompts
@@ -39,28 +276,7 @@ public class MenuService {
 //        }
 //        System.out.printf("[%d] total animal(s) are on record.\n", numberAnimals);
 //    }
-
-    //create entry subroutine
-    protected Animal addNewAnimal(ArrayList<String> types) {
-        //local properties
-        String tempName, tempSpecies, tempBreedOpt, tempDescription, tempType;
-
-        //interface with user
-        System.out.printf("\n*** Add a new Animal ***\n");
-        System.out.printf("Please answer the following:\n");
-        tempName = requiredInput("Name: ");
-        tempType = requiredInputType("Type (" + types + "): ", types);
-        tempSpecies = requiredInput("Species: " );
-        tempBreedOpt = optionalInput("Breed (opt.): " );
-        tempDescription = requiredInput("Description: ");
-
-        //create object based on data entered from breed entry and add to arrayList
-        //TODO type int
-        Animal newEntry = new Animal(tempName, tempSpecies, tempBreedOpt, tempDescription, tempType);
-        System.out.printf("\nCreation operation successful!\n");
-        return newEntry;
-    }
-
+//
 //    //view entry subroutine
 //    protected int viewAnimalDetails(ArrayList<Animal> animals) {
 //        //interface with user
@@ -68,7 +284,7 @@ public class MenuService {
 //        int result = waitForInt(animals.size(), "Please enter the ID# of the animal to view: ", false);
 //        return result - 1;
 //    }
-
+//
 //    //edit entry subroutine
 //    protected String[] editAnimal(ArrayList<Animal> animals) {
 //        //interface with user
@@ -97,7 +313,7 @@ public class MenuService {
 //        }
 //        return null;
 //    }
-
+//
 //    //delete entry subroutine
 //    protected int deleteAnimal(ArrayList<Animal> animals) {
 //        //interface with user
@@ -131,103 +347,7 @@ public class MenuService {
 //        }
 //        return -1;
 //    }
-
-    //quit subroutine
-    protected void quitProgram() {
-        //interface with user
-        System.out.printf("\n*** Quit ***\n");
-        System.out.printf("Are you sure you want to quit?\n");
-        System.out.printf("Type \"yes\" to confirm, \"no\" to cancel.\n");
-        String input = scanner.nextLine().toLowerCase();
-
-        //process input
-        switch (input) {
-            //confirm exit request
-            case "yes":
-            case "y":
-                scanner.close();
-
-                System.out.printf("Goodbye!\n");
-                exit(0);
-                break;
-            //abort exit request, return to menu prompt
-            case "no":
-            case "n":
-                break;
-            //invalid input, rerun the quit subroutine
-            default:
-                System.out.printf("Please try again, \"%s\" is not a valid entry!\n", input);
-                quitProgram();
-        }
-    }
-
-    //print subroutine
-    protected void printAnimal(Animal animal) {
-        System.out.println(animal);
-    }
-
-    //supporting private functions
-    //user input integer validator, for menu and/or submenu user selections
-    private int waitForInt(String message, boolean mainMenu) {
-//        //verify animal records exist first
-//        if ((dataSize == 0) && (!mainMenu)) {
-//            System.out.printf("[0] total animal(s) are on record.\n");
-//            return -1;
-//        }
-
-        //interface with user
-        System.out.println(message);
-        String input = scanner.nextLine();
-
-        //process input
-        int value;
-        try {
-            value = Integer.parseInt(input);
-        } catch (Exception e) {
-            System.out.printf("Please try again, \"%s\" is not a valid number!\n", input);
-            value = waitForInt(message, mainMenu);
-        }
-        if ((value < 1) || ((value > 4) && (mainMenu))) {
-            System.out.printf("Please try again. \"%s\" is not a valid number!\n", input);
-            value = waitForInt(message, mainMenu);
-        }
-        return value;
-    }
-
-    //required input: repeated loop on empty
-    private String requiredInput(String prompt) {
-        System.out.printf("%s", prompt);
-        String input = scanner.nextLine();
-        while ((input.isEmpty()) || (input.trim().isEmpty())) {
-            System.out.printf("%s is required. Please try again.\n" +
-                    "%s", prompt, prompt);
-            input = scanner.nextLine();
-        }
-        return input;
-    }
-
-    //required input: repeated loop on empty
-    private String requiredInputType(String prompt, ArrayList<String> types) {
-        System.out.printf("%s", prompt);
-        String input = scanner.nextLine();
-        while ((input.isEmpty()) || (input.trim().isEmpty()) || (!types.contains(input))) {
-            if(!types.contains(input)) {
-                System.out.printf("Error: Please choose from %s: ", types.toString());
-            } else {
-                System.out.printf("%s is required. Please try again.\n" +
-                        "%s", prompt, prompt);
-            }
-            input = scanner.nextLine();
-        }
-        return input;
-    }
-
-    //optional input: single pass accepts empty
-    private String optionalInput(String prompt) {
-        System.out.printf(prompt);
-        return scanner.nextLine();
-    }
-
+//
 //    //optional input: single pass accept empty, retains previous value
 //    private String optionalInputRetainer(String prompt, String returnValue) {
 //        System.out.printf(prompt);

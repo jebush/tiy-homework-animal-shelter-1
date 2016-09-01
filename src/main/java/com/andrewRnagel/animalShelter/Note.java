@@ -12,7 +12,7 @@ import java.time.format.FormatStyle;
 public class Note {
     //object properties
     //the ID of the note in the database
-    private int noteID;
+    private int noteID = -1;
     //the text of the note, which cannot be null
     private String noteContent;
     //date and time note was created, which is automatically populated

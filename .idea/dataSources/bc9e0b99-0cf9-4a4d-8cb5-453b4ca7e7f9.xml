@@ -22,8 +22,8 @@
     <schema id="7" parent="1" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-state-number>1504</introspection-state-number>
-      <introspection-timestamp>2016-08-31.17:08:49.985</introspection-timestamp>
+      <introspection-state-number>1528</introspection-state-number>
+      <introspection-timestamp>2016-09-01.15:43:59.659</introspection-timestamp>
     </schema>
     <schema id="8" parent="1" name="pg_catalog">
       <object-id>11</object-id>
@@ -171,8 +171,8 @@
       <data-type>integer|0</data-type>
       <default-expression>nextval('types_typeid_seq'::regclass)</default-expression>
     </column>
-    <column id="38" parent="18" name="type">
-      <state-number>1492</state-number>
+    <column id="38" parent="18" name="typename">
+      <state-number>1528</state-number>
       <mandatory>1</mandatory>
       <data-type>varchar(32)|0</data-type>
     </column>
@@ -190,7 +190,7 @@
     </index>
     <index id="41" parent="18" name="types_type_uindex">
       <object-id>17005</object-id>
-      <columns>type</columns>
+      <columns>typename</columns>
       <desc-columns />
       <unique>1</unique>
     </index>

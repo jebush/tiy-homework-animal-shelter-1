@@ -1,6 +1,8 @@
 package com.andrewRnagel.animalShelter;
 import java.util.ArrayList;
 
+import static java.lang.String.format;
+
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:30 PM EST.
  */
@@ -51,11 +53,25 @@ public class Animal {
     //methods
     //animal toString (formatted)
     public String toString() {
-        return String.format("%-12s %-16s\n%-12s %-16s\n%-12s %-16s\n%-12s %-16s",
+        String animalNotes = "";
+        String animalStats = String.format("%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-64s\n%-12s ",
                 "Name:", this.name,
+                "Type:", this.type,
                 "Species:", this.species,
-                "Breed:", this.breed,
-                "Description:", this.description);
+                "Breed (opt):", this.breed,
+                "Description:", this.description,
+                "Notes:");
+        if(this.getAnimalNotes().isEmpty()) {
+            animalNotes = String.format("No animal notes found for this animal.\n");
+        } else {
+            animalNotes = "\n";
+            //iterate through and generate string
+            for(Note note : getAnimalNotes()) {
+                String currentNote = String.format("%-12s %s: %-64s\n", "", note.getNoteCreationDate().toString(), note.getNoteContent());
+                animalNotes = animalNotes + currentNote;
+            }
+        }
+        return animalStats+animalNotes;
     }
 
     //getters
@@ -126,7 +142,7 @@ public class Animal {
 
     //legacy disk serialization operations
     protected String serialize() {
-        return String.format("%s|%s|%s|%s\n", name, species, breed, description);
+        return format("%s|%s|%s|%s\n", name, species, breed, description);
     }
 
     protected static Animal deserialize(String data){

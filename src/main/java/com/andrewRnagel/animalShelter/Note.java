@@ -16,7 +16,7 @@ public class Note {
     //the text of the note, which cannot be null
     private String noteContent;
     //date and time note was created, which is automatically populated
-    private LocalDateTime noteCreationDateTime;
+    private LocalDate noteCreationDate;
 
     //constructors
     //default constructor
@@ -24,19 +24,21 @@ public class Note {
 
     //constructor for note (date set automatically to NOW)
     //used when creating a new Note from within AnimalShelter program
+    //SQL format yyyy-mm-dd
     public Note(int noteID, String noteContent) {
         this.noteID = noteID;
         this.noteContent = noteContent;
-        this.noteCreationDateTime = LocalDateTime.now();
+        this.noteCreationDate = LocalDate.now();
     }
 
     //constructor for note (date read from table)
     //used when reading an existing Note from the note table
+    //SQL format yyyy-mm-dd
     public Note(int noteID, String noteContent, String date) {
         this.noteID = noteID;
         this.noteContent = noteContent;
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
-        this.noteCreationDateTime = LocalDateTime.parse(date, formatter);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.noteCreationDate = LocalDate.parse(date, formatter);
     }
 
     //methods
@@ -51,16 +53,13 @@ public class Note {
 
     protected String getNoteCreationDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
-        LocalDate date = this.noteCreationDateTime.toLocalDate();
-        return formatter.format(date);
+        return this.noteCreationDate.format(formatter);
     }
 
-    protected String getNoteCreationTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
-        LocalTime time = this.noteCreationDateTime.toLocalTime();
-        return formatter.format(time);
+    protected String getNoteCreationDateSQL() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return this.noteCreationDate.format(formatter);
     }
-
     //setters
     protected void setNoteContent(String noteContent) {
         this.noteContent = noteContent;

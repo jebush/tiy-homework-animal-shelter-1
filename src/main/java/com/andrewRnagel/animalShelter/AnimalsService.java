@@ -88,7 +88,7 @@ public class AnimalsService {
                 animal.setName(results.getString("name"));
                 animal.setSpecies(results.getString("species"));
                 animal.setBreed(results.getString("breed"));
-                animal.setDescription("desc");
+                animal.setDescription(results.getString("description"));
                 animal.setAnimalTypeID(results.getInt("type"));
                 animal.setType(this.animalRepository.getType(results.getInt("type")));
                 animal.setAnimalNotes(getAnimalNotesList(index));

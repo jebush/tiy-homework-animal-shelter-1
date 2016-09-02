@@ -22,8 +22,8 @@
     <schema id="7" parent="1" name="public">
       <object-id>2200</object-id>
       <visible>1</visible>
-      <introspection-state-number>1528</introspection-state-number>
-      <introspection-timestamp>2016-09-01.15:43:59.659</introspection-timestamp>
+      <introspection-state-number>1550</introspection-state-number>
+      <introspection-timestamp>2016-09-02.12:09:23.891</introspection-timestamp>
     </schema>
     <schema id="8" parent="1" name="pg_catalog">
       <object-id>11</object-id>
@@ -58,7 +58,7 @@
     </table>
     <table id="17" parent="7" name="note">
       <object-id>16989</object-id>
-      <state-number>1502</state-number>
+      <state-number>1550</state-number>
     </table>
     <table id="18" parent="7" name="type">
       <object-id>16998</object-id>
@@ -131,7 +131,7 @@
       <data-type>varchar(64)|0</data-type>
     </column>
     <column id="31" parent="17" name="date">
-      <state-number>1487</state-number>
+      <state-number>1550</state-number>
       <mandatory>1</mandatory>
       <data-type>date|0</data-type>
     </column>

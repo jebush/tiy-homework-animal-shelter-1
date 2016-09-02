@@ -1,5 +1,6 @@
 package com.andrewRnagel.animalShelter;
 import java.sql.*;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by Andrew Nagel on 8/30/16 at 2:45 PM EST.
@@ -43,7 +44,7 @@ public class NoteRepository {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("INSERT INTO note (animal, date, text) VALUES (?, ?, ?)");
         stmt.setString(1, Integer.toString(animal.getAnimalID()));
-        stmt.setString(2, note.getNoteCreationDate());
+        stmt.setString(2, note.getNoteCreationDateSQL());
         stmt.setString(3, note.getNoteContent());
         stmt.executeQuery();
     }

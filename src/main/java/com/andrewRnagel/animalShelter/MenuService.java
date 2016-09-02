@@ -24,7 +24,7 @@ public class MenuService {
                 "<2> Manage an existing animal\n" +
                 "<3> Manage animal types\n" +
                 "<4> Quit\n");
-        return waitForInt("Please choose an option:", 4);
+        return waitForInt("Please choose an option: ", 4);
     }
 
     //menu option 1: add new animal
@@ -37,8 +37,8 @@ public class MenuService {
         System.out.printf("Please answer the following:\n");
         tempName = requiredInput("Name");
         tempType = requiredInputType("Type (" + listTypesAsString(types) + "): ", types);
-        tempSpecies = requiredInput("Species" );
-        tempBreedOpt = optionalInput("Breed (opt.): " );
+        tempSpecies = requiredInput("Species");
+        tempBreedOpt = optionalInput("Breed (opt.): ");
         tempDescription = requiredInput("Description");
 
         //return a new animal object based on data entered
@@ -52,22 +52,40 @@ public class MenuService {
         //search for animal by type, name, id, or all animals
         //interface with user
         System.out.printf("\n*** Manage an existing animal ***\n");
-        if(!(animalService.listAnimalsAll().size() == 0)) {
+        if (!(animalService.listAnimalsAll().size() == 0)) {
             int tempID = searchAnimals(animalService);
-            if(tempID != -1) {
+            if (tempID != -1) {
                 printAnimal(animalService.getAnimal(tempID));
-                //TODO: in progress: menu: edit animal and delete animal, add a note
-                
+                int choice = printManageAnimalMenu();
+                switch (choice) {
+                    //edit animal
+                    case 1:
+                        editAnimal(animalService, animalService.getAnimal(tempID));
+                        break;
+                    //delete animal
+                    case 2:
+                        deleteAnimal(animalService, tempID);
+                        break;
+                    //add note
+                    case 3:
+                        //TODO
+                        //addNote(animalService, tempID);
+                        break;
+                    //return to main menu
+                    case 4:
+                    default:
+                        break;
+                }
             }
         } else {
             System.out.printf("Invalid request. [0] total animals are on record.\n");
         }
     }
 
-    //TODO: future: edit and delete types via menu; keep in this submenu until exit
+    //TODO (Future): edit and delete types via menu options; persist in this submenu until exit
     //menu option 3: manage existing types
     protected void manageTypes(AnimalsService animalService) throws SQLException {
-        if(!(animalService.getTypesALL().size() == 0)) {
+        if (!(animalService.getTypesALL().size() == 0)) {
             //local properties
             String tempType;
 
@@ -76,7 +94,7 @@ public class MenuService {
                     "<1> List existing types\n" +
                     "<2> Add a new type\n" +
                     "<3> Return to main menu\n");
-            int input = waitForInt("Please choose an option:", 3);
+            int input = waitForInt("Please choose an option: ", 3);
 
             //process input
             switch (input) {
@@ -89,7 +107,7 @@ public class MenuService {
                     System.out.printf("Please input the type to add:\n");
                     tempType = requiredInput("Type");
                     tempType = normalizeString(tempType);
-                    if(animalService.getTypesALL().contains(tempType)) {
+                    if (animalService.getTypesALL().contains(tempType)) {
                         System.out.printf("\nOperation failed! Type %s already exists!\n", tempType);
                     } else {
                         animalService.addType(tempType);
@@ -147,11 +165,11 @@ public class MenuService {
                 result = result + types.get(0) + " or " + types.get(1);
                 break;
             default:
-                for(int i = 0; i < types.size(); i++) {
-                    if((i + 1) != types.size()) {
+                for (int i = 0; i < types.size(); i++) {
+                    if ((i + 1) != types.size()) {
                         result = result + types.get(i) + ", ";
                     } else {
-                        result = result +  "or " + types.get(i);
+                        result = result + "or " + types.get(i);
                     }
                 }
                 break;
@@ -170,13 +188,13 @@ public class MenuService {
 
         //interface with user
         System.out.printf("Search for animals:");
-        System.out.printf("\n<1> Type\n" +
-                "<2> Name\n" +
-                "<3> ID Number\n" +
-                "<4> All Animals\n" +
+        System.out.printf("\n<1> By type\n" +
+                "<2> By name\n" +
+                "<3> By ID number\n" +
+                "<4> From list of all animals\n" +
                 "<5> Return to main menu\n");
-        System.out.printf("How would you like to search for an animal:\n");
-        int input = waitForInt("Please choose an option:", 5);
+        System.out.printf("How would you like to search for an animal?\n");
+        int input = waitForInt("Please choose an option: ", 5);
 
         //process input
         //use search methods to return animalID
@@ -202,7 +220,6 @@ public class MenuService {
                 break;
             //ALL
             case 4:
-                System.out.printf("Listing all animals below:\n");
                 results = animalService.listAnimalsAll();
                 result = printAnimalsReturnID(results);
                 break;
@@ -221,7 +238,7 @@ public class MenuService {
         int result = -1;
 
         //get valid int(check), then set result equal
-        if(!animals.isEmpty()) {
+        if (!animals.isEmpty()) {
             printAnimals(animals);
             System.out.println();
             result = waitForInt("Which animal do you want to manage?: ", animals);
@@ -234,28 +251,85 @@ public class MenuService {
     //print one or more animals from an ArrayList in the search results
     //Called by: manageAnimal/searchAnimals/printAnimalsReturnID
     private void printAnimals(ArrayList<Animal> animals) {
-        String id = "ID", name  = "NAME", type = "TYPE";
+        String id = "ID", name = "NAME", type = "TYPE";
         System.out.printf("\n*** List of animals ***\n" +
-                "\n%-3s | %-16s | %-16s\n" +
-                "++++++++++++++++++++++++++++++++++++++\n", id, name, type);
-        for(Animal animal : animals) {
+                "%-3s | %-16s | %-16s\n" +
+                "++++++++++++++++++++++++++++++++++++++", id, name, type);
+        for (Animal animal : animals) {
             id = Integer.toString(animal.getAnimalID());
             name = animal.getName();
             type = animal.getType();
-            System.out.printf("%-3s | %-16s | %-16s\n", id, name, type);
+            System.out.printf("\n%-3s | %-16s | %-16s", id, name, type);
         }
     }
 
     //print animal details for single animal
+    //Called by: manageAnimal
     private void printAnimal(Animal animal) {
         System.out.println("\n*** Animal Details *** ");
         System.out.println(animal);
     }
 
+    //submenu for manage animal
+    //Called by: manageAnimal
+    private int printManageAnimalMenu() {
+        //interface with user
+        System.out.printf("*** Manage animal ***\n" +
+                "<1> Edit this animal\n" +
+                "<2> Delete this animal\n" +
+                "<3> Add note for this animal\n" +
+                "<4> Return to main menu\n");
+        int input = waitForInt("Please choose an option: ", 4);
+        return input;
+    }
+
+    //delete animal record
+    //Called by: manageAnimal
+    private void deleteAnimal(AnimalsService animalsService, int animalID) throws SQLException {
+        System.out.printf("\nAre you sure you want to delete this animal?\n");
+        System.out.printf("Type \"yes\" to confirm, \"no\" to select a different animal.\n" +
+                "Any other data entry will return to the main menu.\n");
+        String input = scanner.nextLine().toLowerCase();
+        switch (input) {
+            //confirm delete request
+            case "yes":
+            case "y":
+                animalsService.removeAnimal(animalID);
+                System.out.printf("Deletion operation successful!\n");
+                break;
+            //abort request and return to delete entry subroutine
+            case "no":
+            case "n":
+                System.out.printf("Deletion operation has been cancelled.\n");
+                break;
+            //didn't input 'yes' or 'no'
+            default:
+                System.out.printf("\"%s\" is not a valid entry! Returning to main menu.\n", input);
+        }
+    }
+
+    //edit animal record
+    //Called by: manageAnimal
+    private void editAnimal(AnimalsService animalsService, Animal animal) throws SQLException{
+        //interface with user
+        System.out.printf("\n*** Edit animal ****\n");
+        System.out.printf("Please enter changes below. Press <Enter> to retain current value.\n");
+
+        //TODO (FUTURE): Allow user to enter "" for type
+        //cycle through five parameters, overwrite data with entry other than ""
+        animal.setName(optionalInputRetainer(String.format("Name [%s]: ", animal.getName()), animal.getName()));
+        animal.setType(requiredInputType(String.format("Name [%s]: ", animal.getType()), animalsService.getTypesALL()));
+        animal.setSpecies(optionalInputRetainer(String.format("Species [%s]: ", animal.getSpecies()), animal.getSpecies()));
+        animal.setBreed(optionalInputRetainer(String.format("Breed [%s]: ", animal.getBreed()), animal.getBreed()));
+        animal.setDescription(optionalInputRetainer(String.format("Description [%s]: ", animal.getDescription()), animal.getDescription()));
+        animalsService.updateAnimal(animal.getAnimalID(), animal);
+        System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
+    }
+
     //print existing types from type table, one per line
     //Called by: manageTypes
     private void printTypes(ArrayList<String> types) {
-        for(String string : types) {
+        for (String string : types) {
             System.out.println(string);
         }
     }
@@ -272,7 +346,7 @@ public class MenuService {
     //user input integer validator, for menu and/or submenu user selections (select 1 thru validOptions as integer)
     private int waitForInt(String message, int validOptions) {
         //interface with user
-        System.out.println(message);
+        System.out.printf(message);
         String input = scanner.nextLine();
 
         //process input
@@ -301,7 +375,7 @@ public class MenuService {
 
         //process input
         int value;
-        for(Animal animal : animals) {
+        for (Animal animal : animals) {
             animalIDs.add(animal.getAnimalID());
         }
         try {
@@ -340,7 +414,7 @@ public class MenuService {
         System.out.printf("%s", prompt);
         String input = scanner.nextLine();
         while ((input.isEmpty()) || (input.trim().isEmpty()) || (!types.contains(input))) {
-            if(!types.contains(input)) {
+            if (!types.contains(input)) {
                 System.out.printf("Please choose from (%s): ", listTypesAsString(types));
             } else {
                 System.out.printf("%s is required. Please try again.\n" +
@@ -351,100 +425,14 @@ public class MenuService {
         return input;
     }
 
-
-//    //submenu prompts
-//    //list subroutine (format: ### name species)
-//    protected void listAnimals(ArrayList<Animal> animals) {
-//        //local properties
-//        int numberAnimals = animals.size();
-//
-//        //interface with user
-//        System.out.printf("\n*** List Animals ***\n");
-//        for (int i = 0; i < numberAnimals; i++) {
-//            System.out.printf("%-3s %-16s %-16s \n", (i + 1) + ")", animals.get(i).getName(), animals.get(i).getSpecies());
-//        }
-//        System.out.printf("[%d] total animal(s) are on record.\n", numberAnimals);
-//    }
-//
-//    //view entry subroutine
-//    protected int viewAnimalDetails(ArrayList<Animal> animals) {
-//        //interface with user
-//        System.out.printf("\n*** View Animal details ***\n");
-//        int result = waitForInt(animals.size(), "Please enter the ID# of the animal to view: ", false);
-//        return result - 1;
-//    }
-//
-//    //edit entry subroutine
-//    protected String[] editAnimal(ArrayList<Animal> animals) {
-//        //interface with user
-//        System.out.printf("\n*** Edit Animal details ***\n");
-//        int result = waitForInt(animals.size(), "Please enter the ID# of the animal to edit: ", false);
-//
-//        //process input (if animal arrayList has at least 1 entry)
-//        if (result != -1) {
-//            System.out.printf("Please enter changes below. Press <Enter> to retain current value.");
-//            int animalNum = result - 1;
-//
-//            //cycle through four parameters, overwrite data with entry other than ""
-//            String tempName = optionalInputRetainer(String.format("\nName [%s]: ",
-//                    animals.get(animalNum).getName()), animals.get(animalNum).getName());
-//            String tempSpecies = optionalInputRetainer(String.format("Species [%s]: ",
-//                    animals.get(animalNum).getSpecies()), animals.get(animalNum).getSpecies());
-//            String tempBreedOpt = optionalInputRetainer(String.format("Breed [%s]: ",
-//                    animals.get(animalNum).getBreed()), animals.get(animalNum).getBreed());
-//            String tempDescription = optionalInputRetainer(String.format("Description [%s]: ",
-//                    animals.get(animalNum).getDescription()), animals.get(animalNum).getDescription());
-//
-//            //return results to main to complete action
-//            String[] results = new String[]{Integer.toString(animalNum), tempName, tempSpecies, tempBreedOpt, tempDescription};
-//            System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
-//            return results;
-//        }
-//        return null;
-//    }
-//
-//    //delete entry subroutine
-//    protected int deleteAnimal(ArrayList<Animal> animals) {
-//        //interface with user
-//        System.out.printf("\n*** Delete Animal ***\n");
-//        int result = waitForInt(animals.size(), "Please enter the ID# of the animal to delete: ", false);
-//        int animalNum = result - 1;
-//
-//        //process input (if animal arrayList has at least 1 entry)
-//        if (result != -1) {
-//            System.out.print(animals.get(animalNum) + "\n");
-//            System.out.printf("\nAre you sure you want to delete this animal?\n");
-//            System.out.printf("Type \"yes\" to confirm, \"no\" to select a different animal.\n" +
-//                    "Any other data entry will return to the main menu.\n");
-//            String input = scanner.nextLine().toLowerCase();
-//            switch (input) {
-//                //confirm delete request
-//                case "yes":
-//                case "y":
-//                    System.out.printf("Deletion operation successful!\n");
-//                    return animalNum;
-//                //abort request and return to delete entry subroutine
-//                case "no":
-//                case "n":
-//                    System.out.printf("Deletion operation has been cancelled.\n");
-//                    deleteAnimal(animals);
-//                    break;
-//                //didn't input 'yes' or 'no'
-//                default:
-//                    System.out.printf("\"%s\" is not a valid entry! Returning to main menu.\n", input);
-//            }
-//        }
-//        return -1;
-//    }
-//
-//    //optional input: single pass accept empty, retains previous value
-//    private String optionalInputRetainer(String prompt, String returnValue) {
-//        System.out.printf(prompt);
-//        String input = scanner.nextLine();
-//        if (input.trim().equals("")) {
-//            return returnValue;
-//        } else {
-//            return input.trim();
-//        }
-//    }
+    //optional input: single pass accept empty, retains previous value
+    private String optionalInputRetainer(String prompt, String returnValue) {
+        System.out.printf(prompt);
+        String input = scanner.nextLine();
+        if (input.trim().equals("")) {
+            return returnValue;
+        } else {
+            return input.trim();
+        }
+    }
 }

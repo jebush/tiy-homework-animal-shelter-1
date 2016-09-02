@@ -1,6 +1,5 @@
 package com.andrewRnagel.animalShelter;
 import java.sql.*;
-import java.time.format.DateTimeFormatter;
 
 /**
  * Created by Andrew Nagel on 8/30/16 at 2:45 PM EST.
@@ -27,7 +26,7 @@ public class NoteRepository {
     protected ResultSet listAllNotesByAnimal(Animal animal) throws SQLException {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM note WHERE animal = ?");
-        stmt.setString(1, Integer.toString(animal.getAnimalID()));
+        stmt.setInt(1, animal.getAnimalID());
         return stmt.executeQuery();
     }
 
@@ -46,7 +45,7 @@ public class NoteRepository {
         stmt.setString(1, Integer.toString(animal.getAnimalID()));
         stmt.setString(2, note.getNoteCreationDateSQL());
         stmt.setString(3, note.getNoteContent());
-        stmt.executeQuery();
+        stmt.executeUpdate();
     }
 
     //get note from note table
@@ -62,8 +61,8 @@ public class NoteRepository {
         //Parameter/Sanitized SQL query
         //Confirm and delete specific note
         PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM note WHERE noteid = ?");
-        stmt.setString(1, Integer.toString(noteid));
-        stmt.executeQuery();
+        stmt.setInt(1, noteid);
+        stmt.executeUpdate();
     }
 
     //remove an animal note from the note table
@@ -73,7 +72,7 @@ public class NoteRepository {
         listAllNotesByAnimal(animal);
         //Confirm and delete specific note
         PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM note WHERE noteid = ?");
-        stmt.setString(1, Integer.toString(noteid));
-        stmt.executeQuery();
+        stmt.setInt(1, noteid);
+        stmt.executeUpdate();
     }
 }

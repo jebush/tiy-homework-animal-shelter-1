@@ -1,6 +1,5 @@
 package com.andrewRnagel.animalShelter;
 import java.util.ArrayList;
-
 import static java.lang.String.format;
 
 /**
@@ -54,21 +53,25 @@ public class Animal {
     //animal toString (formatted)
     public String toString() {
         String animalNotes = "";
-        String animalStats = String.format("%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-64s\n%-12s ",
+        String animalStats = String.format("%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-64s\n",
                 "Name:", this.name,
                 "Type:", this.type,
                 "Species:", this.species,
                 "Breed (opt):", this.breed,
-                "Description:", this.description,
-                "Notes:");
+                "Description:", this.description);
         if(this.getAnimalNotes().isEmpty()) {
-            animalNotes = String.format("No animal notes found for this animal.\n");
+            animalNotes = String.format("%-12s %-64s\n", "Notes:", "No animal notes found for this animal.");
         } else {
-            animalNotes = "\n";
             //iterate through and generate string
-            for(Note note : getAnimalNotes()) {
-                String currentNote = String.format("%-12s %s: %-64s\n", "", note.getNoteCreationDate().toString(), note.getNoteContent());
-                animalNotes = animalNotes + currentNote;
+            for(int i = 0; i < getAnimalNotes().size(); i++) {
+                if(i == 0){
+                    String noteOne = getAnimalNotes().get(0).getNoteCreationDate().toString() + ": " + getAnimalNotes().get(0).getNoteContent();
+                    animalNotes = String.format("%-12s %-64s\n", "Notes:", noteOne);
+                } else {
+                    String noteNow = getAnimalNotes().get(i).getNoteCreationDate().toString() + ": " + getAnimalNotes().get(i).getNoteContent();
+                    String currentNote = String.format("%-12s %-64s\n", "", noteNow);
+                    animalNotes = animalNotes + currentNote;
+                }
             }
         }
         return animalStats+animalNotes;

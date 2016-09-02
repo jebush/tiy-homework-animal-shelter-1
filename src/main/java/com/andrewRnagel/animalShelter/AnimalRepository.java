@@ -73,13 +73,12 @@ public class AnimalRepository {
         return stmt.executeQuery();
     }
 
-    //TODO - notes attached to animal (Delete notes first)
     //remove animal from specified index in animal table
     protected void removeAnimal(int index) throws SQLException {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM animal WHERE animalid = ?");
-        stmt.setString(1, Integer.toString(index));
-        stmt.executeQuery();
+        stmt.setInt(1, index);
+        stmt.executeUpdate();
     }
 
     //update animal at specified index in animal table
@@ -90,8 +89,9 @@ public class AnimalRepository {
         stmt.setString(2, animal.getSpecies());
         stmt.setString(3, animal.getBreed());
         stmt.setString(4, animal.getDescription());
-        stmt.setInt(5, animal.getAnimalTypeID());
-        stmt.executeQuery();
+        stmt.setInt(5, getTypeID(animal.getType()));
+        stmt.setInt(6, animal.getAnimalID());
+        stmt.executeUpdate();
     }
 
     //add animal type to type table
@@ -133,7 +133,7 @@ public class AnimalRepository {
     protected void removeType(int index) throws SQLException {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM type WHERE typeid = ?");
-        stmt.setString(1, Integer.toString(index));
+        stmt.setInt(1, index);
         stmt.executeUpdate();
     }
 
@@ -143,7 +143,7 @@ public class AnimalRepository {
         PreparedStatement stmt = this.conn.prepareStatement("UPDATE type SET typeName = ? WHERE typeid = ?");
         stmt.setString(1, type);
         stmt.setInt(2, index);
-        stmt.executeQuery();
+        stmt.executeUpdate();
     }
 
     //return ResultSet of types in type table (ALL, Alphabetical organized)

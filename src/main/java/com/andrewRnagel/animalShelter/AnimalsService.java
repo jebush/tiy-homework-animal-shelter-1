@@ -34,6 +34,18 @@ public class AnimalsService {
         return animals;
     }
 
+    //return list holding stored animal objects by type (sans notes)
+    protected ArrayList<Animal> listAnimalsByType(String type) throws SQLException {
+        ArrayList<Animal> animals = new ArrayList<>();
+        try {
+            ResultSet results = this.animalRepository.listAnimalsByType(type);
+            animals = populateList(results);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return animals;
+    }
+
     //return list holding stored animal objects by name (sans notes)
     protected ArrayList<Animal> listAnimalsByName(String name) throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
@@ -46,11 +58,11 @@ public class AnimalsService {
         return animals;
     }
 
-    //return list holding stored animal objects by type (sans notes)
-    protected ArrayList<Animal> listAnimalsByType(String type) throws SQLException {
+    //return list holding stored animal objects by name (sans notes)
+    protected ArrayList<Animal> listAnimalsByID(int animalID) throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
         try {
-            ResultSet results = this.animalRepository.listAnimalsByType(type);
+            ResultSet results = this.animalRepository.listAnimalsByID(animalID);
             animals = populateList(results);
         } catch (SQLException e) {
             e.printStackTrace();

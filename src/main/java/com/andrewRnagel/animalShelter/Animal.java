@@ -9,7 +9,7 @@ public class Animal {
     //object properties
     //core attributes of any com.andrewRnagel.Animal object
     private String name, species, breed, description, type;
-    //the id is the primary key value assigned by the database, and id for animalTypeID from types lookup table
+    //the id is the primary key value assigned by the main animal table, and id for animalTypeID from types lookup table
     private int animalID = -1, animalTypeID = -1;
     //the ArrayList that holds notes for this animal
     private ArrayList<Note> animalNotes = new ArrayList<>();
@@ -18,7 +18,7 @@ public class Animal {
     //default constructor
     protected Animal() {}
 
-    //constructor with breed(opt)
+    //legacy constructor with breed(opt)
     protected Animal(String name, String species, String breed, String desc) {
         this.name = name;
         this.species = species;
@@ -26,7 +26,8 @@ public class Animal {
         this.description = desc;
     }
 
-    //constructor with breed(opt), including type; missing animalID and typeID (created inside of AnimalShelter
+    //constructor with breed(opt), including animal type; missing animalID and typeID
+    //used when creating a new Animal from within AnimalShelter program
     protected Animal(String name, String species, String breed, String desc, String type) {
         this.name = name;
         this.species = species;
@@ -35,7 +36,8 @@ public class Animal {
         this.type = type;
     }
 
-    //constructor with breed(opt), including animal index from animal table and type index post lookup
+    //constructor with breed(opt), including animal index
+    //used when reading an existing animal from the animal table
     protected Animal(int animalid, String name, String species, String breed, String desc, int typeID, String type) {
         this.animalID = animalid;
         this.name = name;
@@ -47,7 +49,7 @@ public class Animal {
     }
 
     //methods
-    //toString (formatted)
+    //animal toString (formatted)
     public String toString() {
         return String.format("%-12s %-16s\n%-12s %-16s\n%-12s %-16s\n%-12s %-16s",
                 "Name:", this.name,
@@ -122,7 +124,7 @@ public class Animal {
         this.animalNotes = animalNotes;
     }
 
-    //disk operations (deprecated)
+    //legacy disk serialization operations
     protected String serialize() {
         return String.format("%s|%s|%s|%s\n", name, species, breed, description);
     }

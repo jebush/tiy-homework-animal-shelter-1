@@ -44,6 +44,15 @@ public class AnimalRepository {
         return stmt.executeQuery();
     }
 
+    //return ResultSet of animals in animal table (by name, Substring)
+    protected ResultSet listAnimalsByID(int animalID) throws SQLException {
+        //Parameter/Sanitized SQL query
+        //perform lookup on animal table for animals containing provided substring
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalid = ?");
+        stmt.setInt(1, animalID);
+        return stmt.executeQuery();
+    }
+
     //add animal to animal table
     protected void addAnimal(Animal animal) throws SQLException{
         //Parameter/Sanitized SQL query
@@ -137,8 +146,9 @@ public class AnimalRepository {
         stmt.executeQuery();
     }
 
+    //return ResultSet of types in type table (ALL, Alphabetical organized)
     public ResultSet getTypes() throws SQLException {
         Statement stmt = this.conn.createStatement();
-        return stmt.executeQuery("SELECT typeName FROM type");
+        return stmt.executeQuery("SELECT typeName FROM type ORDER BY typename ASC");
     }
 }

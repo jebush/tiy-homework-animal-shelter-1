@@ -22,14 +22,16 @@ public class Note {
     //default constructor
     public Note() {}
 
-    //constructor for note made in program (date set automatically)
+    //constructor for note (date set automatically to NOW)
+    //used when creating a new Note from within AnimalShelter program
     public Note(int noteID, String noteContent) {
         this.noteID = noteID;
         this.noteContent = noteContent;
         this.noteCreationDateTime = LocalDateTime.now();
     }
 
-    //constructor for note loaded from note table (date read from table)
+    //constructor for note (date read from table)
+    //used when reading an existing Note from the note table
     public Note(int noteID, String noteContent, String date) {
         this.noteID = noteID;
         this.noteContent = noteContent;

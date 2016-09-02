@@ -10,11 +10,11 @@ public class Main {
     //methods
     //main method
     public static void main(String[] args) throws IOException, SQLException {
-        //call menuDriver method
         menuDriver();
     }
 
-    //menu driving method
+    //supporting functions
+    //menu driver
     private static void menuDriver() throws IOException, SQLException {
         //instantiate dependent services via classes
         String jdbcUrl = "jdbc:postgresql://localhost/animalshelter";
@@ -25,8 +25,10 @@ public class Main {
 
         //console-based menu system driven via while loop
         while(true) {
+            //display main menu to user, prompt for selection
             int action = menu.promptForMainMenuSelection();
 
+            //call appropriate menu method based on user selection
             if(action == MenuService.ADD_ANIMAL) {
                 Animal newAnimal = menu.addNewAnimal(animalsService.getTypesALL());
                 animalsService.addAnimal(newAnimal);

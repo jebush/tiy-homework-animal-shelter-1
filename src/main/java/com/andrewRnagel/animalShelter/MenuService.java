@@ -12,11 +12,11 @@ public class MenuService {
     //object properties
     //static final assignments for main.menuDriver() method
     static final int ADD_ANIMAL = 1, MANAGE_ANIMAL = 2, MANAGE_ANIMAL_TYPES = 3, QUIT = 4;
-    //instantiate scanner to read console input
+    //create scanner to read console input
     private Scanner scanner = new Scanner(System.in);
 
-    //methods (protected)
-    //menu prompt
+    //methods
+    //main menu prompt
     protected int promptForMainMenuSelection() {
         //interface with user
         System.out.printf("\n***** Main Menu *****\n" +
@@ -27,7 +27,7 @@ public class MenuService {
         return waitForInt("Please choose an option:", 4);
     }
 
-    //create entry subroutine
+    //menu option 1: add new animal
     protected Animal addNewAnimal(ArrayList<String> types) {
         //local properties
         String tempName, tempSpecies, tempBreedOpt, tempDescription, tempType;
@@ -36,115 +36,72 @@ public class MenuService {
         System.out.printf("\n*** Add a new Animal ***\n");
         System.out.printf("Please answer the following:\n");
         tempName = requiredInput("Name");
-        tempType = requiredInputType("Type (" + listToString(types) + "): ", types);
+        tempType = requiredInputType("Type (" + listTypesAsString(types) + "): ", types);
         tempSpecies = requiredInput("Species" );
         tempBreedOpt = optionalInput("Breed (opt.): " );
         tempDescription = requiredInput("Description");
 
-        //create object based on data entered from breed entry and add to arrayList
+        //return a new animal object based on data entered
         Animal newEntry = new Animal(tempName, tempSpecies, tempBreedOpt, tempDescription, tempType);
         System.out.printf("\nOperation successful! Animal %s added.\n", tempName);
         return newEntry;
     }
 
-    //TODO
+    //TODO: in progress: list animal details+notes based on selection; menu: edit animal and delete animal, add a note
+    //menu option 2: manage existing animal
     protected void manageAnimal(AnimalsService animalService) throws SQLException {
         //search for animal by type, name, id, or all animals
         //interface with user
         System.out.printf("\n*** Manage an existing animal ***\n");
-        int tempID = searchAnimals(animalService);
-    }
-
-    private int searchAnimals(AnimalsService animalService) throws SQLException {
-        //local properties
-        int result = -1;
-        ArrayList<String> types = animalService.getTypesALL();
-        String query;
-
-        //interface with user
-        System.out.printf("Search for animals:");
-        System.out.printf("\n<1> Type\n" +
-                "<2> Name\n" +
-                "<3> ID Number\n" +
-                "<4> All Animals\n" +
-                "<5> Return to main menu\n");
-        System.out.printf("How would you like to search for an animal:\n");
-        int input = waitForInt("Please choose an option:", 5);
-
-        //process input
-        //use search methods to return animalID
-        switch (input) {
-            case 1:
-                System.out.printf("Please input a type below:\n");
-                query = requiredInputType("Type (" + listToString(types) + "): ", types);
-                printAnimal(animalService.listAnimalsByType(query));
-                System.out.printf("\nWhich animal do you want to manage?: ");
-                //get valid int(check), then set result equal
-                break;
-            case 2:
-                System.out.printf("Please input a name below:\n");
-                query = requiredInput("Name");
-                printAnimal(animalService.listAnimalsByName(query));
-                System.out.printf("\nWhich animal do you want to manage?: ");
-                //get valid int(check), then set result equal
-                break;
-            case 3:
-                System.out.printf("Please input an ID below:\n");
-                int tempID = waitForInt("Animal ID: ", animalService.listAnimalsAll().size());
-                printAnimal(animalService.getAnimal(tempID));
-                System.out.printf("\nWhich animal do you want to manage?: ");
-                //get valid int(check), then set result equal
-                break;
-            case 4:
-                System.out.printf("Listing all animals below:\n");
-                printAnimal(animalService.listAnimalsAll());
-                System.out.printf("\nWhich animal do you want to manage?: ");
-                //get valid int(check), then set result equal
-                break;
-            case 5:
-            default:
-                break;
+        if(!(animalService.listAnimalsAll().size() == 0)) {
+            int tempID = searchAnimals(animalService);
+        } else {
+            System.out.printf("Invalid request. [0] total animals are on record.\n");
         }
-        return result;
     }
 
-    //TODO edit or delete type via menu
+    //TODO: future: edit and delete types via menu
+    //menu option 3: manage existing types
     protected void manageTypes(AnimalsService animalService) throws SQLException {
-        //local properties
-        String tempType;
+        if(!(animalService.getTypesALL().size() == 0)) {
+            //local properties
+            String tempType;
 
-        //interface with user
-        System.out.printf("\n*** Manage types ***\n" +
-                "<1> List existing types\n" +
-                "<2> Add a new type\n" +
-                "<3> Return to main menu\n");
-        int input = waitForInt("Please choose an option:", 3);
+            //interface with user
+            System.out.printf("\n*** Manage types ***\n" +
+                    "<1> List existing types\n" +
+                    "<2> Add a new type\n" +
+                    "<3> Return to main menu\n");
+            int input = waitForInt("Please choose an option:", 3);
 
-        //process input
-        switch (input) {
-            //list existing types
-            case 1:
-                printTypes(animalService.getTypesALL());
-                break;
-            //add new type
-            case 2:
-                System.out.printf("Please input the type to add:\n");
-                tempType = requiredInput("Type");
-                tempType = normalizeString(tempType);
-                if(animalService.getTypesALL().contains(tempType)) {
-                    System.out.printf("\nOperation failed! Type %s already exists!\n", tempType);
-                } else {
-                    animalService.addType(tempType);
-                    System.out.printf("\nOperation successful! Type %s added.\n", tempType);
-                }
-                break;
-            case 3:
-            default:
-                break;
+            //process input
+            switch (input) {
+                //list existing types
+                case 1:
+                    printTypes(animalService.getTypesALL());
+                    break;
+                //add new type
+                case 2:
+                    System.out.printf("Please input the type to add:\n");
+                    tempType = requiredInput("Type");
+                    tempType = normalizeString(tempType);
+                    if(animalService.getTypesALL().contains(tempType)) {
+                        System.out.printf("\nOperation failed! Type %s already exists!\n", tempType);
+                    } else {
+                        animalService.addType(tempType);
+                        System.out.printf("\nOperation successful! Type %s added.\n", tempType);
+                    }
+                    break;
+                case 3:
+                default:
+                    break;
+            }
+        } else {
+            System.out.printf("Invalid request. [0] total types are on record.\n");
         }
     }
 
-    //quit subroutine
+    //menu option 4: quit program
     protected void quitProgram() {
         //interface with user
         System.out.printf("\n*** Quit ***\n");
@@ -166,7 +123,7 @@ public class MenuService {
             case "no":
             case "n":
                 break;
-            //invalid input, rerun the quit subroutine
+            //invalid input, re-run quit prompt
             default:
                 System.out.printf("Please try again, \"%s\" is not a valid entry!\n", input);
                 quitProgram();
@@ -174,8 +131,108 @@ public class MenuService {
     }
 
     //supporting functions
-    //print animal search results
-    protected void printAnimal(ArrayList<Animal> animals) {
+    //turn an arrayList of animal types into an english-style string: (x, y, or z), (x or y), (x).
+    //Called by: addNewAnimal
+    private String listTypesAsString(ArrayList<String> types) {
+        String result = "";
+        switch (types.size()) {
+            case 1:
+                result = result + types.get(0);
+                break;
+            case 2:
+                result = result + types.get(0) + " or " + types.get(1);
+                break;
+            default:
+                for(int i = 0; i < types.size(); i++) {
+                    if((i + 1) != types.size()) {
+                        result = result + types.get(i) + ", ";
+                    } else {
+                        result = result +  "or " + types.get(i);
+                    }
+                }
+                break;
+        }
+        return result;
+    }
+
+    //return animalID for the animal the user wishes to manage
+    //Called by: manageAnimal
+    private int searchAnimals(AnimalsService animalService) throws SQLException {
+        //local properties
+        int result = -1;
+        ArrayList<String> types = animalService.getTypesALL();
+        ArrayList<Animal> results;
+        String query;
+
+        //interface with user
+        System.out.printf("Search for animals:");
+        System.out.printf("\n<1> Type\n" +
+                "<2> Name\n" +
+                "<3> ID Number\n" +
+                "<4> All Animals\n" +
+                "<5> Return to main menu\n");
+        System.out.printf("How would you like to search for an animal:\n");
+        int input = waitForInt("Please choose an option:", 5);
+
+        //process input
+        //use search methods to return animalID
+        switch (input) {
+            //Type
+            case 1:
+                System.out.printf("Please input a type below:\n");
+                query = requiredInputType("Type (" + listTypesAsString(types) + "): ", types);
+                results = animalService.listAnimalsByType(query);
+                printAnimalsReturnID(results);
+                break;
+            //Name
+            case 2:
+                System.out.printf("Please input a name below:\n");
+                query = requiredInput("Name");
+                results = animalService.listAnimalsByName(query);
+                printAnimalsReturnID(results);
+                break;
+            //ID
+            case 3:
+                System.out.printf("Please input an ID below:\n");
+                query = requiredInput("Animal ID");
+                results = animalService.listAnimalsByID(Integer.parseInt(query));
+                printAnimalsReturnID(results);
+                break;
+            //ALL
+            case 4:
+                System.out.printf("Listing all animals below:\n");
+                results = animalService.listAnimalsAll();
+                printAnimalsReturnID(results);
+                break;
+            //Exit to main menu
+            case 5:
+            default:
+                break;
+        }
+        return result;
+    }
+
+    //Use arrayList of animal results to determine what animal, if any, the user wants to manage
+    //Called by: manageAnimal/searchAnimals
+    private int printAnimalsReturnID(ArrayList<Animal> animals) {
+        //local properties
+        int result = -1;
+
+        //repeated code from each query
+        printAnimals(animals);
+        System.out.println();
+        //get valid int(check), then set result equal
+        if(!animals.isEmpty()) {
+            result = waitForInt("Which animal do you want to manage?: ", animals);
+        } else {
+            System.out.printf("[0] animals are on record matching criterion.\n");
+        }
+        return result;
+    }
+
+    //print one or more animals from an ArrayList in the search results
+    //Called by: manageAnimal/searchAnimals/printAnimalsReturnID
+    private void printAnimals(ArrayList<Animal> animals) {
         String id = "ID", name  = "NAME", type = "TYPE";
         System.out.printf("\n*** List of animals ***\n" +
                 "\n%-3s | %-16s | %-16s\n" +
@@ -188,26 +245,24 @@ public class MenuService {
         }
     }
 
-    //print animal search results
-    protected void printAnimal(Animal animal) {
-        String id = "ID", name  = "NAME", type = "TYPE";
-        System.out.printf("\n*** List of animals ***\n" +
-                "\n%-3s | %-16s | %-16s\n" +
-                "++++++++++++++++++++++++++++++++++++++\n", id, name, type);
-            id = Integer.toString(animal.getAnimalID());
-            name = animal.getName();
-            type = animal.getType();
-            System.out.printf("%-3s | %-16s | %-16s\n", id, name, type);
-    }
-
-    //print types subroutine
-    protected void printTypes(ArrayList<String> types) {
+    //print existing types from type table, one per line
+    //Called by: manageTypes
+    private void printTypes(ArrayList<String> types) {
         for(String string : types) {
             System.out.println(string);
         }
     }
 
-    //user input integer validator, for menu and/or submenu user selections
+    //standardize a string input by user to have the first letter be uppercase, then all remaining characters lower case
+    //Called by: manageTypes
+    private String normalizeString(String string) {
+        char firstLetter = string.toUpperCase().charAt(0);
+        String remaining = string.substring(1).toLowerCase();
+        return firstLetter + remaining;
+    }
+
+    //input subroutines
+    //user input integer validator, for menu and/or submenu user selections (select 1 thru validOptions as integer)
     private int waitForInt(String message, int validOptions) {
         //interface with user
         System.out.println(message);
@@ -228,7 +283,40 @@ public class MenuService {
         return value;
     }
 
-    //required input: repeated loop on empty
+    //user input integer validator, for selection of Animals from a subset (select pos int from existing animalIDs)
+    private int waitForInt(String message, ArrayList<Animal> animals) {
+        //local properties
+        ArrayList<Integer> animalIDs = new ArrayList<>();
+
+        //interface with user
+        System.out.printf(message);
+        String input = scanner.nextLine();
+
+        //process input
+        int value;
+        for(Animal animal : animals) {
+            animalIDs.add(animal.getAnimalID());
+        }
+        try {
+            value = Integer.parseInt(input);
+        } catch (Exception e) {
+            System.out.printf("Please try again, \"%s\" is not a valid number!\n", input);
+            value = waitForInt(message, animals);
+        }
+        if ((value < 1) || (!animalIDs.contains(value))) {
+            System.out.printf("Please try again. \"%s\" is not a valid number!\n", input);
+            value = waitForInt(message, animals);
+        }
+        return value;
+    }
+
+    //optional input: single pass, accepts empty input
+    private String optionalInput(String prompt) {
+        System.out.printf(prompt);
+        return scanner.nextLine();
+    }
+
+    //required input: repeated loop, does not accept empty input
     private String requiredInput(String prompt) {
         System.out.printf("%s: ", prompt);
         String input = scanner.nextLine();
@@ -240,13 +328,13 @@ public class MenuService {
         return input;
     }
 
-    //required input: repeated loop on empty
+    //required input: repeated loop, does not accept empty input, specifically for Type prompt
     private String requiredInputType(String prompt, ArrayList<String> types) {
         System.out.printf("%s", prompt);
         String input = scanner.nextLine();
         while ((input.isEmpty()) || (input.trim().isEmpty()) || (!types.contains(input))) {
             if(!types.contains(input)) {
-                System.out.printf("Please choose from (%s): ", listToString(types));
+                System.out.printf("Please choose from (%s): ", listTypesAsString(types));
             } else {
                 System.out.printf("%s is required. Please try again.\n" +
                         "%s", prompt, prompt);
@@ -256,41 +344,6 @@ public class MenuService {
         return input;
     }
 
-    //optional input: single pass accepts empty
-    private String optionalInput(String prompt) {
-        System.out.printf(prompt);
-        return scanner.nextLine();
-    }
-
-    //make type arrayList toString pretty
-    private String listToString(ArrayList<String> list) {
-        String result = "";
-        switch (list.size()) {
-            case 1:
-                result = result + list.get(0);
-                break;
-            case 2:
-                result = result + list.get(0) + " or " + list.get(1);
-                break;
-            default:
-                for(int i = 0; i < list.size(); i++) {
-                    if((i + 1) != list.size()) {
-                        result = result + list.get(i) + ", ";
-                    } else {
-                        result = result +  "or " + list.get(i);
-                    }
-                }
-                break;
-        }
-        return result;
-    }
-
-    //Standardized strings to first uppercase letter, then remaining characters are lower case
-    private String normalizeString(String string) {
-        char firstLetter = string.toUpperCase().charAt(0);
-        String remaining = string.substring(1).toLowerCase();
-        return firstLetter + remaining;
-    }
 
 //    //submenu prompts
 //    //list subroutine (format: ### name species)

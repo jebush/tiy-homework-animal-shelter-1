@@ -10,9 +10,7 @@ import static java.lang.System.exit;
 
 public class MenuService {
     //object properties
-    //static final assignments for main.menuDriver() method
     static final int ADD_ANIMAL = 1, MANAGE_ANIMAL = 2, MANAGE_ANIMAL_TYPES = 3, QUIT = 4;
-    //create scanner to read console input
     private Scanner scanner = new Scanner(System.in);
 
     //methods
@@ -52,7 +50,7 @@ public class MenuService {
         //search for animal by type, name, id, or all animals
         //interface with user
         System.out.printf("\n*** Manage an existing animal ***\n");
-        if (!(animalService.listAnimalsAll().size() == 0)) {
+        if (!(animalService.listAllAnimals().size() == 0)) {
             int tempID = searchAnimals(animalService);
             if (tempID != -1) {
                 printAnimal(animalService.getAnimal(tempID));
@@ -68,8 +66,7 @@ public class MenuService {
                         break;
                     //add note
                     case 3:
-                        //TODO
-                        //addNote(animalService, tempID);
+                        addNote(animalService, tempID);
                         break;
                     //return to main menu
                     case 4:
@@ -82,10 +79,10 @@ public class MenuService {
         }
     }
 
-    //TODO (Future): edit and delete types via menu options; persist in this submenu until exit
     //menu option 3: manage existing types
+    //TODO (FUTURE): edit and delete types via menu options
     protected void manageTypes(AnimalsService animalService) throws SQLException {
-        if (!(animalService.getTypesALL().size() == 0)) {
+        if (!(animalService.getAllTypes().size() == 0)) {
             //local properties
             String tempType;
 
@@ -100,19 +97,21 @@ public class MenuService {
             switch (input) {
                 //list existing types
                 case 1:
-                    printTypes(animalService.getTypesALL());
+                    printTypes(animalService.getAllTypes());
+                    manageTypes(animalService);
                     break;
                 //add new type
                 case 2:
                     System.out.printf("Please input the type to add:\n");
                     tempType = requiredInput("Type");
                     tempType = normalizeString(tempType);
-                    if (animalService.getTypesALL().contains(tempType)) {
-                        System.out.printf("\nOperation failed! Type %s already exists!\n", tempType);
+                    if (animalService.getAllTypes().contains(tempType)) {
+                        System.out.printf("Operation failed! Type %s already exists!\n", tempType);
                     } else {
                         animalService.addType(tempType);
-                        System.out.printf("\nOperation successful! Type %s added.\n", tempType);
+                        System.out.printf("Operation successful! Type %s added.\n", tempType);
                     }
+                    manageTypes(animalService);
                     break;
                 case 3:
                 default:
@@ -182,7 +181,7 @@ public class MenuService {
     private int searchAnimals(AnimalsService animalService) throws SQLException {
         //local properties
         int result = -1;
-        ArrayList<String> types = animalService.getTypesALL();
+        ArrayList<String> types = animalService.getAllTypes();
         ArrayList<Animal> results;
         String query;
 
@@ -203,24 +202,24 @@ public class MenuService {
             case 1:
                 System.out.printf("Please input a type below:\n");
                 query = requiredInputType("Type (" + listTypesAsString(types) + "): ", types);
-                results = animalService.listAnimalsByType(query);
+                results = animalService.listAllAnimalsWithType(query);
                 result = printAnimalsReturnID(results);
                 break;
             //Name
             case 2:
                 System.out.printf("Please input a name below:\n");
                 query = requiredInput("Name");
-                results = animalService.listAnimalsByName(query);
+                results = animalService.listAllAnimalsWithName(query);
                 result = printAnimalsReturnID(results);
                 break;
             //ID
             case 3:
                 System.out.printf("Please input an ID below:\n");
-                result = waitForInt("Animal ID: ", animalService.listAnimalsAll());
+                result = waitForInt("Animal ID: ", animalService.listAllAnimals());
                 break;
             //ALL
             case 4:
-                results = animalService.listAnimalsAll();
+                results = animalService.listAllAnimals();
                 result = printAnimalsReturnID(results);
                 break;
             //Exit to main menu
@@ -315,15 +314,27 @@ public class MenuService {
         System.out.printf("\n*** Edit animal ****\n");
         System.out.printf("Please enter changes below. Press <Enter> to retain current value.\n");
 
-        //TODO (FUTURE): Allow user to enter "" for type
         //cycle through five parameters, overwrite data with entry other than ""
+        //TODO (FUTURE): Allow user to enter "" for type
         animal.setName(optionalInputRetainer(String.format("Name [%s]: ", animal.getName()), animal.getName()));
-        animal.setType(requiredInputType(String.format("Name [%s]: ", animal.getType()), animalsService.getTypesALL()));
+        animal.setType(requiredInputType(String.format("Name [%s]: ", animal.getType()), animalsService.getAllTypes()));
         animal.setSpecies(optionalInputRetainer(String.format("Species [%s]: ", animal.getSpecies()), animal.getSpecies()));
         animal.setBreed(optionalInputRetainer(String.format("Breed [%s]: ", animal.getBreed()), animal.getBreed()));
         animal.setDescription(optionalInputRetainer(String.format("Description [%s]: ", animal.getDescription()), animal.getDescription()));
         animalsService.updateAnimal(animal.getAnimalID(), animal);
         System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
+    }
+
+    //add note record
+    //Called by: manageAnimal
+    private void addNote(AnimalsService animalsService, int animalID) throws SQLException {
+        //interface with user
+        System.out.printf("\n*** Add note ****\n");
+        System.out.printf("Please enter note text: ");
+        String noteText = scanner.nextLine();
+        Note thisNote = new Note(noteText);
+        animalsService.addNote(animalsService.getAnimal(animalID), thisNote);
+        System.out.printf("The note was successfully added!\n");
     }
 
     //print existing types from type table, one per line
@@ -343,7 +354,7 @@ public class MenuService {
     }
 
     //input subroutines
-    //user input integer validator, for menu and/or submenu user selections (select 1 thru validOptions as integer)
+    //user input integer validator, for menu and/or submenu user selections (select 1 to 'validOptions')
     private int waitForInt(String message, int validOptions) {
         //interface with user
         System.out.printf(message);
@@ -364,7 +375,7 @@ public class MenuService {
         return value;
     }
 
-    //user input integer validator, for selection of Animals from a subset (select pos int from existing animalIDs)
+    //user input integer validator, for selection of Animals from a subset (select valid int from existing animalIDs)
     private int waitForInt(String message, ArrayList<Animal> animals) {
         //local properties
         ArrayList<Integer> animalIDs = new ArrayList<>();
@@ -389,12 +400,6 @@ public class MenuService {
             value = waitForInt(message, animals);
         }
         return value;
-    }
-
-    //optional input: single pass, accepts empty input
-    private String optionalInput(String prompt) {
-        System.out.printf(prompt);
-        return scanner.nextLine();
     }
 
     //required input: repeated loop, does not accept empty input
@@ -423,6 +428,12 @@ public class MenuService {
             input = scanner.nextLine();
         }
         return input;
+    }
+
+    //optional input: single pass, accepts empty input
+    private String optionalInput(String prompt) {
+        System.out.printf(prompt);
+        return scanner.nextLine();
     }
 
     //optional input: single pass accept empty, retains previous value

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class AnimalsService {
     //object properties
-    //private repositories for Animal and Note DAOs
     private AnimalRepository animalRepository;
     private NoteRepository noteRepository;
 
@@ -22,11 +21,11 @@ public class AnimalsService {
 
     //methods
     //return list holding ALL stored animal objects (sans notes)
-    protected ArrayList<Animal> listAnimalsAll() throws SQLException {
+    protected ArrayList<Animal> listAllAnimals() throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
         try {
-            ResultSet results = this.animalRepository.listAnimalsAll();
-            animals = populateList(results);
+            ResultSet results = this.animalRepository.listAllAnimals();
+            animals = populateAnimalResultsAsList(results);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -34,11 +33,11 @@ public class AnimalsService {
     }
 
     //return list holding stored animal objects by type (sans notes)
-    protected ArrayList<Animal> listAnimalsByType(String type) throws SQLException {
+    protected ArrayList<Animal> listAllAnimalsWithType(String type) throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
         try {
-            ResultSet results = this.animalRepository.listAnimalsByType(type);
-            animals = populateList(results);
+            ResultSet results = this.animalRepository.listAllAnimalsByType(type);
+            animals = populateAnimalResultsAsList(results);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -46,11 +45,11 @@ public class AnimalsService {
     }
 
     //return list holding stored animal objects by name (sans notes)
-    protected ArrayList<Animal> listAnimalsByName(String name) throws SQLException {
+    protected ArrayList<Animal> listAllAnimalsWithName(String name) throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
         try {
-            ResultSet results = this.animalRepository.listAnimalsByName(name);
-            animals = populateList(results);
+            ResultSet results = this.animalRepository.listAllAnimalsByName(name);
+            animals = populateAnimalResultsAsList(results);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -58,26 +57,34 @@ public class AnimalsService {
     }
 
     //return list holding stored animal objects by name (sans notes)
-    protected ArrayList<Animal> listAnimalsByID(int animalID) throws SQLException {
+    protected ArrayList<Animal> listAllAnimalsWithID(int animalID) throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
         try {
-            ResultSet results = this.animalRepository.listAnimalsByID(animalID);
-            animals = populateList(results);
+            ResultSet results = this.animalRepository.listAllAnimalsByID(animalID);
+            animals = populateAnimalResultsAsList(results);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return animals;
     }
 
-    //add animal to end of list after ensuring typeID is present
+    //add animal to animal table
     protected void addAnimal(Animal animal) throws SQLException {
         if(!animal.getType().isEmpty() && animal.getAnimalTypeID() == -1) {
-            animal.setAnimalTypeID(this.animalRepository.getTypeID(animal.getType()));
+            animal.setAnimalTypeID(this.animalRepository.getTypeIDByName(animal.getType()));
         }
         this.animalRepository.addAnimal(animal);
     }
 
-    //return animal from specified index
+    //remove animal from specified index in animal table
+    protected void removeAnimal(int index) throws SQLException {
+        if(!getAllAnimalNotesWithID(index).isEmpty()) {
+            removeAllAnimalNotesWithID(getAnimal(index));
+        }
+        this.animalRepository.removeAnimal(index);
+    }
+
+    //return animal from specified index in animal table
     protected Animal getAnimal(int index) {
         Animal animal = new Animal();
         try {
@@ -89,8 +96,8 @@ public class AnimalsService {
                 animal.setBreed(results.getString("breed"));
                 animal.setDescription(results.getString("description"));
                 animal.setAnimalTypeID(results.getInt("type"));
-                animal.setType(this.animalRepository.getType(results.getInt("type")));
-                animal.setAnimalNotes(getAnimalNotesList(index));
+                animal.setType(this.animalRepository.getTypeNameByID(results.getInt("type")));
+                animal.setAnimalNotes(getAllAnimalNotesWithID(index));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -98,29 +105,26 @@ public class AnimalsService {
         return animal;
     }
 
-    //remove animal from specified index
-    protected void removeAnimal(int index) throws SQLException {
-        if(!getAnimalNotesList(index).isEmpty()) {
-            removeAllNotesByAnimal(getAnimal(index));
-        }
-        this.animalRepository.removeAnimal(index);
-    }
-
-    //update animal from specified index
+    //update animal from specified index with update animal object in animal table
     protected void updateAnimal(int index, Animal animal) throws SQLException {
         this.animalRepository.updateAnimal(index, animal);
     }
 
-    //add note to note table associated with animal
+    //add note associated with animal to note table
     protected void addNote(Animal animal, Note note) throws SQLException {
         this.noteRepository.addAnimalNote(animal, note);
     }
 
-    //return animal notes in an arrayList to be attached to animal object
-    protected ArrayList<Note> getAnimalNotesList(int index) throws SQLException {
+    //remove note associated with animal from note table by noteID
+    protected void removeNote(int noteID) throws SQLException {
+        this.noteRepository.removeNote(noteID);
+    }
+
+    //return all animal notes in an arrayList given animalID
+    protected ArrayList<Note> getAllAnimalNotesWithID(int animalID) throws SQLException {
         ArrayList<Note> notes = new ArrayList<>();
         try {
-            ResultSet results = this.noteRepository.listAllNotesByAnimal(index);
+            ResultSet results = this.noteRepository.listAllNotesByAnimal(animalID);
             while (results.next()) {
                 Note note = new Note(
                         results.getInt("noteid"),
@@ -135,13 +139,8 @@ public class AnimalsService {
         return notes;
     }
 
-    //remove note from note table associate with animal
-    protected void removeNote(int noteid) throws SQLException {
-        this.noteRepository.removeNote(noteid);
-    }
-
-    //remove ALL notes from note table associated with an animal (preparation to delete animal)
-    protected void removeAllNotesByAnimal(Animal animal) throws SQLException {
+    //remove ALL notes associated with an animal from note table
+    protected void removeAllAnimalNotesWithID(Animal animal) throws SQLException {
         try {
             ResultSet results = this.noteRepository.listAllNotesByAnimal(animal);
             while(results.next()) {
@@ -152,11 +151,11 @@ public class AnimalsService {
         }
     }
 
-    //get all types from type lookup table
-    protected ArrayList<String> getTypesALL() throws SQLException {
+    //get all types from the type lookup table
+    protected ArrayList<String> getAllTypes() throws SQLException {
         ArrayList<String> types = new ArrayList<>();
         try {
-            ResultSet results = this.animalRepository.getTypes();
+            ResultSet results = this.animalRepository.getAllTypes();
             while (results.next()) {
                 types.add(results.getString("typeName"));
             }
@@ -166,19 +165,19 @@ public class AnimalsService {
         return types;
     }
 
-    //get typeID from lookup table
-    protected int getTypeID(String string) throws SQLException {
-        return animalRepository.getTypeID(string);
-    }
-
-    //add type to type lookup table
+    //add a type to the type lookup table
     protected void addType(String type) throws SQLException {
         this.animalRepository.addType(type);
     }
 
+    //get typeID from lookup table, given the name of the type
+    protected int getTypeIDByName(String string) throws SQLException {
+        return animalRepository.getTypeIDByName(string);
+    }
+
     //supporting private functions
-    //cycle through a resultSet and return an ArrayList of Animals (sans notes)
-    private ArrayList<Animal> populateList(ResultSet results) throws SQLException {
+    //cycle through a given resultSet and return an ArrayList of Animals (sans notes)
+    private ArrayList<Animal> populateAnimalResultsAsList(ResultSet results) throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
         while (results.next()) {
             Animal animal = new Animal(
@@ -188,7 +187,7 @@ public class AnimalsService {
                     results.getString("breed"),
                     results.getString("description"),
                     results.getInt("type"),
-                    this.animalRepository.getType(results.getInt("type"))
+                    this.animalRepository.getTypeNameByID(results.getInt("type"))
             );
             animals.add(animal);
         }

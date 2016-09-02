@@ -9,11 +9,8 @@ import java.time.format.FormatStyle;
 
 public class Note {
     //object properties
-    //the ID of the note in the database
     private int noteID = -1;
-    //the text of the note, which cannot be null
     private String noteContent;
-    //date and time note was created, which is automatically populated
     private LocalDate noteCreationDate;
 
     //constructors
@@ -22,16 +19,13 @@ public class Note {
 
     //constructor for note (date set automatically to NOW)
     //used when creating a new Note from within AnimalShelter program
-    //SQL format yyyy-mm-dd
-    public Note(int noteID, String noteContent) {
-        this.noteID = noteID;
+    public Note(String noteContent) {
         this.noteContent = noteContent;
         this.noteCreationDate = LocalDate.now();
     }
 
     //constructor for note (date read from table)
     //used when reading an existing Note from the note table
-    //SQL format yyyy-mm-dd
     public Note(int noteID, String noteContent, String date) {
         this.noteID = noteID;
         this.noteContent = noteContent;
@@ -41,6 +35,16 @@ public class Note {
 
     //methods
     //getters
+    //SQL format yyyy-mm-dd
+    protected LocalDate getNoteCreationDateAsLocalDate() {
+        return this.noteCreationDate;
+    }
+
+    protected String getNoteCreationDateAsString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        return this.noteCreationDate.format(formatter);
+    }
+
     protected String getNoteContent() {
         return this.noteContent;
     }
@@ -49,15 +53,6 @@ public class Note {
         return this.noteID;
     }
 
-    protected String getNoteCreationDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
-        return this.noteCreationDate.format(formatter);
-    }
-
-    protected String getNoteCreationDateSQL() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return this.noteCreationDate.format(formatter);
-    }
     //setters
     protected void setNoteContent(String noteContent) {
         this.noteContent = noteContent;

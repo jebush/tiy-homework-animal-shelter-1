@@ -17,17 +17,17 @@ public class AnimalRepository {
 
     //methods
     //return ResultSet of animals in animal table (ALL)
-    protected ResultSet listAnimalsAll() throws SQLException {
+    protected ResultSet listAllAnimals() throws SQLException {
         Statement stmt = this.conn.createStatement();
         return stmt.executeQuery("SELECT * FROM animal");
     }
 
-    //TODO - better to use join?
+    //TODO (FUTURE): Use JOIN
     //return ResultSet of animals in animal table (by type, String)
-    protected ResultSet listAnimalsByType(String type) throws SQLException {
+    protected ResultSet listAllAnimalsByType(String type) throws SQLException {
         //Parameter/Sanitized SQL query
         //perform lookup on type table for typeID
-        int typeID = getTypeID(type);
+        int typeID = getTypeIDByName(type);
         //perform lookup on animal table for animals with typeID for provided type
         PreparedStatement stmt2 = this.conn.prepareStatement("SELECT * FROM animal WHERE type = ?");
         stmt2.setInt(1, typeID);
@@ -35,7 +35,7 @@ public class AnimalRepository {
     }
 
     //return ResultSet of animals in animal table (by name, Substring)
-    protected ResultSet listAnimalsByName(String name) throws SQLException {
+    protected ResultSet listAllAnimalsByName(String name) throws SQLException {
         //Parameter/Sanitized SQL query
         //perform lookup on animal table for animals containing provided substring
         PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE upper(name) LIKE ?");
@@ -45,7 +45,7 @@ public class AnimalRepository {
     }
 
     //return ResultSet of animals in animal table (by name, Substring)
-    protected ResultSet listAnimalsByID(int animalID) throws SQLException {
+    protected ResultSet listAllAnimalsByID(int animalID) throws SQLException {
         //Parameter/Sanitized SQL query
         //perform lookup on animal table for animals containing provided substring
         PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalid = ?");
@@ -65,20 +65,20 @@ public class AnimalRepository {
         stmt.executeUpdate();
     }
 
-    //get animal from specified index in animal table
-    protected ResultSet getAnimal(int index) throws SQLException{
-        //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalid = ?");
-        stmt.setInt(1, index);
-        return stmt.executeQuery();
-    }
-
     //remove animal from specified index in animal table
     protected void removeAnimal(int index) throws SQLException {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM animal WHERE animalid = ?");
         stmt.setInt(1, index);
         stmt.executeUpdate();
+    }
+
+    //get animal from specified index in animal table
+    protected ResultSet getAnimal(int index) throws SQLException{
+        //Parameter/Sanitized SQL query
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalid = ?");
+        stmt.setInt(1, index);
+        return stmt.executeQuery();
     }
 
     //update animal at specified index in animal table
@@ -89,9 +89,15 @@ public class AnimalRepository {
         stmt.setString(2, animal.getSpecies());
         stmt.setString(3, animal.getBreed());
         stmt.setString(4, animal.getDescription());
-        stmt.setInt(5, getTypeID(animal.getType()));
+        stmt.setInt(5, getTypeIDByName(animal.getType()));
         stmt.setInt(6, animal.getAnimalID());
         stmt.executeUpdate();
+    }
+
+    //return ResultSet of types in type table (ALL, Alphabetical organized)
+    public ResultSet getAllTypes() throws SQLException {
+        Statement stmt = this.conn.createStatement();
+        return stmt.executeQuery("SELECT typeName FROM type ORDER BY typename ASC");
     }
 
     //add animal type to type table
@@ -102,8 +108,16 @@ public class AnimalRepository {
         stmt.executeUpdate();
     }
 
+    //remove animal type from specified index in type table
+    protected void removeType(int index) throws SQLException {
+        //Parameter/Sanitized SQL query
+        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM type WHERE typeid = ?");
+        stmt.setInt(1, index);
+        stmt.executeUpdate();
+    }
+
     //get animal type from specified index in type table (index from type table --> String type name)
-    protected String getType(int index) throws SQLException{
+    protected String getTypeNameByID(int index) throws SQLException{
         String returnString = "";
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("SELECT typename FROM type WHERE typeid = ?");
@@ -116,7 +130,7 @@ public class AnimalRepository {
     }
 
     //get animal type from specified index in type table (String type in table --> int typeid from type table)
-    protected int getTypeID(String type) throws SQLException{
+    protected int getTypeIDByName(String type) throws SQLException{
         int returnInt = -1;
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM type WHERE upper(typeName) = ?");
@@ -129,14 +143,6 @@ public class AnimalRepository {
         return returnInt;
     }
 
-    //remove animal type from specified index in type table
-    protected void removeType(int index) throws SQLException {
-        //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM type WHERE typeid = ?");
-        stmt.setInt(1, index);
-        stmt.executeUpdate();
-    }
-
     //update animal type at specified index in type table
     protected void updateType(int index, String type) throws SQLException {
         //Parameter/Sanitized SQL query
@@ -144,11 +150,5 @@ public class AnimalRepository {
         stmt.setString(1, type);
         stmt.setInt(2, index);
         stmt.executeUpdate();
-    }
-
-    //return ResultSet of types in type table (ALL, Alphabetical organized)
-    public ResultSet getTypes() throws SQLException {
-        Statement stmt = this.conn.createStatement();
-        return stmt.executeQuery("SELECT typeName FROM type ORDER BY typename ASC");
     }
 }

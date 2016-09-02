@@ -23,14 +23,14 @@ public class Main {
         AnimalsService animalsService = new AnimalsService(dataRepo, noteRepo);
         MenuService menu = new MenuService();
 
-        //console-based menu system driven via while loop
+        //console-based menu system driven via while loop (always true)
         while(true) {
             //display main menu to user, prompt for selection
             int action = menu.promptForMainMenuSelection();
 
             //call appropriate menu method based on user selection
             if(action == MenuService.ADD_ANIMAL) {
-                Animal newAnimal = menu.addNewAnimal(animalsService.getTypesALL());
+                Animal newAnimal = menu.addNewAnimal(animalsService.getAllTypes());
                 animalsService.addAnimal(newAnimal);
             } else if(action == MenuService.MANAGE_ANIMAL) {
                 menu.manageAnimal(animalsService);

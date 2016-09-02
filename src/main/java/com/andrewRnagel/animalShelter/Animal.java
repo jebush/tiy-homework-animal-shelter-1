@@ -1,6 +1,6 @@
 package com.andrewRnagel.animalShelter;
-import java.util.ArrayList;
 import static java.lang.String.format;
+import java.util.ArrayList;
 
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:30 PM EST.
@@ -8,11 +8,8 @@ import static java.lang.String.format;
 
 public class Animal {
     //object properties
-    //core attributes of any com.andrewRnagel.Animal object
     private String name, species, breed, description, type;
-    //the id is the primary key value assigned by the main animal table, and id for animalTypeID from types lookup table
     private int animalID = -1, animalTypeID = -1;
-    //the ArrayList that holds notes for this animal
     private ArrayList<Note> animalNotes = new ArrayList<>();
 
     //constructors
@@ -65,10 +62,10 @@ public class Animal {
             //iterate through and generate string
             for(int i = 0; i < getAnimalNotes().size(); i++) {
                 if(i == 0){
-                    String noteOne = getAnimalNotes().get(0).getNoteCreationDate().toString() + ": " + getAnimalNotes().get(0).getNoteContent();
+                    String noteOne = getAnimalNotes().get(0).getNoteCreationDateAsString().toString() + ": " + getAnimalNotes().get(0).getNoteContent();
                     animalNotes = String.format("%-12s %-64s\n", "Notes:", noteOne);
                 } else {
-                    String noteNow = getAnimalNotes().get(i).getNoteCreationDate().toString() + ": " + getAnimalNotes().get(i).getNoteContent();
+                    String noteNow = getAnimalNotes().get(i).getNoteCreationDateAsString().toString() + ": " + getAnimalNotes().get(i).getNoteContent();
                     String currentNote = String.format("%-12s %-64s\n", "", noteNow);
                     animalNotes = animalNotes + currentNote;
                 }

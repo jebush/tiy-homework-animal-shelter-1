@@ -31,10 +31,10 @@ public class NoteRepository {
     }
 
     //return ResultSet of notes for specific animal in note table by index
-    protected ResultSet listAllNotesByAnimal(int index) throws SQLException {
+    protected ResultSet listAllNotesByAnimal(int animalID) throws SQLException {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM note WHERE animal = ?");
-        stmt.setInt(1, index);
+        stmt.setInt(1, animalID);
         return stmt.executeQuery();
     }
 
@@ -42,18 +42,10 @@ public class NoteRepository {
     protected void addAnimalNote(Animal animal, Note note) throws SQLException{
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("INSERT INTO note (animal, date, text) VALUES (?, ?, ?)");
-        stmt.setString(1, Integer.toString(animal.getAnimalID()));
-        stmt.setString(2, note.getNoteCreationDateSQL());
+        stmt.setInt(1, animal.getAnimalID());
+        stmt.setDate(2, Date.valueOf(note.getNoteCreationDateAsLocalDate()));
         stmt.setString(3, note.getNoteContent());
         stmt.executeUpdate();
-    }
-
-    //get note from note table
-    protected ResultSet getAnimalNote(int noteid) throws SQLException {
-        //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM note WHERE noteid = ?");
-        stmt.setString(1, Integer.toString(noteid));
-        return stmt.executeQuery();
     }
 
     //remove an animal note from the note table
@@ -74,5 +66,13 @@ public class NoteRepository {
         PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM note WHERE noteid = ?");
         stmt.setInt(1, noteid);
         stmt.executeUpdate();
+    }
+
+    //get note from note table
+    protected ResultSet getAnimalNote(int noteid) throws SQLException {
+        //Parameter/Sanitized SQL query
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM note WHERE noteid = ?");
+        stmt.setString(1, Integer.toString(noteid));
+        return stmt.executeQuery();
     }
 }

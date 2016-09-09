@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a62c1605-2178-4b81-833e-a9a8ae803261" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Animal.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Animal.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/Animal.class" afterPath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/Animal.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/AnimalRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/AnimalRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/AnimalsService.class" afterPath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/AnimalsService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/Main.class" afterPath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/MenuService.class" afterPath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/MenuService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/Note.class" afterPath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/Note.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/NoteRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/andrewRnagel/animalShelter/NoteRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Note.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Note.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/NoteRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/NoteRepository.java" />
     </list>
     <ignored path="tiy-homework-animal-shelter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,48 +35,6 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PostgreSQL - animalshelter@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PostgreSQL - animalshelter@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$GroupNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="type" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PostgreSQL - animalshelter@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$GroupNode" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -81,6 +42,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Main.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -128,8 +99,8 @@
       <file leaf-file-name="MenuService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+            <state relative-caret-position="270">
+              <caret line="311" column="93" selection-start-line="311" selection-start-column="93" selection-end-line="311" selection-end-column="93" />
               <folding>
                 <element signature="docComment;class#MenuService#0" expanded="false" />
                 <element signature="method#promptForMainMenuSelection#0;class#MenuService#0" expanded="false" />
@@ -165,7 +136,7 @@
       <file leaf-file-name="AnimalsService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
+            <state relative-caret-position="585">
               <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#AnimalsService#0" expanded="false" />
@@ -194,16 +165,18 @@
       <file leaf-file-name="AnimalRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="152" column="5" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+            <state relative-caret-position="122">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#AnimalRepository#0" expanded="false" />
                 <element signature="method#AnimalRepository#0;class#AnimalRepository#0" expanded="false" />
                 <element signature="method#listAllAnimals#0;class#AnimalRepository#0" expanded="false" />
                 <element signature="method#listAllAnimalsByType#0;class#AnimalRepository#0" expanded="false" />
-                <element signature="e#840#871#0" expanded="false" />
+                <element signature="e#857#888#0" expanded="false" />
                 <element signature="method#listAllAnimalsByName#0;class#AnimalRepository#0" expanded="false" />
+                <element signature="e#1403#1434#0" expanded="false" />
                 <element signature="method#listAllAnimalsByID#0;class#AnimalRepository#0" expanded="false" />
+                <element signature="e#1909#1940#0" expanded="false" />
                 <element signature="method#addAnimal#0;class#AnimalRepository#0" expanded="false" />
                 <element signature="method#removeAnimal#0;class#AnimalRepository#0" expanded="false" />
                 <element signature="method#getAnimal#0;class#AnimalRepository#0" expanded="false" />
@@ -214,26 +187,26 @@
                 <element signature="method#getTypeNameByID#0;class#AnimalRepository#0" expanded="false" />
                 <element signature="method#getTypeIDByName#0;class#AnimalRepository#0" expanded="false" />
                 <element signature="method#updateType#0;class#AnimalRepository#0" expanded="false" />
-                <marker date="1472849905000" expanded="false" signature="623:643" ph="SELECT * FRO... animal" />
-                <marker date="1472849905000" expanded="false" signature="1111:1138" ph="SELECT * FRO... animal" />
-                <marker date="1472849905000" expanded="false" signature="1111:1146" ph="SELECT * FRO... animal" />
-                <marker date="1472849905000" expanded="true" signature="1562:1607" ph="SELECT * FRO... animal" />
-                <marker date="1472849905000" expanded="true" signature="2068:2107" ph="SELECT * FRO... animal" />
-                <marker date="1472849905000" expanded="false" signature="2387:2447" ph="INSERT INTO animal... " />
-                <marker date="1472849905000" expanded="false" signature="2387:2456" ph="INSERT INTO animal... " />
-                <marker date="1472849905000" expanded="false" signature="2387:2469" ph="INSERT INTO animal... " />
-                <marker date="1472849905000" expanded="false" signature="2387:2470" ph="INSERT INTO animal... " />
-                <marker date="1472849905000" expanded="false" signature="2387:2472" ph="INSERT INTO animal... " />
-                <marker date="1472849905000" expanded="true" signature="2975:3012" ph="DELETE FROM " />
-                <marker date="1472849905000" expanded="true" signature="3305:3344" ph="SELECT * FRO... animal" />
-                <marker date="1472849905000" expanded="true" signature="3658:3685" ph="UPDATE anima... " />
-                <marker date="1472849905000" expanded="true" signature="3658:3754" ph="UPDATE anima... " />
-                <marker date="1472849905000" expanded="true" signature="4312:4359" ph="SELECT typeN... type" />
-                <marker date="1472849905000" expanded="false" signature="4569:4607" ph="INSERT INTO type... " />
-                <marker date="1472849905000" expanded="true" signature="4905:4938" ph="DELETE FROM " />
-                <marker date="1472849905000" expanded="true" signature="5316:5358" ph="SELECT * FRO... type" />
-                <marker date="1472849905000" expanded="false" signature="5880:5924" ph="SELECT * FRO... type" />
-                <marker date="1472849905000" expanded="false" signature="6425:6470" ph="UPDATE type " />
+                <marker date="1473165665000" expanded="false" signature="670:690" ph="SELECT * FRO... animal" />
+                <marker date="1473165665000" expanded="false" signature="1128:1155" ph="SELECT * FRO... animal" />
+                <marker date="1473165665000" expanded="false" signature="1128:1163" ph="SELECT * FRO... animal" />
+                <marker date="1473165665000" expanded="false" signature="1579:1624" ph="SELECT * FRO... animal" />
+                <marker date="1473165665000" expanded="false" signature="2085:2124" ph="SELECT * FRO... animal" />
+                <marker date="1473165665000" expanded="false" signature="2404:2464" ph="INSERT INTO animal... " />
+                <marker date="1473165665000" expanded="false" signature="2404:2473" ph="INSERT INTO animal... " />
+                <marker date="1473165665000" expanded="false" signature="2404:2486" ph="INSERT INTO animal... " />
+                <marker date="1473165665000" expanded="false" signature="2404:2487" ph="INSERT INTO animal... " />
+                <marker date="1473165665000" expanded="false" signature="2404:2489" ph="INSERT INTO animal... " />
+                <marker date="1473165665000" expanded="false" signature="2992:3029" ph="DELETE FROM " />
+                <marker date="1473165665000" expanded="false" signature="3322:3361" ph="SELECT * FRO... animal" />
+                <marker date="1473165665000" expanded="false" signature="3675:3702" ph="UPDATE anima... " />
+                <marker date="1473165665000" expanded="false" signature="3675:3771" ph="UPDATE anima... " />
+                <marker date="1473165665000" expanded="false" signature="4329:4376" ph="SELECT typeN... type" />
+                <marker date="1473165665000" expanded="false" signature="4586:4624" ph="INSERT INTO type... " />
+                <marker date="1473165665000" expanded="false" signature="4922:4955" ph="DELETE FROM " />
+                <marker date="1473165665000" expanded="false" signature="5333:5375" ph="SELECT * FRO... type" />
+                <marker date="1473165665000" expanded="false" signature="5897:5941" ph="SELECT * FRO... type" />
+                <marker date="1473165665000" expanded="false" signature="6442:6487" ph="UPDATE type " />
               </folding>
             </state>
           </provider>
@@ -258,11 +231,11 @@
                 <element signature="method#getAnimalNote#0;class#NoteRepository#0" expanded="false" />
                 <marker date="1472849967000" expanded="false" signature="627:645" ph="SELECT * FRO... note" />
                 <marker date="1472849967000" expanded="false" signature="915:950" ph="SELECT * FRO... note" />
-                <marker date="1472849967000" expanded="true" signature="1300:1335" ph="SELECT * FRO... note" />
-                <marker date="1472849967000" expanded="true" signature="1626:1680" ph="INSERT INTO note... " />
+                <marker date="1472849967000" expanded="false" signature="1300:1335" ph="SELECT * FRO... note" />
+                <marker date="1472849967000" expanded="false" signature="1626:1680" ph="INSERT INTO note... " />
                 <marker date="1472849967000" expanded="false" signature="2151:2184" ph="DELETE FROM " />
                 <marker date="1472849967000" expanded="false" signature="2594:2627" ph="DELETE FROM " />
-                <marker date="1472849967000" expanded="true" signature="2904:2939" ph="SELECT * FRO... note" />
+                <marker date="1472849967000" expanded="false" signature="2904:2939" ph="SELECT * FRO... note" />
               </folding>
             </state>
           </provider>
@@ -303,10 +276,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Animal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Note.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/NoteRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java" />
       </list>
     </option>
   </component>
@@ -339,9 +312,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="340" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="512" />
+    <option name="height" value="829" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -368,12 +341,103 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="animalShelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiy-homework-animal-shelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="animalShelter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,7 +445,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tiy-homework-movie-database" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
   </component>
@@ -902,12 +966,13 @@
       <option name="presentableId" value="Default" />
       <updated>1472580859861</updated>
       <workItem from="1472580861111" duration="762000" />
-      <workItem from="1472581650321" duration="76240000" />
+      <workItem from="1472581650321" duration="80929000" />
+      <workItem from="1473435770955" duration="1138000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77002000" />
+    <option name="totallyTimeSpent" value="82829000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -919,7 +984,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="340" width="1440" height="512" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="829" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -930,15 +995,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32741117" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36990154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6666667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32741117" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11516452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11444921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11731044" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -949,6 +1013,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1004,209 +1069,35 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#2;class#Animal#0" expanded="false" />
-            <element signature="method#Animal#3;class#Animal#0" expanded="false" />
-            <element signature="method#toString#0;class#Animal#0" expanded="false" />
-            <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="39" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9225bd65-5b73-471b-b583-838fbc7bfa86/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.SCHEMA:animalshelter.public">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.SCHEMA:animalshelter.public</OriginalElement>
-          <nodes>
-            <node x="" y="">bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.TABLE:animalshelter.public.animal</node>
-            <node x="" y="">bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.TABLE:animalshelter.public.types</node>
-            <node x="" y="">bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.TABLE:animalshelter.public.notes</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="205.5" y="162.5" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/9e1ff354/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/animalshelter.public.types">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalServiceJDBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="62" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepositoryFunctions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuServiceJDBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalJDBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/andrewRnagel/animalShelter/ClassTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/andrewRnagel/animalShelter/AnimalsServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="30" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/andrewRnagel/animalShelter/AnimalTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="180">
           <caret line="12" column="13" selection-start-line="0" selection-start-column="2" selection-end-line="225" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/9.4.1208.jre7/postgresql-9.4.1208.jre7.jar!/org/postgresql/jdbc/PgPreparedStatement.class">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/andrewRnagel/animalShelter/AnimalsServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="0" selection-end-line="187" selection-end-column="1" />
+        <state relative-caret-position="255">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalTypeRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/9e1ff354/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/animalshelter.public.type">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Main#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1238,35 +1129,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/9e1ff354/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/animalshelter.public.animal">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/9e1ff354/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/animalshelter.public.note">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
+        <state relative-caret-position="315">
           <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
           <folding>
             <element signature="docComment;class#MenuService#0" expanded="false" />
@@ -1299,55 +1164,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="152" column="5" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#AnimalRepository#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#listAllAnimals#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#listAllAnimalsByType#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="e#840#871#0" expanded="false" />
-            <element signature="method#listAllAnimalsByName#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#listAllAnimalsByID#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#addAnimal#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#removeAnimal#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#getAnimal#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#updateAnimal#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#getAllTypes#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#addType#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#removeType#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#getTypeNameByID#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#getTypeIDByName#0;class#AnimalRepository#0" expanded="false" />
-            <element signature="method#updateType#0;class#AnimalRepository#0" expanded="false" />
-            <marker date="1472849905000" expanded="false" signature="623:643" ph="SELECT * FRO... animal" />
-            <marker date="1472849905000" expanded="false" signature="1111:1138" ph="SELECT * FRO... animal" />
-            <marker date="1472849905000" expanded="false" signature="1111:1146" ph="SELECT * FRO... animal" />
-            <marker date="1472849905000" expanded="true" signature="1562:1607" ph="SELECT * FRO... animal" />
-            <marker date="1472849905000" expanded="true" signature="2068:2107" ph="SELECT * FRO... animal" />
-            <marker date="1472849905000" expanded="false" signature="2387:2447" ph="INSERT INTO animal... " />
-            <marker date="1472849905000" expanded="false" signature="2387:2456" ph="INSERT INTO animal... " />
-            <marker date="1472849905000" expanded="false" signature="2387:2469" ph="INSERT INTO animal... " />
-            <marker date="1472849905000" expanded="false" signature="2387:2470" ph="INSERT INTO animal... " />
-            <marker date="1472849905000" expanded="false" signature="2387:2472" ph="INSERT INTO animal... " />
-            <marker date="1472849905000" expanded="true" signature="2975:3012" ph="DELETE FROM " />
-            <marker date="1472849905000" expanded="true" signature="3305:3344" ph="SELECT * FRO... animal" />
-            <marker date="1472849905000" expanded="true" signature="3658:3685" ph="UPDATE anima... " />
-            <marker date="1472849905000" expanded="true" signature="3658:3754" ph="UPDATE anima... " />
-            <marker date="1472849905000" expanded="true" signature="4312:4359" ph="SELECT typeN... type" />
-            <marker date="1472849905000" expanded="false" signature="4569:4607" ph="INSERT INTO type... " />
-            <marker date="1472849905000" expanded="true" signature="4905:4938" ph="DELETE FROM " />
-            <marker date="1472849905000" expanded="true" signature="5316:5358" ph="SELECT * FRO... type" />
-            <marker date="1472849905000" expanded="false" signature="5880:5924" ph="SELECT * FRO... type" />
-            <marker date="1472849905000" expanded="false" signature="6425:6470" ph="UPDATE type " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
+        <state relative-caret-position="855">
           <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#AnimalsService#0" expanded="false" />
@@ -1372,6 +1191,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#AnimalRepository#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#listAllAnimals#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#listAllAnimalsByType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#857#888#0" expanded="false" />
+            <element signature="method#listAllAnimalsByName#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#1403#1434#0" expanded="false" />
+            <element signature="method#listAllAnimalsByID#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#1909#1940#0" expanded="false" />
+            <element signature="method#addAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#removeAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#updateAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getAllTypes#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#addType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#removeType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getTypeNameByID#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getTypeIDByName#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#updateType#0;class#AnimalRepository#0" expanded="false" />
+            <marker date="1473165665000" expanded="false" signature="670:690" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1128:1155" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1128:1163" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1579:1624" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="2085:2124" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="2404:2464" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2473" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2486" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2487" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2489" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2992:3029" ph="DELETE FROM " />
+            <marker date="1473165665000" expanded="false" signature="3322:3361" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="3675:3702" ph="UPDATE anima... " />
+            <marker date="1473165665000" expanded="false" signature="3675:3771" ph="UPDATE anima... " />
+            <marker date="1473165665000" expanded="false" signature="4329:4376" ph="SELECT typeN... type" />
+            <marker date="1473165665000" expanded="false" signature="4586:4624" ph="INSERT INTO type... " />
+            <marker date="1473165665000" expanded="false" signature="4922:4955" ph="DELETE FROM " />
+            <marker date="1473165665000" expanded="false" signature="5333:5375" ph="SELECT * FRO... type" />
+            <marker date="1473165665000" expanded="false" signature="5897:5941" ph="SELECT * FRO... type" />
+            <marker date="1473165665000" expanded="false" signature="6442:6487" ph="UPDATE type " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/NoteRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1390,11 +1257,488 @@
             <element signature="method#getAnimalNote#0;class#NoteRepository#0" expanded="false" />
             <marker date="1472849967000" expanded="false" signature="627:645" ph="SELECT * FRO... note" />
             <marker date="1472849967000" expanded="false" signature="915:950" ph="SELECT * FRO... note" />
-            <marker date="1472849967000" expanded="true" signature="1300:1335" ph="SELECT * FRO... note" />
-            <marker date="1472849967000" expanded="true" signature="1626:1680" ph="INSERT INTO note... " />
+            <marker date="1472849967000" expanded="false" signature="1300:1335" ph="SELECT * FRO... note" />
+            <marker date="1472849967000" expanded="false" signature="1626:1680" ph="INSERT INTO note... " />
             <marker date="1472849967000" expanded="false" signature="2151:2184" ph="DELETE FROM " />
             <marker date="1472849967000" expanded="false" signature="2594:2627" ph="DELETE FROM " />
-            <marker date="1472849967000" expanded="true" signature="2904:2939" ph="SELECT * FRO... note" />
+            <marker date="1472849967000" expanded="false" signature="2904:2939" ph="SELECT * FRO... note" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Main#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;class#MenuService#0" expanded="false" />
+            <element signature="method#promptForMainMenuSelection#0;class#MenuService#0" expanded="false" />
+            <element signature="method#addNewAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#manageAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="e#1892#1945#0" expanded="false" />
+            <element signature="method#manageTypes#0;class#MenuService#0" expanded="false" />
+            <element signature="method#quitProgram#0;class#MenuService#0" expanded="false" />
+            <element signature="method#listTypesAsString#0;class#MenuService#0" expanded="false" />
+            <element signature="method#searchAnimals#0;class#MenuService#0" expanded="false" />
+            <element signature="e#7476#7491#0" expanded="false" />
+            <element signature="method#printAnimalsReturnID#0;class#MenuService#0" expanded="false" />
+            <element signature="method#printAnimals#0;class#MenuService#0" expanded="false" />
+            <element signature="method#printAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#printManageAnimalMenu#0;class#MenuService#0" expanded="false" />
+            <element signature="method#deleteAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#editAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="e#12204#12276#0" expanded="false" />
+            <element signature="method#addNote#0;class#MenuService#0" expanded="false" />
+            <element signature="method#printTypes#0;class#MenuService#0" expanded="false" />
+            <element signature="method#normalizeString#0;class#MenuService#0" expanded="false" />
+            <element signature="method#waitForInt#0;class#MenuService#0" expanded="false" />
+            <element signature="method#waitForInt#1;class#MenuService#0" expanded="false" />
+            <element signature="method#requiredInput#0;class#MenuService#0" expanded="false" />
+            <element signature="method#requiredInputType#0;class#MenuService#0" expanded="false" />
+            <element signature="method#optionalInput#0;class#MenuService#0" expanded="false" />
+            <element signature="method#optionalInputRetainer#0;class#MenuService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#2;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#3;class#Animal#0" expanded="false" />
+            <element signature="method#toString#0;class#Animal#0" expanded="false" />
+            <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;class#AnimalsService#0" expanded="false" />
+            <element signature="method#AnimalsService#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#listAllAnimals#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#listAllAnimalsWithType#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#listAllAnimalsWithName#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#listAllAnimalsWithID#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#addAnimal#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#removeAnimal#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#getAnimal#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#updateAnimal#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#addNote#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#removeNote#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#getAllAnimalNotesWithID#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#removeAllAnimalNotesWithID#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#getAllTypes#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#addType#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#getTypeIDByName#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#populateAnimalResultsAsList#0;class#AnimalsService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="39" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+          <folding>
+            <element signature="docComment;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#AnimalRepository#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#listAllAnimals#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#listAllAnimalsByType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#857#888#0" expanded="false" />
+            <element signature="method#listAllAnimalsByName#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#1403#1434#0" expanded="false" />
+            <element signature="method#listAllAnimalsByID#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#1909#1940#0" expanded="false" />
+            <element signature="method#addAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#removeAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#updateAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getAllTypes#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#addType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#removeType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getTypeNameByID#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getTypeIDByName#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#updateType#0;class#AnimalRepository#0" expanded="false" />
+            <marker date="1473165665000" expanded="false" signature="670:690" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1128:1155" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1128:1163" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1579:1624" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="2085:2124" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="2404:2464" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2473" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2486" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2487" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2489" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2992:3029" ph="DELETE FROM " />
+            <marker date="1473165665000" expanded="false" signature="3322:3361" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="3675:3702" ph="UPDATE anima... " />
+            <marker date="1473165665000" expanded="false" signature="3675:3771" ph="UPDATE anima... " />
+            <marker date="1473165665000" expanded="false" signature="4329:4376" ph="SELECT typeN... type" />
+            <marker date="1473165665000" expanded="false" signature="4586:4624" ph="INSERT INTO type... " />
+            <marker date="1473165665000" expanded="false" signature="4922:4955" ph="DELETE FROM " />
+            <marker date="1473165665000" expanded="false" signature="5333:5375" ph="SELECT * FRO... type" />
+            <marker date="1473165665000" expanded="false" signature="5897:5941" ph="SELECT * FRO... type" />
+            <marker date="1473165665000" expanded="false" signature="6442:6487" ph="UPDATE type " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9225bd65-5b73-471b-b583-838fbc7bfa86/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.SCHEMA:animalshelter.public">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.SCHEMA:animalshelter.public</OriginalElement>
+          <nodes>
+            <node x="" y="">bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.TABLE:animalshelter.public.animal</node>
+            <node x="" y="">bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.TABLE:animalshelter.public.types</node>
+            <node x="" y="">bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9.TABLE:animalshelter.public.notes</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="206.0" y="163.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/9e1ff354/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/animalshelter.public.types">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalServiceJDBC.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepositoryFunctions.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuServiceJDBC.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
+          <folding>
+            <element signature="docComment;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#AnimalRepository#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#listAllAnimals#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#listAllAnimalsByType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#857#888#0" expanded="false" />
+            <element signature="method#listAllAnimalsByName#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#1403#1434#0" expanded="false" />
+            <element signature="method#listAllAnimalsByID#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#1909#1940#0" expanded="false" />
+            <element signature="method#addAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#removeAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#updateAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getAllTypes#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#addType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#removeType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getTypeNameByID#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getTypeIDByName#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#updateType#0;class#AnimalRepository#0" expanded="false" />
+            <marker date="1473165665000" expanded="false" signature="670:690" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1128:1155" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1128:1163" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1579:1624" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="2085:2124" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="2404:2464" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2473" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2486" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2487" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2489" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2992:3029" ph="DELETE FROM " />
+            <marker date="1473165665000" expanded="false" signature="3322:3361" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="3675:3702" ph="UPDATE anima... " />
+            <marker date="1473165665000" expanded="false" signature="3675:3771" ph="UPDATE anima... " />
+            <marker date="1473165665000" expanded="false" signature="4329:4376" ph="SELECT typeN... type" />
+            <marker date="1473165665000" expanded="false" signature="4586:4624" ph="INSERT INTO type... " />
+            <marker date="1473165665000" expanded="false" signature="4922:4955" ph="DELETE FROM " />
+            <marker date="1473165665000" expanded="false" signature="5333:5375" ph="SELECT * FRO... type" />
+            <marker date="1473165665000" expanded="false" signature="5897:5941" ph="SELECT * FRO... type" />
+            <marker date="1473165665000" expanded="false" signature="6442:6487" ph="UPDATE type " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalJDBC.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/andrewRnagel/animalShelter/ClassTest.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/9.4.1208.jre7/postgresql-9.4.1208.jre7.jar!/org/postgresql/jdbc/PgPreparedStatement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="0" selection-end-line="187" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalTypeRepository.java" />
+    <entry file="dbDummy://dbtable:/9e1ff354/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/animalshelter.public.type">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/9e1ff354/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/animalshelter.public.animal">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/9e1ff354/bc9e0b99-0cf9-4a4d-8cb5-453b4ca7e7f9/animalshelter.public.note">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/andrewRnagel/animalShelter/AnimalsServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/andrewRnagel/animalShelter/AnimalTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/NoteRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#NoteRepository#0" expanded="false" />
+            <element signature="method#NoteRepository#0;class#NoteRepository#0" expanded="false" />
+            <element signature="method#listAllNotes#0;class#NoteRepository#0" expanded="false" />
+            <element signature="method#listAllNotesByAnimal#0;class#NoteRepository#0" expanded="false" />
+            <element signature="method#listAllNotesByAnimal#1;class#NoteRepository#0" expanded="false" />
+            <element signature="method#addAnimalNote#0;class#NoteRepository#0" expanded="false" />
+            <element signature="method#removeNote#0;class#NoteRepository#0" expanded="false" />
+            <element signature="e#2015#2046#0" expanded="false" />
+            <element signature="method#removeNote#1;class#NoteRepository#0" expanded="false" />
+            <element signature="e#2392#2423#0" expanded="false" />
+            <element signature="method#getAnimalNote#0;class#NoteRepository#0" expanded="false" />
+            <marker date="1472849967000" expanded="false" signature="627:645" ph="SELECT * FRO... note" />
+            <marker date="1472849967000" expanded="false" signature="915:950" ph="SELECT * FRO... note" />
+            <marker date="1472849967000" expanded="false" signature="1300:1335" ph="SELECT * FRO... note" />
+            <marker date="1472849967000" expanded="false" signature="1626:1680" ph="INSERT INTO note... " />
+            <marker date="1472849967000" expanded="false" signature="2151:2184" ph="DELETE FROM " />
+            <marker date="1472849967000" expanded="false" signature="2594:2627" ph="DELETE FROM " />
+            <marker date="1472849967000" expanded="false" signature="2904:2939" ph="SELECT * FRO... note" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#AnimalsService#0" expanded="false" />
+            <element signature="method#AnimalsService#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#listAllAnimals#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#listAllAnimalsWithType#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#listAllAnimalsWithName#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#listAllAnimalsWithID#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#addAnimal#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#removeAnimal#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#getAnimal#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#updateAnimal#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#addNote#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#removeNote#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#getAllAnimalNotesWithID#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#removeAllAnimalNotesWithID#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#getAllTypes#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#addType#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#getTypeIDByName#0;class#AnimalsService#0" expanded="false" />
+            <element signature="method#populateAnimalResultsAsList#0;class#AnimalsService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/AnimalRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#AnimalRepository#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#listAllAnimals#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#listAllAnimalsByType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#857#888#0" expanded="false" />
+            <element signature="method#listAllAnimalsByName#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#1403#1434#0" expanded="false" />
+            <element signature="method#listAllAnimalsByID#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="e#1909#1940#0" expanded="false" />
+            <element signature="method#addAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#removeAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#updateAnimal#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getAllTypes#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#addType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#removeType#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getTypeNameByID#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#getTypeIDByName#0;class#AnimalRepository#0" expanded="false" />
+            <element signature="method#updateType#0;class#AnimalRepository#0" expanded="false" />
+            <marker date="1473165665000" expanded="false" signature="670:690" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1128:1155" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1128:1163" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="1579:1624" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="2085:2124" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="2404:2464" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2473" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2486" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2487" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2404:2489" ph="INSERT INTO animal... " />
+            <marker date="1473165665000" expanded="false" signature="2992:3029" ph="DELETE FROM " />
+            <marker date="1473165665000" expanded="false" signature="3322:3361" ph="SELECT * FRO... animal" />
+            <marker date="1473165665000" expanded="false" signature="3675:3702" ph="UPDATE anima... " />
+            <marker date="1473165665000" expanded="false" signature="3675:3771" ph="UPDATE anima... " />
+            <marker date="1473165665000" expanded="false" signature="4329:4376" ph="SELECT typeN... type" />
+            <marker date="1473165665000" expanded="false" signature="4586:4624" ph="INSERT INTO type... " />
+            <marker date="1473165665000" expanded="false" signature="4922:4955" ph="DELETE FROM " />
+            <marker date="1473165665000" expanded="false" signature="5333:5375" ph="SELECT * FRO... type" />
+            <marker date="1473165665000" expanded="false" signature="5897:5941" ph="SELECT * FRO... type" />
+            <marker date="1473165665000" expanded="false" signature="6442:6487" ph="UPDATE type " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/MenuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="311" column="93" selection-start-line="311" selection-start-column="93" selection-end-line="311" selection-end-column="93" />
+          <folding>
+            <element signature="docComment;class#MenuService#0" expanded="false" />
+            <element signature="method#promptForMainMenuSelection#0;class#MenuService#0" expanded="false" />
+            <element signature="method#addNewAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#manageAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="e#1892#1945#0" expanded="false" />
+            <element signature="method#manageTypes#0;class#MenuService#0" expanded="false" />
+            <element signature="method#quitProgram#0;class#MenuService#0" expanded="false" />
+            <element signature="method#listTypesAsString#0;class#MenuService#0" expanded="false" />
+            <element signature="method#searchAnimals#0;class#MenuService#0" expanded="false" />
+            <element signature="e#7476#7491#0" expanded="false" />
+            <element signature="method#printAnimalsReturnID#0;class#MenuService#0" expanded="false" />
+            <element signature="method#printAnimals#0;class#MenuService#0" expanded="false" />
+            <element signature="method#printAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#printManageAnimalMenu#0;class#MenuService#0" expanded="false" />
+            <element signature="method#deleteAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="method#editAnimal#0;class#MenuService#0" expanded="false" />
+            <element signature="e#12204#12276#0" expanded="false" />
+            <element signature="method#addNote#0;class#MenuService#0" expanded="false" />
+            <element signature="method#printTypes#0;class#MenuService#0" expanded="false" />
+            <element signature="method#normalizeString#0;class#MenuService#0" expanded="false" />
+            <element signature="method#waitForInt#0;class#MenuService#0" expanded="false" />
+            <element signature="method#waitForInt#1;class#MenuService#0" expanded="false" />
+            <element signature="method#requiredInput#0;class#MenuService#0" expanded="false" />
+            <element signature="method#requiredInputType#0;class#MenuService#0" expanded="false" />
+            <element signature="method#optionalInput#0;class#MenuService#0" expanded="false" />
+            <element signature="method#optionalInputRetainer#0;class#MenuService#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Note#0" expanded="false" />
+            <element signature="method#Note#1;class#Note#0" expanded="false" />
+            <element signature="method#Note#2;class#Note#0" expanded="false" />
+            <element signature="method#getNoteCreationDateAsString#0;class#Note#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/andrewRnagel/animalShelter/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#1;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#2;class#Animal#0" expanded="false" />
+            <element signature="method#Animal#3;class#Animal#0" expanded="false" />
+            <element signature="method#toString#0;class#Animal#0" expanded="false" />
+            <element signature="method#deserialize#0;class#Animal#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -317,12 +317,13 @@ public class MenuService {
         //cycle through five parameters, overwrite data with entry other than ""
         //TODO (FUTURE): Allow user to enter "" for type
         animal.setName(optionalInputRetainer(String.format("Name [%s]: ", animal.getName()), animal.getName()));
-        animal.setType(requiredInputType(String.format("Name [%s]: ", animal.getType()), animalsService.getAllTypes()));
+        animal.setType(requiredInputType(String.format("Type [%s]: ", animal.getType()), animalsService.getAllTypes()));
         animal.setSpecies(optionalInputRetainer(String.format("Species [%s]: ", animal.getSpecies()), animal.getSpecies()));
         animal.setBreed(optionalInputRetainer(String.format("Breed [%s]: ", animal.getBreed()), animal.getBreed()));
         animal.setDescription(optionalInputRetainer(String.format("Description [%s]: ", animal.getDescription()), animal.getDescription()));
         animalsService.updateAnimal(animal.getAnimalID(), animal);
         System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
+        System.out.println(animal.toString());
     }
 
     //add note record

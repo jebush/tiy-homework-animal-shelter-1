@@ -16,13 +16,13 @@ public class AnimalRepository {
     }
 
     //methods
+    //TODO (FUTURE): Use JOIN for Type Queries
     //return ResultSet of animals in animal table (ALL)
     protected ResultSet listAllAnimals() throws SQLException {
         Statement stmt = this.conn.createStatement();
         return stmt.executeQuery("SELECT * FROM animal");
     }
 
-    //TODO (FUTURE): Use JOIN
     //return ResultSet of animals in animal table (by type, String)
     protected ResultSet listAllAnimalsByType(String type) throws SQLException {
         //Parameter/Sanitized SQL query

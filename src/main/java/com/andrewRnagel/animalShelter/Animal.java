@@ -8,9 +8,10 @@ import java.util.ArrayList;
 
 public class Animal {
     //object properties
-    private String name, type, breed, description;
-    private int animalID = -1, animalTypeID = -1;
+    private String name, breed, description;
+    private int animalID = -1;
     private ArrayList<Note> animalNotes = new ArrayList<>();
+    private Type animalType = new Type();
 
     //constructors
     //default constructor
@@ -20,9 +21,9 @@ public class Animal {
     //used when creating a new Animal from within AnimalShelter program
     protected Animal(String name, String type, String breed, String desc) {
         this.name = name;
-        this.type = type;
         this.breed = breed;
         this.description = desc;
+        this.animalType.setType(type);
     }
 
     //constructor with breed(opt), including animal index and typeID
@@ -30,10 +31,10 @@ public class Animal {
     protected Animal(int animalID, String name, String type, String breed, String desc, int typeID) {
         this.animalID = animalID;
         this.name = name;
-        this.type = type;
         this.breed = breed;
         this.description = desc;
-        this.animalTypeID = typeID;
+        this.animalType.setType(type);
+        this.animalType.setTypeID(typeID);
     }
 
     //methods
@@ -42,7 +43,7 @@ public class Animal {
         String animalNotes = "";
         String animalStats = String.format("%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-64s\n",
                 "Name:", this.name,
-                "Type:", this.type,
+                "Type:", this.animalType.getType(),
                 "Breed (opt):", this.breed,
                 "Description:", this.description);
         if(this.getAnimalNotes().isEmpty()) {
@@ -79,7 +80,7 @@ public class Animal {
     }
 
     protected String getType() {
-        return this.type;
+        return this.animalType.getType();
     }
 
     protected int getAnimalID() {
@@ -87,7 +88,7 @@ public class Animal {
     }
 
     protected int getAnimalTypeID() {
-        return this.animalTypeID;
+        return this.animalType.getTypeID();
     }
 
     protected ArrayList<Note> getAnimalNotes() {
@@ -108,7 +109,7 @@ public class Animal {
     }
 
     protected void setType(String type) {
-        this.type = type;
+        this.animalType.setType(type);
     }
 
     protected void setAnimalID(int animalID) {
@@ -116,7 +117,7 @@ public class Animal {
     }
 
     protected void setAnimalTypeID(int animalTypeID) {
-        this.animalTypeID = animalTypeID;
+        this.animalType.setTypeID(animalTypeID);
     }
 
     protected void setAnimalNotes(ArrayList<Note> animalNotes) {
@@ -125,7 +126,7 @@ public class Animal {
 
     //legacy disk serialization operations
     protected String serialize() {
-        return format("%s|%s|%s|%s\n", name, type, breed, description);
+        return format("%s|%s|%s|%s\n", name, animalType.getType(), breed, description);
     }
 
     protected static Animal deserialize(String data){

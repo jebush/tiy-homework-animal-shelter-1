@@ -15,18 +15,18 @@ public class Note {
 
     //constructors
     //default constructor
-    public Note() {}
+    protected Note() {}
 
     //constructor for note (date set automatically to NOW)
     //used when creating a new Note from within AnimalShelter program
-    public Note(String noteContent) {
+    protected Note(String noteContent) {
         this.noteContent = noteContent;
         this.noteCreationDate = LocalDate.now();
     }
 
     //constructor for note (date read from table)
     //used when reading an existing Note from the note table
-    public Note(int noteID, String noteContent, String date) {
+    protected Note(int noteID, String noteContent, String date) {
         this.noteID = noteID;
         this.noteContent = noteContent;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

@@ -90,7 +90,7 @@ public class AnimalsService {
         try {
             ResultSet results = this.animalRepository.getAnimal(index);
             while (results.next()) {
-                animal.setAnimalID(results.getInt("animalid"));
+                animal.setAnimalID(results.getInt("animalID"));
                 animal.setName(results.getString("name"));
                 animal.setBreed(results.getString("breed"));
                 animal.setDescription(results.getString("description"));
@@ -126,7 +126,7 @@ public class AnimalsService {
             ResultSet results = this.noteRepository.listAllNotesByAnimal(animalID);
             while (results.next()) {
                 Note note = new Note(
-                        results.getInt("noteid"),
+                        results.getInt("noteID"),
                         results.getString("text"),
                         results.getString("date")
                 );
@@ -143,7 +143,7 @@ public class AnimalsService {
         try {
             ResultSet results = this.noteRepository.listAllNotesByAnimal(animal);
             while(results.next()) {
-                this.noteRepository.removeNote(animal, results.getInt("noteid"));
+                this.noteRepository.removeNote(animal, results.getInt("noteID"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -180,7 +180,7 @@ public class AnimalsService {
         ArrayList<Animal> animals = new ArrayList<>();
         while (results.next()) {
             Animal animal = new Animal(
-                    results.getInt("animalid"),
+                    results.getInt("animalID"),
                     results.getString("name"),
                     this.animalRepository.getTypeNameByID(results.getInt("type")),
                     results.getString("breed"),

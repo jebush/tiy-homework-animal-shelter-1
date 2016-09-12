@@ -51,10 +51,12 @@ public class Animal {
             //iterate through and generate string
             for(int i = 0; i < getAnimalNotes().size(); i++) {
                 if(i == 0){
-                    String noteOne = getAnimalNotes().get(0).getNoteCreationDateAsString().toString() + ": " + getAnimalNotes().get(0).getNoteContent();
+                    String noteOne = getAnimalNotes().get(0).getNoteCreationDateAsString().toString() + ": "
+                            + getAnimalNotes().get(0).getNoteContent();
                     animalNotes = String.format("%-12s %-64s\n", "Notes:", noteOne);
                 } else {
-                    String noteNow = getAnimalNotes().get(i).getNoteCreationDateAsString().toString() + ": " + getAnimalNotes().get(i).getNoteContent();
+                    String noteNow = getAnimalNotes().get(i).getNoteCreationDateAsString().toString() + ": "
+                            + getAnimalNotes().get(i).getNoteContent();
                     String currentNote = String.format("%-12s %-64s\n", "", noteNow);
                     animalNotes = animalNotes + currentNote;
                 }

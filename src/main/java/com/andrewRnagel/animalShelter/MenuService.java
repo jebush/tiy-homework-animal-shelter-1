@@ -53,7 +53,7 @@ public class MenuService {
 
     //menu option 2: manage existing animal
     protected void manageAnimal() throws SQLException {
-        //search for animal by type, name, id, or all animals
+        //search for animal by type, name, animalID, or all animals
         //interface with user
         System.out.printf("\n*** Manage an existing animal ***\n");
         if (!(this.animalsService.listAllAnimals().size() == 0)) {

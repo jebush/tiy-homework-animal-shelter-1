@@ -21,7 +21,7 @@ public class AnimalRepository {
     protected ResultSet listAllAnimals() throws SQLException {
         Statement stmt = this.conn.createStatement();
         return stmt.executeQuery("SELECT * FROM animal");
-        //return stmt.executeQuery("SELECT animal.animalid, animal.name, type.typename, animal.species, animal.breed, animal.description FROM animal JOIN type ON animal.type = type.typeid;");
+        //return stmt.executeQuery("SELECT animal.animalID, animal.name, type.typename, animal.species, animal.breed, animal.description FROM animal JOIN type ON animal.type = type.typeid;");
     }
 
     //return ResultSet of animals in animal table (by type, String)
@@ -49,7 +49,7 @@ public class AnimalRepository {
     protected ResultSet listAllAnimalsByID(int animalID) throws SQLException {
         //Parameter/Sanitized SQL query
         //perform lookup on animal table for animals containing provided substring
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalID = ?");
         stmt.setInt(1, animalID);
         return stmt.executeQuery();
     }
@@ -68,7 +68,7 @@ public class AnimalRepository {
     //remove animal from specified index in animal table
     protected void removeAnimal(int index) throws SQLException {
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM animal WHERE animalid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM animal WHERE animalID = ?");
         stmt.setInt(1, index);
         stmt.executeUpdate();
     }
@@ -76,7 +76,7 @@ public class AnimalRepository {
     //get animal from specified index in animal table
     protected ResultSet getAnimal(int index) throws SQLException{
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalID = ?");
         stmt.setInt(1, index);
         return stmt.executeQuery();
     }
@@ -84,7 +84,7 @@ public class AnimalRepository {
     //update animal at specified index in animal table
     protected void updateAnimal(int index, Animal animal) throws SQLException {
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("UPDATE animal SET name = ?, breed = ?, description = ?, type = ? WHERE animalid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("UPDATE animal SET name = ?, breed = ?, description = ?, type = ? WHERE animalID = ?");
         stmt.setString(1, animal.getName());
         stmt.setString(2, animal.getBreed());
         stmt.setString(3, animal.getDescription());
@@ -110,7 +110,7 @@ public class AnimalRepository {
     //remove animal type from specified index in type table
     protected void removeType(int index) throws SQLException {
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM type WHERE typeid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM type WHERE typeID = ?");
         stmt.setInt(1, index);
         stmt.executeUpdate();
     }
@@ -119,7 +119,7 @@ public class AnimalRepository {
     protected String getTypeNameByID(int index) throws SQLException{
         String returnString = "";
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT typename FROM type WHERE typeid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT typename FROM type WHERE typeID = ?");
         stmt.setInt(1, index);
         ResultSet strResult = stmt.executeQuery();
         if(strResult.next()) {
@@ -128,7 +128,7 @@ public class AnimalRepository {
         return returnString;
     }
 
-    //get animal type from specified index in type table (String type in table --> int typeid from type table)
+    //get animal type from specified index in type table (String type in table --> int typeID from type table)
     protected int getTypeIDByName(String type) throws SQLException{
         int returnInt = -1;
         //Parameter/Sanitized SQL query
@@ -145,7 +145,7 @@ public class AnimalRepository {
     //update animal type at specified index in type table
     protected void updateType(int index, String type) throws SQLException {
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("UPDATE type SET typeName = ? WHERE typeid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("UPDATE type SET typeName = ? WHERE typeID = ?");
         stmt.setString(1, type);
         stmt.setInt(2, index);
         stmt.executeUpdate();

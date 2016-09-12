@@ -92,7 +92,6 @@ public class AnimalsService {
             while (results.next()) {
                 animal.setAnimalID(results.getInt("animalid"));
                 animal.setName(results.getString("name"));
-                animal.setSpecies(results.getString("species"));
                 animal.setBreed(results.getString("breed"));
                 animal.setDescription(results.getString("description"));
                 animal.setAnimalTypeID(results.getInt("type"));
@@ -183,11 +182,10 @@ public class AnimalsService {
             Animal animal = new Animal(
                     results.getInt("animalid"),
                     results.getString("name"),
-                    results.getString("species"),
+                    this.animalRepository.getTypeNameByID(results.getInt("type")),
                     results.getString("breed"),
                     results.getString("description"),
-                    results.getInt("type"),
-                    this.animalRepository.getTypeNameByID(results.getInt("type"))
+                    results.getInt("type")
             );
             animals.add(animal);
         }

@@ -57,12 +57,11 @@ public class AnimalRepository {
     //add animal to animal table
     protected void addAnimal(Animal animal) throws SQLException{
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("INSERT INTO animal (name, species, breed, description, type) VALUES (?, ?, ?, ?, ?)");
+        PreparedStatement stmt = this.conn.prepareStatement("INSERT INTO animal (name, breed, description, type) VALUES (?, ?, ?, ?)");
         stmt.setString(1, animal.getName());
-        stmt.setString(2, animal.getSpecies());
-        stmt.setString(3, animal.getBreed());
-        stmt.setString(4, animal.getDescription());
-        stmt.setInt(5, animal.getAnimalTypeID());
+        stmt.setString(2, animal.getBreed());
+        stmt.setString(3, animal.getDescription());
+        stmt.setInt(4, animal.getAnimalTypeID());
         stmt.executeUpdate();
     }
 
@@ -85,13 +84,12 @@ public class AnimalRepository {
     //update animal at specified index in animal table
     protected void updateAnimal(int index, Animal animal) throws SQLException {
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("UPDATE animal SET name = ?, species = ?, breed = ?, description = ?, type = ? WHERE animalid = ?");
+        PreparedStatement stmt = this.conn.prepareStatement("UPDATE animal SET name = ?, breed = ?, description = ?, type = ? WHERE animalid = ?");
         stmt.setString(1, animal.getName());
-        stmt.setString(2, animal.getSpecies());
-        stmt.setString(3, animal.getBreed());
-        stmt.setString(4, animal.getDescription());
-        stmt.setInt(5, getTypeIDByName(animal.getType()));
-        stmt.setInt(6, animal.getAnimalID());
+        stmt.setString(2, animal.getBreed());
+        stmt.setString(3, animal.getDescription());
+        stmt.setInt(4, getTypeIDByName(animal.getType()));
+        stmt.setInt(5, animal.getAnimalID());
         stmt.executeUpdate();
     }
 

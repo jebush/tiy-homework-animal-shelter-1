@@ -12,6 +12,13 @@ public class MenuService {
     //object properties
     static final int ADD_ANIMAL = 1, MANAGE_ANIMAL = 2, MANAGE_ANIMAL_TYPES = 3, QUIT = 4;
     private Scanner scanner = new Scanner(System.in);
+    AnimalsService animalsService;
+
+    //constructors
+    //default constructor
+    public MenuService(AnimalsService animalsService) {
+        this.animalsService = animalsService;
+    }
 
     //methods
     //main menu prompt
@@ -28,45 +35,44 @@ public class MenuService {
     //menu option 1: add new animal
     protected Animal addNewAnimal(ArrayList<String> types) {
         //local properties
-        String tempName, tempSpecies, tempBreedOpt, tempDescription, tempType;
+        String tempName, tempType, tempBreedOpt, tempDescription;
 
         //interface with user
         System.out.printf("\n*** Add a new Animal ***\n");
         System.out.printf("Please answer the following:\n");
         tempName = requiredInput("Name");
         tempType = requiredInputType("Type (" + listTypesAsString(types) + "): ", types);
-        tempSpecies = requiredInput("Species");
         tempBreedOpt = optionalInput("Breed (opt.): ");
         tempDescription = requiredInput("Description");
 
         //return a new animal object based on data entered
-        Animal newEntry = new Animal(tempName, tempSpecies, tempBreedOpt, tempDescription, tempType);
+        Animal newEntry = new Animal(tempName, tempType, tempBreedOpt, tempDescription);
         System.out.printf("\nOperation successful! Animal %s added.\n", tempName);
         return newEntry;
     }
 
     //menu option 2: manage existing animal
-    protected void manageAnimal(AnimalsService animalService) throws SQLException {
+    protected void manageAnimal() throws SQLException {
         //search for animal by type, name, id, or all animals
         //interface with user
         System.out.printf("\n*** Manage an existing animal ***\n");
-        if (!(animalService.listAllAnimals().size() == 0)) {
-            int tempID = searchAnimals(animalService);
+        if (!(this.animalsService.listAllAnimals().size() == 0)) {
+            int tempID = searchAnimals();
             if (tempID != -1) {
-                printAnimal(animalService.getAnimal(tempID));
+                printAnimal(this.animalsService.getAnimal(tempID));
                 int choice = printManageAnimalMenu();
                 switch (choice) {
                     //edit animal
                     case 1:
-                        editAnimal(animalService, animalService.getAnimal(tempID));
+                        editAnimal(this.animalsService.getAnimal(tempID));
                         break;
                     //delete animal
                     case 2:
-                        deleteAnimal(animalService, tempID);
+                        deleteAnimal(tempID);
                         break;
                     //add note
                     case 3:
-                        addNote(animalService, tempID);
+                        addNote(tempID);
                         break;
                     //return to main menu
                     case 4:
@@ -81,8 +87,8 @@ public class MenuService {
 
     //menu option 3: manage existing types
     //TODO (FUTURE): edit and delete types via menu options
-    protected void manageTypes(AnimalsService animalService) throws SQLException {
-        if (!(animalService.getAllTypes().size() == 0)) {
+    protected void manageTypes() throws SQLException {
+        if (!(this.animalsService.getAllTypes().size() == 0)) {
             //local properties
             String tempType;
 
@@ -97,21 +103,21 @@ public class MenuService {
             switch (input) {
                 //list existing types
                 case 1:
-                    printTypes(animalService.getAllTypes());
-                    manageTypes(animalService);
+                    printTypes(this.animalsService.getAllTypes());
+                    manageTypes();
                     break;
                 //add new type
                 case 2:
                     System.out.printf("Please input the type to add:\n");
                     tempType = requiredInput("Type");
                     tempType = normalizeString(tempType);
-                    if (animalService.getAllTypes().contains(tempType)) {
+                    if (this.animalsService.getAllTypes().contains(tempType)) {
                         System.out.printf("Operation failed! Type %s already exists!\n", tempType);
                     } else {
-                        animalService.addType(tempType);
+                        this.animalsService.addType(tempType);
                         System.out.printf("Operation successful! Type %s added.\n", tempType);
                     }
-                    manageTypes(animalService);
+                    manageTypes();
                     break;
                 case 3:
                 default:
@@ -136,7 +142,6 @@ public class MenuService {
             case "yes":
             case "y":
                 scanner.close();
-
                 System.out.printf("Goodbye!\n");
                 exit(0);
                 break;
@@ -178,10 +183,10 @@ public class MenuService {
 
     //return animalID for the animal the user wishes to manage
     //Called by: manageAnimal
-    private int searchAnimals(AnimalsService animalService) throws SQLException {
+    private int searchAnimals() throws SQLException {
         //local properties
         int result = -1;
-        ArrayList<String> types = animalService.getAllTypes();
+        ArrayList<String> types = this.animalsService.getAllTypes();
         ArrayList<Animal> results;
         String query;
 
@@ -202,24 +207,24 @@ public class MenuService {
             case 1:
                 System.out.printf("Please input a type below:\n");
                 query = requiredInputType("Type (" + listTypesAsString(types) + "): ", types);
-                results = animalService.listAllAnimalsWithType(query);
+                results = this.animalsService.listAllAnimalsWithType(query);
                 result = printAnimalsReturnID(results);
                 break;
             //Name
             case 2:
                 System.out.printf("Please input a name below:\n");
                 query = requiredInput("Name");
-                results = animalService.listAllAnimalsWithName(query);
+                results = this.animalsService.listAllAnimalsWithName(query);
                 result = printAnimalsReturnID(results);
                 break;
             //ID
             case 3:
                 System.out.printf("Please input an ID below:\n");
-                result = waitForInt("Animal ID: ", animalService.listAllAnimals());
+                result = waitForInt("Animal ID: ", this.animalsService.listAllAnimals());
                 break;
             //ALL
             case 4:
-                results = animalService.listAllAnimals();
+                results = this.animalsService.listAllAnimals();
                 result = printAnimalsReturnID(results);
                 break;
             //Exit to main menu
@@ -284,7 +289,7 @@ public class MenuService {
 
     //delete animal record
     //Called by: manageAnimal
-    private void deleteAnimal(AnimalsService animalsService, int animalID) throws SQLException {
+    private void deleteAnimal(int animalID) throws SQLException {
         System.out.printf("\nAre you sure you want to delete this animal?\n");
         System.out.printf("Type \"yes\" to confirm, \"no\" to select a different animal.\n" +
                 "Any other data entry will return to the main menu.\n");
@@ -293,7 +298,7 @@ public class MenuService {
             //confirm delete request
             case "yes":
             case "y":
-                animalsService.removeAnimal(animalID);
+                this.animalsService.removeAnimal(animalID);
                 System.out.printf("Deletion operation successful!\n");
                 break;
             //abort request and return to delete entry subroutine
@@ -309,7 +314,7 @@ public class MenuService {
 
     //edit animal record
     //Called by: manageAnimal
-    private void editAnimal(AnimalsService animalsService, Animal animal) throws SQLException{
+    private void editAnimal(Animal animal) throws SQLException{
         //interface with user
         System.out.printf("\n*** Edit animal ****\n");
         System.out.printf("Please enter changes below. Press <Enter> to retain current value.\n");
@@ -317,24 +322,23 @@ public class MenuService {
         //cycle through five parameters, overwrite data with entry other than ""
         //TODO (FUTURE): Allow user to enter "" for type
         animal.setName(optionalInputRetainer(String.format("Name [%s]: ", animal.getName()), animal.getName()));
-        animal.setType(requiredInputType(String.format("Type [%s]: ", animal.getType()), animalsService.getAllTypes()));
-        animal.setSpecies(optionalInputRetainer(String.format("Species [%s]: ", animal.getSpecies()), animal.getSpecies()));
+        animal.setType(requiredInputType(String.format("Type [%s]: ", animal.getType()), this.animalsService.getAllTypes()));
         animal.setBreed(optionalInputRetainer(String.format("Breed [%s]: ", animal.getBreed()), animal.getBreed()));
         animal.setDescription(optionalInputRetainer(String.format("Description [%s]: ", animal.getDescription()), animal.getDescription()));
-        animalsService.updateAnimal(animal.getAnimalID(), animal);
+        this.animalsService.updateAnimal(animal.getAnimalID(), animal);
         System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
         System.out.println(animal.toString());
     }
 
     //add note record
     //Called by: manageAnimal
-    private void addNote(AnimalsService animalsService, int animalID) throws SQLException {
+    private void addNote(int animalID) throws SQLException {
         //interface with user
         System.out.printf("\n*** Add note ****\n");
         System.out.printf("Please enter note text: ");
         String noteText = scanner.nextLine();
         Note thisNote = new Note(noteText);
-        animalsService.addNote(animalsService.getAnimal(animalID), thisNote);
+        this.animalsService.addNote(this.animalsService.getAnimal(animalID), thisNote);
         System.out.printf("The note was successfully added!\n");
     }
 

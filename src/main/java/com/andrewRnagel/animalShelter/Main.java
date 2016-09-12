@@ -16,12 +16,13 @@ public class Main {
     //supporting functions
     //menu driver
     private static void menuDriver() throws IOException, SQLException {
-        //instantiate dependent services via classes
+        //declare data source
         String jdbcUrl = "jdbc:postgresql://localhost/animalshelter";
+        //instantiate dependent services from their classes
         AnimalRepository dataRepo = new AnimalRepository(jdbcUrl);
         NoteRepository noteRepo = new NoteRepository(jdbcUrl);
         AnimalsService animalsService = new AnimalsService(dataRepo, noteRepo);
-        MenuService menu = new MenuService();
+        MenuService menu = new MenuService(animalsService);
 
         //console-based menu system driven via while loop (always true)
         while(true) {
@@ -33,9 +34,9 @@ public class Main {
                 Animal newAnimal = menu.addNewAnimal(animalsService.getAllTypes());
                 animalsService.addAnimal(newAnimal);
             } else if(action == MenuService.MANAGE_ANIMAL) {
-                menu.manageAnimal(animalsService);
+                menu.manageAnimal();
             } else if(action == MenuService.MANAGE_ANIMAL_TYPES) {
-                menu.manageTypes(animalsService);
+                menu.manageTypes();
             } else if(action == MenuService.QUIT) {
                 menu.quitProgram();
             }

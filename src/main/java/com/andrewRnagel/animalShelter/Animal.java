@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Animal {
     //object properties
-    private String name, species, breed, description, type;
+    private String name, type, breed, description;
     private int animalID = -1, animalTypeID = -1;
     private ArrayList<Note> animalNotes = new ArrayList<>();
 
@@ -16,44 +16,33 @@ public class Animal {
     //default constructor
     protected Animal() {}
 
-    //legacy constructor with breed(opt)
-    protected Animal(String name, String species, String breed, String desc) {
-        this.name = name;
-        this.species = species;
-        this.breed = breed;
-        this.description = desc;
-    }
-
-    //constructor with breed(opt), including animal type; missing animalID and typeID
+    //constructor with breed(opt); missing animalID and typeID
     //used when creating a new Animal from within AnimalShelter program
-    protected Animal(String name, String species, String breed, String desc, String type) {
+    protected Animal(String name, String type, String breed, String desc) {
         this.name = name;
-        this.species = species;
+        this.type = type;
         this.breed = breed;
         this.description = desc;
-        this.type = type;
     }
 
-    //constructor with breed(opt), including animal index
+    //constructor with breed(opt), including animal index and typeID
     //used when reading an existing animal from the animal table
-    protected Animal(int animalid, String name, String species, String breed, String desc, int typeID, String type) {
-        this.animalID = animalid;
+    protected Animal(int animalID, String name, String type, String breed, String desc, int typeID) {
+        this.animalID = animalID;
         this.name = name;
-        this.species = species;
+        this.type = type;
         this.breed = breed;
         this.description = desc;
         this.animalTypeID = typeID;
-        this.type = type;
     }
 
     //methods
     //animal toString (formatted)
     public String toString() {
         String animalNotes = "";
-        String animalStats = String.format("%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-64s\n",
+        String animalStats = String.format("%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-64s\n",
                 "Name:", this.name,
                 "Type:", this.type,
-                "Species:", this.species,
                 "Breed (opt):", this.breed,
                 "Description:", this.description);
         if(this.getAnimalNotes().isEmpty()) {
@@ -77,10 +66,6 @@ public class Animal {
     //getters
     protected String getName() {
         return this.name;
-    }
-
-    protected String getSpecies() {
-        return this.species;
     }
 
     protected String getBreed() {
@@ -112,10 +97,6 @@ public class Animal {
         this.name = name;
     }
 
-    protected void setSpecies(String species) {
-        this.species = species;
-    }
-
     protected void setBreed(String breed) {
         this.breed = breed;
     }
@@ -142,7 +123,7 @@ public class Animal {
 
     //legacy disk serialization operations
     protected String serialize() {
-        return format("%s|%s|%s|%s\n", name, species, breed, description);
+        return format("%s|%s|%s|%s\n", name, type, breed, description);
     }
 
     protected static Animal deserialize(String data){

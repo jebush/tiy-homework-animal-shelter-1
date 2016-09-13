@@ -11,12 +11,14 @@ public class AnimalsService {
     //object properties
     private AnimalRepository animalRepository;
     private NoteRepository noteRepository;
+    private TypeRepository typeRepository;
 
     //constructors
     //constructor with specific data repository
-    public AnimalsService(AnimalRepository animalRepository, NoteRepository noteRepository) {
+    public AnimalsService(AnimalRepository animalRepository, NoteRepository noteRepository, TypeRepository typeRepository) {
         this.animalRepository = animalRepository;
         this.noteRepository = noteRepository;
+        this.typeRepository = typeRepository;
     }
 
     //methods
@@ -71,7 +73,7 @@ public class AnimalsService {
     //add animal to animal table
     protected void addAnimal(Animal animal) throws SQLException {
         if(!animal.getType().isEmpty() && animal.getAnimalTypeID() == -1) {
-            animal.setAnimalTypeID(this.animalRepository.getTypeIDByName(animal.getType()));
+            animal.setAnimalTypeID(this.typeRepository.getTypeIDByName(animal.getType()));
         }
         this.animalRepository.addAnimal(animal);
     }
@@ -95,7 +97,7 @@ public class AnimalsService {
                 animal.setBreed(results.getString("breed"));
                 animal.setDescription(results.getString("description"));
                 animal.setAnimalTypeID(results.getInt("type"));
-                animal.setType(this.animalRepository.getTypeNameByID(results.getInt("type")));
+                animal.setType(this.typeRepository.getTypeNameByID(results.getInt("type")));
                 animal.setAnimalNotes(getAllAnimalNotesWithID(index));
             }
         } catch (SQLException e) {
@@ -105,8 +107,8 @@ public class AnimalsService {
     }
 
     //update animal from specified index with update animal object in animal table
-    protected void updateAnimal(int index, Animal animal) throws SQLException {
-        this.animalRepository.updateAnimal(index, animal);
+    protected void updateAnimal(Animal animal) throws SQLException {
+        this.animalRepository.updateAnimal(animal);
     }
 
     //add note associated with animal to note table
@@ -154,7 +156,7 @@ public class AnimalsService {
     protected ArrayList<String> getAllTypes() throws SQLException {
         ArrayList<String> types = new ArrayList<>();
         try {
-            ResultSet results = this.animalRepository.getAllTypes();
+            ResultSet results = this.typeRepository.getAllTypes();
             while (results.next()) {
                 types.add(results.getString("typeName"));
             }
@@ -166,12 +168,12 @@ public class AnimalsService {
 
     //add a type to the type lookup table
     protected void addType(String type) throws SQLException {
-        this.animalRepository.addType(type);
+        this.typeRepository.addType(type);
     }
 
     //get typeID from lookup table, given the name of the type
     protected int getTypeIDByName(String string) throws SQLException {
-        return animalRepository.getTypeIDByName(string);
+        return typeRepository.getTypeIDByName(string);
     }
 
     //supporting private functions
@@ -182,7 +184,7 @@ public class AnimalsService {
             Animal animal = new Animal(
                     results.getInt("animalID"),
                     results.getString("name"),
-                    this.animalRepository.getTypeNameByID(results.getInt("type")),
+                    this.typeRepository.getTypeNameByID(results.getInt("type")),
                     results.getString("breed"),
                     results.getString("description"),
                     results.getInt("type")

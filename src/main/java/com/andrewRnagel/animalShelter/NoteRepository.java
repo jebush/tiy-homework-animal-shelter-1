@@ -49,30 +49,30 @@ public class NoteRepository {
     }
 
     //remove an animal note from the note table
-    protected void removeNote(int noteid) throws SQLException {
+    protected void removeNote(int noteID) throws SQLException {
         //Parameter/Sanitized SQL query
         //Confirm and delete specific note
-        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM note WHERE noteid = ?");
-        stmt.setInt(1, noteid);
+        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM note WHERE noteID = ?");
+        stmt.setInt(1, noteID);
         stmt.executeUpdate();
     }
 
     //remove an animal note from the note table
-    protected void removeNote(Animal animal, int noteid) throws SQLException {
+    protected void removeNote(Animal animal, int noteID) throws SQLException {
         //Parameter/Sanitized SQL query
         //Retrieve all note
         listAllNotesByAnimal(animal);
         //Confirm and delete specific note
-        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM note WHERE noteid = ?");
-        stmt.setInt(1, noteid);
+        PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM note WHERE noteID = ?");
+        stmt.setInt(1, noteID);
         stmt.executeUpdate();
     }
 
-    //get note from note table
-    protected ResultSet getAnimalNote(int noteid) throws SQLException {
+    //get note from note table by ID
+    protected ResultSet getAnimalNote(int noteID) throws SQLException {
         //Parameter/Sanitized SQL query
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM note WHERE noteid = ?");
-        stmt.setString(1, Integer.toString(noteid));
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM note WHERE noteID = ?");
+        stmt.setInt(1, noteID);
         return stmt.executeQuery();
     }
 }

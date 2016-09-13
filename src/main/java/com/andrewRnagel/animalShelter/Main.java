@@ -21,7 +21,8 @@ public class Main {
         //instantiate dependent services from their classes
         AnimalRepository dataRepo = new AnimalRepository(jdbcUrl);
         NoteRepository noteRepo = new NoteRepository(jdbcUrl);
-        AnimalsService animalsService = new AnimalsService(dataRepo, noteRepo);
+        TypeRepository typeRepo = new TypeRepository(jdbcUrl);
+        AnimalsService animalsService = new AnimalsService(dataRepo, noteRepo, typeRepo);
         MenuService menu = new MenuService(animalsService);
 
         //console-based menu system driven via while loop (always true)

@@ -325,7 +325,7 @@ public class MenuService {
         animal.setType(requiredInputType(String.format("Type [%s]: ", animal.getType()), this.animalsService.getAllTypes()));
         animal.setBreed(optionalInputRetainer(String.format("Breed [%s]: ", animal.getBreed()), animal.getBreed()));
         animal.setDescription(optionalInputRetainer(String.format("Description [%s]: ", animal.getDescription()), animal.getDescription()));
-        this.animalsService.updateAnimal(animal.getAnimalID(), animal);
+        this.animalsService.updateAnimal(animal);
         System.out.printf("\nEdit operation successful!\nUpdated record to:\n");
         System.out.println(animal.toString());
     }

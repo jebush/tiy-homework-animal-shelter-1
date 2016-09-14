@@ -12,8 +12,8 @@
         </header>
         <nav>
             <ul>
-                <li><a href="AnimalShelter_ListAnimals.jsp">List Animals</a></li>
-                <li><a href="AnimalShelter_EditAnimals.jsp">Add an Animal</a></li>
+                <li><a href="ListAnimals.jsp">List Animals</a></li>
+                <li><a href="EditAnimals.jsp">Add an Animal</a></li>
             </ul>
         </nav>
     </head>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="AnimalStats">
                     <ul>
-                        <h1><a href="AnimalShelter_EditAnimals.jsp" class="AnimalName">Bob</a></h1>
+                        <h1><a href="EditAnimals.jsp" class="AnimalName">Bob</a></h1>
                         <li><span class="LabelText">Type: </span>Cat</li>
                         <li><span class="LabelText">Breed: </span>Tabby</li>
                         <li><span class="LabelText">Description: </span>Big fat and fuzzy</li>

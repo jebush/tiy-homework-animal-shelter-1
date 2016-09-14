@@ -12,8 +12,8 @@
         </header>
         <nav>
             <ul>
-                <li><a href="AnimalShelter_ListAnimals.jsp">List Animals</a></li>
-                <li><a href="AnimalShelter_EditAnimals.jsp">Add an Animal</a></li>
+                <li><a href="ListAnimals.jsp">List Animals</a></li>
+                <li><a href="EditAnimals.jsp">Add an Animal</a></li>
             </ul>
         </nav>
     </head>
@@ -23,7 +23,7 @@
                 <h2>Add/Edit An Animal</h2>
                 <p>Note: (*) indicates a required field!</p><br>
                     <div>
-                        <form class="AnimalDetails" action="AnimalShelter_ListAnimals.jsp" method="post">
+                        <form class="AnimalDetails" action="ListAnimals.jsp" method="post">
                             <div class="LabelText">
                                 <label for="name">Name*: </label>
                             </div>

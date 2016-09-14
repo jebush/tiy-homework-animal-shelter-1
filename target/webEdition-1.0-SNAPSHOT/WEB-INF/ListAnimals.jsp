@@ -1,3 +1,4 @@
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
     <head>
@@ -12,8 +13,8 @@
         </header>
         <nav>
             <ul>
-                <li><a href="AnimalShelter_ListAnimals.jsp">List Animals</a></li>
-                <li><a href="AnimalShelter_EditAnimals.jsp">Add an Animal</a></li>
+                <li><a href="ListAnimals.jsp">List Animals</a></li>
+                <li><a href="EditAnimals.jsp">Add an Animal</a></li>
             </ul>
         </nav>
     </head>
@@ -26,8 +27,13 @@
                         <input type="text" placeholder="Name" id="name" name="name">
                         <select name="type">
                             <option value="" disabled selected>Type</option>
-                            <option value ="">Cat</option>
-                            <option value ="">Dog</option>
+
+                            <% for (String type : (ArrayList<String>) request.getAttribute("typesList")) { %>
+                            <option value ="">
+                                <%= type %>
+                            </option>
+                            <% } %>
+
                         </select>
                         <input type="number" placeholder="ID" id="id" name="id">
                         <button>Search</button>
@@ -39,11 +45,11 @@
                 </div>
                 <div class="AnimalStats">
                     <ul>
-                        <h1><a href="AnimalShelter_EditAnimals.jsp" class="AnimalName">Bob</a></h1>
+                        <h1><a href="EditAnimals.jsp" class="AnimalName">Bob</a></h1>
                         <li><span class="LabelText">Type: </span>Cat</li>
                         <li><span class="LabelText">Breed: </span>Tabby</li>
                         <li><span class="LabelText">Description: </span>Big fat and fuzzy</li>
-                        <li><span class="LabelText">Notes: </span><a href="AnimalShelter_AnimalNotes.jsp">5 notes</a> </li>
+                        <li><span class="LabelText">Notes: </span><a href="AnimalNotes.jsp">5 notes</a> </li>
                     </ul>
                 </div>
             </article>
@@ -57,7 +63,7 @@
                         <li><span class="LabelText">Type: </span>Dog</li>
                         <li><span class="LabelText">Breed: </span>Bulldog</li>
                         <li><span class="LabelText">Description: </span>A handsome beast</li>
-                        <li><span class="LabelText">Notes: </span><a href="AnimalShelter_AnimalNotes.jsp">3 notes</a> </li>
+                        <li><span class="LabelText">Notes: </span><a href="AnimalNotes.jsp">3 notes</a> </li>
                     </ul>
                 </div>
             </article>
@@ -71,7 +77,7 @@
                         <li><span class="LabelText">Type: </span>Spider</li>
                         <li><span class="LabelText">Breed: </span>Tarantula</li>
                         <li><span class="LabelText">Description: </span>Seriously, who gets a pet spider?!</li>
-                        <li><span class="LabelText">Notes: </span><a href="AnimalShelter_AnimalNotes.jsp">0 notes</a> </li>
+                        <li><span class="LabelText">Notes: </span><a href="AnimalNotes.jsp">0 notes</a> </li>
                     </ul>
                 </div>
             </article>
@@ -85,7 +91,7 @@
                         <li><span class="LabelText">Type: </span>Fish</li>
                         <li><span class="LabelText">Breed: </span>Goldfish</li>
                         <li><span class="LabelText">Description: </span>It's orange.</li>
-                        <li><span class="LabelText">Notes: </span><a href="AnimalShelter_AnimalNotes.jsp">1 note</a> </li>
+                        <li><span class="LabelText">Notes: </span><a href="AnimalNotes.jsp">1 note</a> </li>
                     </ul>
                 </div>
             </article>

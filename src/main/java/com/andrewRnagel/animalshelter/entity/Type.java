@@ -1,4 +1,4 @@
-package com.andrewRnagel.animalshelter;
+package com.andrewRnagel.animalshelter.entity;
 
 /**
  * Created by Andrew Nagel on 9/12/16 at 3:38 PM EST.

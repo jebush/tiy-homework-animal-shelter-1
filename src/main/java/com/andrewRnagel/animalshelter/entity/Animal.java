@@ -1,4 +1,4 @@
-package com.andrewRnagel.animalshelter;
+package com.andrewRnagel.animalshelter.entity;
 
 import java.util.ArrayList;
 
@@ -17,11 +17,11 @@ public class Animal {
 
     //constructors
     //default constructor
-    protected Animal() {}
+    public Animal() {}
 
     //constructor with breed(opt); missing animalID and typeID
     //used when creating a new Animal from within AnimalShelter program
-    protected Animal(String name, String type, String breed, String desc) {
+    public Animal(String name, String type, String breed, String desc) {
         this.name = name;
         this.breed = breed;
         this.description = desc;
@@ -30,7 +30,7 @@ public class Animal {
 
     //constructor with breed(opt), including animal index and typeID
     //used when reading an existing animal from the animal table
-    protected Animal(int animalID, String name, String type, String breed, String desc, int typeID) {
+    public Animal(int animalID, String name, String type, String breed, String desc, int typeID) {
         this.animalID = animalID;
         this.name = name;
         this.breed = breed;
@@ -69,69 +69,69 @@ public class Animal {
     }
 
     //getters
-    protected String getName() {
+    public String getName() {
         return this.name;
     }
 
-    protected String getBreed() {
+    public String getBreed() {
         return this.breed;
     }
 
-    protected String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 
-    protected String getType() {
+    public String getType() {
         return this.animalType.getType();
     }
 
-    protected int getAnimalID() {
+    public int getAnimalID() {
         return this.animalID;
     }
 
-    protected int getAnimalTypeID() {
+    public int getAnimalTypeID() {
         return this.animalType.getTypeID();
     }
 
-    protected ArrayList<Note> getAnimalNotes() {
+    public ArrayList<Note> getAnimalNotes() {
         return this.animalNotes;
     }
 
     //setters
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    protected void setBreed(String breed) {
+    public void setBreed(String breed) {
         this.breed = breed;
     }
 
-    protected void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    protected void setType(String type) {
+    public void setType(String type) {
         this.animalType.setType(type);
     }
 
-    protected void setAnimalID(int animalID) {
+    public void setAnimalID(int animalID) {
         this.animalID = animalID;
     }
 
-    protected void setAnimalTypeID(int animalTypeID) {
+    public void setAnimalTypeID(int animalTypeID) {
         this.animalType.setTypeID(animalTypeID);
     }
 
-    protected void setAnimalNotes(ArrayList<Note> animalNotes) {
+    public void setAnimalNotes(ArrayList<Note> animalNotes) {
         this.animalNotes = animalNotes;
     }
 
     //legacy disk serialization operations
-    protected String serialize() {
+    public String serialize() {
         return format("%s|%s|%s|%s\n", name, animalType.getType(), breed, description);
     }
 
-    protected static Animal deserialize(String data){
+    public static Animal deserialize(String data){
         String[] parsedData = data.split("\\|");
         return new Animal(parsedData[0], parsedData[1], parsedData[2], parsedData[3]);
     }

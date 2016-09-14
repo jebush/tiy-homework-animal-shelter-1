@@ -1,4 +1,8 @@
-package com.andrewRnagel.animalshelter;
+package com.andrewRnagel.animalshelter.service;
+
+import com.andrewRnagel.animalshelter.entity.Animal;
+import com.andrewRnagel.animalshelter.entity.Note;
+import com.andrewRnagel.animalshelter.service.AnimalsService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,9 +16,9 @@ import static java.lang.System.exit;
 
 public class MenuService {
     //object properties
-    static final int ADD_ANIMAL = 1, MANAGE_ANIMAL = 2, MANAGE_ANIMAL_TYPES = 3, QUIT = 4;
+    public static final int ADD_ANIMAL = 1, MANAGE_ANIMAL = 2, MANAGE_ANIMAL_TYPES = 3, QUIT = 4;
     private Scanner scanner = new Scanner(System.in);
-    AnimalsService animalsService;
+    private AnimalsService animalsService;
 
     //constructors
     //default constructor
@@ -24,7 +28,7 @@ public class MenuService {
 
     //methods
     //main menu prompt
-    protected int promptForMainMenuSelection() {
+    public int promptForMainMenuSelection() {
         //interface with user
         System.out.printf("\n***** Main Menu *****\n" +
                 "<1> Add a new animal\n" +
@@ -35,7 +39,7 @@ public class MenuService {
     }
 
     //menu option 1: add new animal
-    protected Animal addNewAnimal(ArrayList<String> types) {
+    public Animal addNewAnimal(ArrayList<String> types) {
         //local properties
         String tempName, tempType, tempBreedOpt, tempDescription;
 
@@ -54,7 +58,7 @@ public class MenuService {
     }
 
     //menu option 2: manage existing animal
-    protected void manageAnimal() throws SQLException {
+    public void manageAnimal() throws SQLException {
         //search for animal by type, name, animalID, or all animals
         //interface with user
         System.out.printf("\n*** Manage an existing animal ***\n");
@@ -88,7 +92,7 @@ public class MenuService {
     }
 
     //menu option 3: manage existing types
-    protected void manageTypes() throws SQLException {
+    public void manageTypes() throws SQLException {
         if (!(this.animalsService.getAllTypes().size() == 0)) {
             //local properties
             String tempType;
@@ -128,6 +132,7 @@ public class MenuService {
                     String editType = requiredInput("Type");
                     this.animalsService.updateType(this.animalsService.getTypeIDByName(tempType), editType);
                     System.out.printf("'" + tempType + "' has been changed to '" + editType + "'!\n");
+                    manageTypes();
                     break;
                 //delete existing type
                 case 3:
@@ -143,6 +148,7 @@ public class MenuService {
                     } else {
                         System.out.printf("Operation failed! Type %s currently in use!\n", tempType);
                     }
+                    manageTypes();
                     break;
                 //return to main menu
                 case 4:
@@ -155,7 +161,7 @@ public class MenuService {
     }
 
     //menu option 4: quit program
-    protected void quitProgram() {
+    public void quitProgram() {
         //interface with user
         System.out.printf("\n*** Quit ***\n");
         System.out.printf("Are you sure you want to quit?\n");

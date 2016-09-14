@@ -1,4 +1,11 @@
 package com.andrewRnagel.animalshelter;
+import com.andrewRnagel.animalshelter.entity.Animal;
+import com.andrewRnagel.animalshelter.repo.AnimalRepository;
+import com.andrewRnagel.animalshelter.repo.TypeRepository;
+import com.andrewRnagel.animalshelter.service.AnimalsService;
+import com.andrewRnagel.animalshelter.repo.NoteRepository;
+import com.andrewRnagel.animalshelter.service.MenuService;
+
 import java.io.IOException;
 import java.sql.SQLException;
 

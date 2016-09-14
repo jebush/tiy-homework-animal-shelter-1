@@ -1,4 +1,6 @@
-package com.andrewRnagel.animalshelter;
+package com.andrewRnagel.animalshelter.repo;
+import com.andrewRnagel.animalshelter.entity.Animal;
+
 import java.sql.*;
 
 /**
@@ -17,7 +19,7 @@ public class AnimalRepository {
 
     //methods
     //return ResultSet of animals in animal table (ALL)
-    protected ResultSet listAllAnimals() throws SQLException {
+    public ResultSet listAllAnimals() throws SQLException {
         PreparedStatement stmt = this.conn.prepareStatement("SELECT animal.animalID, animal.name, type.typename, animal.breed, animal.description, type.typeid FROM animal JOIN type ON animal.type = type.typeid;");
         return stmt.executeQuery();
         //Statement stmt = this.conn.createStatement();
@@ -25,7 +27,7 @@ public class AnimalRepository {
     }
 
     //return ResultSet of animals in animal table (by type, String)
-    protected ResultSet listAllAnimalsByType(String type) throws SQLException {
+    public ResultSet listAllAnimalsByType(String type) throws SQLException {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("SELECT animal.animalID, animal.name, type.typename, animal.breed, animal.description FROM animal JOIN type ON animal.type = type.typeid WHERE typename = ?;");
         stmt.setString(1, type);
@@ -33,17 +35,17 @@ public class AnimalRepository {
     }
 
     //return ResultSet of animals in animal table (by name, Substring)
-    protected ResultSet listAllAnimalsByName(String name) throws SQLException {
+    public ResultSet listAllAnimalsByName(String name) throws SQLException {
         //Parameter/Sanitized SQL query
         //perform lookup on animal table for animals containing provided substring
-        PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE upper(name) LIKE ?");
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT animal.animalID, animal.name, type.typename, animal.breed, animal.description FROM animal JOIN type ON animal.type = type.typeid WHERE upper(name) LIKE ?;");
         name = "%" + name.toUpperCase() + "%";
         stmt.setString(1, name);
         return stmt.executeQuery();
     }
 
     //return ResultSet of animals in animal table (by name, Substring)
-    protected ResultSet listAllAnimalsByID(int animalID) throws SQLException {
+    public ResultSet listAllAnimalsByID(int animalID) throws SQLException {
         //Parameter/Sanitized SQL query
         //perform lookup on animal table for animals containing provided substring
         PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalID = ?");
@@ -52,7 +54,7 @@ public class AnimalRepository {
     }
 
     //add animal to animal table
-    protected void addAnimal(Animal animal) throws SQLException{
+    public void addAnimal(Animal animal) throws SQLException{
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("INSERT INTO animal (name, breed, description, type) VALUES (?, ?, ?, ?)");
         stmt.setString(1, animal.getName());
@@ -63,7 +65,7 @@ public class AnimalRepository {
     }
 
     //remove animal from specified index in animal table
-    protected void removeAnimal(int index) throws SQLException {
+    public void removeAnimal(int index) throws SQLException {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("DELETE FROM animal WHERE animalID = ?");
         stmt.setInt(1, index);
@@ -71,7 +73,7 @@ public class AnimalRepository {
     }
 
     //get animal from specified index in animal table
-    protected ResultSet getAnimal(int index) throws SQLException{
+    public ResultSet getAnimal(int index) throws SQLException{
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("SELECT * FROM animal WHERE animalID = ?");
         stmt.setInt(1, index);
@@ -79,7 +81,7 @@ public class AnimalRepository {
     }
 
     //update animal at specified index in animal table
-    protected void updateAnimal(Animal animal) throws SQLException {
+    public void updateAnimal(Animal animal) throws SQLException {
         //Parameter/Sanitized SQL query
         PreparedStatement stmt = this.conn.prepareStatement("UPDATE animal SET name = ?, breed = ?, description = ?, type = ? WHERE animalID = ?");
         stmt.setString(1, animal.getName());

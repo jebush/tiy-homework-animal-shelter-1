@@ -1,4 +1,4 @@
-package com.andrewRnagel.animalShelter;
+package com.andrewRnagel.animalshelter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

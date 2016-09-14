@@ -1,7 +1,9 @@
-package com.andrewRnagel.animalShelter;
+package com.andrewRnagel.animalshelter;
+
 import java.sql.SQLException;
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import static java.lang.System.exit;
 
 /**

@@ -1,6 +1,8 @@
-package com.andrewRnagel.animalShelter;
-import static java.lang.String.format;
+package com.andrewRnagel.animalshelter;
+
 import java.util.ArrayList;
+
+import static java.lang.String.format;
 
 /**
  * Created by Andrew Nagel on 8/15/16 at 12:30 PM EST.
@@ -41,7 +43,7 @@ public class Animal {
     //animal toString (formatted)
     public String toString() {
         String animalNotes = "";
-        String animalStats = String.format("%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-64s\n",
+        String animalStats = format("%-12s %-32s\n%-12s %-32s\n%-12s %-32s\n%-12s %-64s\n",
                 "Name:", this.name,
                 "Type:", this.animalType.getType(),
                 "Breed (opt):", this.breed,

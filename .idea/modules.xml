@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/tiy-homework-animal-shelter.iml" filepath="$PROJECT_DIR$/tiy-homework-animal-shelter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webEdition.iml" filepath="$PROJECT_DIR$/webEdition.iml" />
     </modules>
   </component>
 </project>

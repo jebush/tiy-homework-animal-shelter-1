@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="tiy-homework-animal-shelter" />
+        <module name="webEdition" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="tiy-homework-animal-shelter" target="1.8" />
+      <module name="webEdition" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

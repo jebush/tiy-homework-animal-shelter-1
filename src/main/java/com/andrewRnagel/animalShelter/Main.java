@@ -1,4 +1,4 @@
-package com.andrewRnagel.animalShelter;
+package com.andrewRnagel.animalshelter;
 import java.io.IOException;
 import java.sql.SQLException;
 

@@ -17,7 +17,7 @@ public class TypeRepository {
 
     //methods
     //return ResultSet of types in type table (ALL, Alphabetical organized)
-    public ResultSet getAllTypes() throws SQLException {
+    protected ResultSet getAllTypes() throws SQLException {
         Statement stmt = this.conn.createStatement();
         return stmt.executeQuery("SELECT typeName FROM type ORDER BY typename ASC");
     }

@@ -18,8 +18,10 @@ public class AnimalRepository {
     //methods
     //return ResultSet of animals in animal table (ALL)
     protected ResultSet listAllAnimals() throws SQLException {
-        Statement stmt = this.conn.createStatement();
-        return stmt.executeQuery("SELECT * FROM animal");
+        PreparedStatement stmt = this.conn.prepareStatement("SELECT animal.animalID, animal.name, type.typename, animal.breed, animal.description, type.typeid FROM animal JOIN type ON animal.type = type.typeid;");
+        return stmt.executeQuery();
+        //Statement stmt = this.conn.createStatement();
+        //return stmt.executeQuery("SELECT * FROM animal");
     }
 
     //return ResultSet of animals in animal table (by type, String)

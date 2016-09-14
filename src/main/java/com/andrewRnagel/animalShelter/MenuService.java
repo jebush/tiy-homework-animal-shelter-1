@@ -86,28 +86,23 @@ public class MenuService {
     }
 
     //menu option 3: manage existing types
-    //TODO (FUTURE): edit and delete types via menu options
     protected void manageTypes() throws SQLException {
         if (!(this.animalsService.getAllTypes().size() == 0)) {
             //local properties
             String tempType;
 
             //interface with user
-            System.out.printf("\n*** Manage types ***\n" +
-                    "<1> List existing types\n" +
-                    "<2> Add a new type\n" +
-                    "<3> Return to main menu\n");
-            int input = waitForInt("Please choose an option: ", 3);
+            System.out.printf("\n*** Manage Types ***\n" +
+                    "<1> Add a new type\n" +
+                    "<2> Edit existing type\n" +
+                    "<3> Delete existing type\n" +
+                    "<4> Return to main menu\n");
+            int input = waitForInt("Please choose an option: ", 4);
 
             //process input
             switch (input) {
-                //list existing types
-                case 1:
-                    printTypes(this.animalsService.getAllTypes());
-                    manageTypes();
-                    break;
                 //add new type
-                case 2:
+                case 1:
                     System.out.printf("Please input the type to add:\n");
                     tempType = requiredInput("Type");
                     tempType = normalizeString(tempType);
@@ -119,7 +114,36 @@ public class MenuService {
                     }
                     manageTypes();
                     break;
+                //edit type
+                case 2:
+                    System.out.printf("\n*** Current Types ***\n");
+                    printTypes(this.animalsService.getAllTypes());
+                    System.out.printf("\n*** Edit type ***\n");
+                    System.out.printf("Please input the type to edit:\n");
+                    tempType = normalizeString(requiredInputType("Type: ", this.animalsService.getAllTypes()));
+                    //prompt what to change, then update typename
+                    System.out.printf("Please input new text for type '" + tempType + "':\n");
+                    String editType = requiredInput("Type");
+                    this.animalsService.updateType(this.animalsService.getTypeIDByName(tempType), editType);
+                    System.out.printf("'" + tempType + "' has been changed to '" + editType + "'!\n");
+                    break;
+                //delete existing type
                 case 3:
+                    System.out.printf("\n*** Current Types ***\n");
+                    printTypes(this.animalsService.getAllTypes());
+                    System.out.printf("Please input the type to delete:\n");
+                    tempType = normalizeString(requiredInput("Type"));
+                    if (this.animalsService.listAllAnimalsWithType(tempType).isEmpty() && this.animalsService.getAllTypes().contains(tempType)) {
+                        this.animalsService.removeType(this.animalsService.getTypeIDByName(tempType));
+                        System.out.printf("Operation successful! Type %s deleted!\n", tempType);
+                    } else if(!this.animalsService.getAllTypes().contains(tempType)) {
+                        System.out.printf("Operation failed! Type %s does not exist!\n", tempType);
+                    } else {
+                        System.out.printf("Operation failed! Type %s currently in use!\n", tempType);
+                    }
+                    break;
+                //return to main menu
+                case 4:
                 default:
                     break;
             }
@@ -319,8 +343,7 @@ public class MenuService {
         System.out.printf("\n*** Edit animal ****\n");
         System.out.printf("Please enter changes below. Press <Enter> to retain current value.\n");
 
-        //cycle through five parameters, overwrite data with entry other than ""
-        //TODO (FUTURE): Allow user to enter "" for type
+        //cycle through five parameters, overwrite data with entry other than ""; type is forced data entry
         animal.setName(optionalInputRetainer(String.format("Name [%s]: ", animal.getName()), animal.getName()));
         animal.setType(requiredInputType(String.format("Type [%s]: ", animal.getType()), this.animalsService.getAllTypes()));
         animal.setBreed(optionalInputRetainer(String.format("Breed [%s]: ", animal.getBreed()), animal.getBreed()));

@@ -166,14 +166,23 @@ public class AnimalsService {
         return types;
     }
 
+    //get typeID from lookup table, given the name of the type
+    protected int getTypeIDByName(String string) throws SQLException {
+        return typeRepository.getTypeIDByName(string);
+    }
+
     //add a type to the type lookup table
     protected void addType(String type) throws SQLException {
         this.typeRepository.addType(type);
     }
 
-    //get typeID from lookup table, given the name of the type
-    protected int getTypeIDByName(String string) throws SQLException {
-        return typeRepository.getTypeIDByName(string);
+    protected void removeType(int typeID) throws SQLException {
+        this.typeRepository.removeType(typeID);
+    }
+
+    //replace typename with new string value
+    protected void updateType(int index, String type) throws SQLException {
+            this.typeRepository.updateType(index, type);
     }
 
     //supporting private functions
@@ -184,10 +193,12 @@ public class AnimalsService {
             Animal animal = new Animal(
                     results.getInt("animalID"),
                     results.getString("name"),
-                    this.typeRepository.getTypeNameByID(results.getInt("type")),
+                    results.getString("typename"),
+                    //this.typeRepository.getTypeNameByID(results.getInt("type")),
                     results.getString("breed"),
                     results.getString("description"),
-                    results.getInt("type")
+                    //results.getInt("type")
+                    this.typeRepository.getTypeIDByName(results.getString("typename"))
             );
             animals.add(animal);
         }

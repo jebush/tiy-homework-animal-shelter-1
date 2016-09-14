@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="PostgreSQL - animalshelter@localhost">
   <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
     <database id="1" name="animalshelter">
@@ -68,7 +69,7 @@
       <state-number>1473</state-number>
       <mandatory>1</mandatory>
       <data-type>integer|0</data-type>
-      <default-expression>nextval('animal_animalid_seq'::regclass)</default-expression>
+      <default-expression>nextval(&apos;animal_animalid_seq&apos;::regclass)</default-expression>
     </column>
     <column id="20" parent="16" name="name">
       <state-number>1480</state-number>
@@ -92,13 +93,13 @@
     <index id="24" parent="16" name="animal_animalID_uindex">
       <object-id>16966</object-id>
       <columns>animalid</columns>
-      <desc-columns />
+      <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
     <index id="25" parent="16" name="animal_pkey">
       <object-id>16964</object-id>
       <columns>animalid</columns>
-      <desc-columns />
+      <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
     <key id="26" parent="16" name="animal_pkey">
@@ -118,7 +119,7 @@
       <state-number>1487</state-number>
       <mandatory>1</mandatory>
       <data-type>integer|0</data-type>
-      <default-expression>nextval('notes_noteid_seq'::regclass)</default-expression>
+      <default-expression>nextval(&apos;notes_noteid_seq&apos;::regclass)</default-expression>
     </column>
     <column id="29" parent="17" name="text">
       <state-number>1495</state-number>
@@ -138,13 +139,13 @@
     <index id="32" parent="17" name="notes_noteID_uindex">
       <object-id>16995</object-id>
       <columns>noteid</columns>
-      <desc-columns />
+      <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
     <index id="33" parent="17" name="notes_pkey">
       <object-id>16993</object-id>
       <columns>noteid</columns>
-      <desc-columns />
+      <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
     <key id="34" parent="17" name="notes_pkey">
@@ -164,7 +165,7 @@
       <state-number>1492</state-number>
       <mandatory>1</mandatory>
       <data-type>integer|0</data-type>
-      <default-expression>nextval('types_typeid_seq'::regclass)</default-expression>
+      <default-expression>nextval(&apos;types_typeid_seq&apos;::regclass)</default-expression>
     </column>
     <column id="37" parent="18" name="typename">
       <state-number>1528</state-number>
@@ -174,19 +175,19 @@
     <index id="38" parent="18" name="types_pkey">
       <object-id>17002</object-id>
       <columns>typeid</columns>
-      <desc-columns />
+      <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
     <index id="39" parent="18" name="types_typeid_uindex">
       <object-id>17004</object-id>
       <columns>typeid</columns>
-      <desc-columns />
+      <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
     <index id="40" parent="18" name="types_type_uindex">
       <object-id>17005</object-id>
       <columns>typename</columns>
-      <desc-columns />
+      <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
     <key id="41" parent="18" name="types_pkey">

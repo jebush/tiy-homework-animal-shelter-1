@@ -21,7 +21,7 @@ public class TypeRepository {
     //return ResultSet of types in type table (ALL, Alphabetical organized)
     public ResultSet getAllTypes() throws SQLException {
         Statement stmt = this.conn.createStatement();
-        return stmt.executeQuery("SELECT typeName FROM type ORDER BY typename ASC");
+        return stmt.executeQuery("SELECT * FROM type ORDER BY typename ASC");
     }
 
     //add animal type to type table (does not test for uniqueness)

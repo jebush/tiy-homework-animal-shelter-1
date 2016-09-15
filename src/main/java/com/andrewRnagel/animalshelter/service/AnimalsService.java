@@ -1,6 +1,7 @@
 package com.andrewRnagel.animalshelter.service;
 import com.andrewRnagel.animalshelter.entity.Animal;
 import com.andrewRnagel.animalshelter.entity.Note;
+import com.andrewRnagel.animalshelter.entity.Type;
 import com.andrewRnagel.animalshelter.repo.AnimalRepository;
 import com.andrewRnagel.animalshelter.repo.NoteRepository;
 import com.andrewRnagel.animalshelter.repo.TypeRepository;
@@ -29,7 +30,7 @@ public class AnimalsService {
 
     //methods
     //return list holding ALL stored animal objects (sans notes)
-    public ArrayList<Animal> listAllAnimals() throws SQLException {
+    public ArrayList<Animal> getAllAnimals() throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
         try {
             ResultSet results = this.animalRepository.listAllAnimals();
@@ -117,6 +118,26 @@ public class AnimalsService {
         this.animalRepository.updateAnimal(animal);
     }
 
+    //return list holding all note objects from note table
+    public ArrayList<Note> getAllAnimalNotes() throws SQLException {
+        ArrayList<Note> notes = new ArrayList<>();
+        try {
+            ResultSet results = this.noteRepository.listAllNotes();
+            while (results.next()) {
+                Note note = new Note(
+                        results.getInt("noteID"),
+                        results.getString("text"),
+                        results.getString("date"),
+                        results.getInt("animal")
+                );
+                notes.add(note);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return notes;
+    }
+
     //add note associated with animal to note table
     public void addNote(Animal animal, Note note) throws SQLException {
         this.noteRepository.addAnimalNote(animal, note);
@@ -159,12 +180,27 @@ public class AnimalsService {
     }
 
     //get all types from the type lookup table
-    public ArrayList<String> getAllTypes() throws SQLException {
+    public ArrayList<String> getAllTypesAsStrings() throws SQLException {
         ArrayList<String> types = new ArrayList<>();
         try {
             ResultSet results = this.typeRepository.getAllTypes();
             while (results.next()) {
                 types.add(results.getString("typeName"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return types;
+    }
+
+    //get all types from the type lookup table
+    public ArrayList<Type> getAllTypesAsTypes() throws SQLException {
+        ArrayList<Type> types = new ArrayList<>();
+        try {
+            ResultSet results = this.typeRepository.getAllTypes();
+            while (results.next()) {
+                Type tempType = new Type(results.getInt("typeID"), results.getString("typeName"));
+                types.add(tempType);
             }
         } catch (SQLException e) {
             e.printStackTrace();

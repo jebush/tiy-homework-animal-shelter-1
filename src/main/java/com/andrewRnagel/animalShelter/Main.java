@@ -39,7 +39,7 @@ public class Main {
 
             //call appropriate menu method based on user selection
             if(action == MenuService.ADD_ANIMAL) {
-                Animal newAnimal = menu.addNewAnimal(animalsService.getAllTypes());
+                Animal newAnimal = menu.addNewAnimal(animalsService.getAllTypesAsStrings());
                 animalsService.addAnimal(newAnimal);
             } else if(action == MenuService.MANAGE_ANIMAL) {
                 menu.manageAnimal();

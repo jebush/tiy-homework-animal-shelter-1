@@ -13,6 +13,12 @@ public class Type {
     //default constructor
     public Type() {}
 
+    //parameterized constructor
+    public Type(int typeID, String type) {
+        this.setTypeID(typeID);
+        this.setType(type);
+    }
+
     //getters
     public int getTypeID() {
         return this.typeID;

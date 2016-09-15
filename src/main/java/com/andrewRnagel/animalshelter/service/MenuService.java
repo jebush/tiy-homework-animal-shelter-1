@@ -2,7 +2,6 @@ package com.andrewRnagel.animalshelter.service;
 
 import com.andrewRnagel.animalshelter.entity.Animal;
 import com.andrewRnagel.animalshelter.entity.Note;
-import com.andrewRnagel.animalshelter.service.AnimalsService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -62,7 +61,7 @@ public class MenuService {
         //search for animal by type, name, animalID, or all animals
         //interface with user
         System.out.printf("\n*** Manage an existing animal ***\n");
-        if (!(this.animalsService.listAllAnimals().size() == 0)) {
+        if (!(this.animalsService.getAllAnimals().size() == 0)) {
             int tempID = searchAnimals();
             if (tempID != -1) {
                 printAnimal(this.animalsService.getAnimal(tempID));
@@ -93,7 +92,7 @@ public class MenuService {
 
     //menu option 3: manage existing types
     public void manageTypes() throws SQLException {
-        if (!(this.animalsService.getAllTypes().size() == 0)) {
+        if (!(this.animalsService.getAllTypesAsStrings().size() == 0)) {
             //local properties
             String tempType;
 
@@ -112,7 +111,7 @@ public class MenuService {
                     System.out.printf("Please input the type to add:\n");
                     tempType = requiredInput("Type");
                     tempType = normalizeString(tempType);
-                    if (this.animalsService.getAllTypes().contains(tempType)) {
+                    if (this.animalsService.getAllTypesAsStrings().contains(tempType)) {
                         System.out.printf("Operation failed! Type %s already exists!\n", tempType);
                     } else {
                         this.animalsService.addType(tempType);
@@ -123,10 +122,10 @@ public class MenuService {
                 //edit type
                 case 2:
                     System.out.printf("\n*** Current Types ***\n");
-                    printTypes(this.animalsService.getAllTypes());
+                    printTypes(this.animalsService.getAllTypesAsStrings());
                     System.out.printf("\n*** Edit type ***\n");
                     System.out.printf("Please input the type to edit:\n");
-                    tempType = normalizeString(requiredInputType("Type: ", this.animalsService.getAllTypes()));
+                    tempType = normalizeString(requiredInputType("Type: ", this.animalsService.getAllTypesAsStrings()));
                     //prompt what to change, then update typename
                     System.out.printf("Please input new text for type '" + tempType + "':\n");
                     String editType = requiredInput("Type");
@@ -137,13 +136,13 @@ public class MenuService {
                 //delete existing type
                 case 3:
                     System.out.printf("\n*** Current Types ***\n");
-                    printTypes(this.animalsService.getAllTypes());
+                    printTypes(this.animalsService.getAllTypesAsStrings());
                     System.out.printf("Please input the type to delete:\n");
                     tempType = normalizeString(requiredInput("Type"));
-                    if (this.animalsService.listAllAnimalsWithType(tempType).isEmpty() && this.animalsService.getAllTypes().contains(tempType)) {
+                    if (this.animalsService.listAllAnimalsWithType(tempType).isEmpty() && this.animalsService.getAllTypesAsStrings().contains(tempType)) {
                         this.animalsService.removeType(this.animalsService.getTypeIDByName(tempType));
                         System.out.printf("Operation successful! Type %s deleted!\n", tempType);
-                    } else if(!this.animalsService.getAllTypes().contains(tempType)) {
+                    } else if(!this.animalsService.getAllTypesAsStrings().contains(tempType)) {
                         System.out.printf("Operation failed! Type %s does not exist!\n", tempType);
                     } else {
                         System.out.printf("Operation failed! Type %s currently in use!\n", tempType);
@@ -218,7 +217,7 @@ public class MenuService {
     private int searchAnimals() throws SQLException {
         //local properties
         int result = -1;
-        ArrayList<String> types = this.animalsService.getAllTypes();
+        ArrayList<String> types = this.animalsService.getAllTypesAsStrings();
         ArrayList<Animal> results;
         String query;
 
@@ -252,11 +251,11 @@ public class MenuService {
             //ID
             case 3:
                 System.out.printf("Please input an ID below:\n");
-                result = waitForInt("Animal ID: ", this.animalsService.listAllAnimals());
+                result = waitForInt("Animal ID: ", this.animalsService.getAllAnimals());
                 break;
             //ALL
             case 4:
-                results = this.animalsService.listAllAnimals();
+                results = this.animalsService.getAllAnimals();
                 result = printAnimalsReturnID(results);
                 break;
             //Exit to main menu
@@ -353,7 +352,7 @@ public class MenuService {
 
         //cycle through five parameters, overwrite data with entry other than ""; type is forced data entry
         animal.setName(optionalInputRetainer(String.format("Name [%s]: ", animal.getName()), animal.getName()));
-        animal.setType(requiredInputType(String.format("Type [%s]: ", animal.getType()), this.animalsService.getAllTypes()));
+        animal.setType(requiredInputType(String.format("Type [%s]: ", animal.getType()), this.animalsService.getAllTypesAsStrings()));
         animal.setBreed(optionalInputRetainer(String.format("Breed [%s]: ", animal.getBreed()), animal.getBreed()));
         animal.setDescription(optionalInputRetainer(String.format("Description [%s]: ", animal.getDescription()), animal.getDescription()));
         this.animalsService.updateAnimal(animal);

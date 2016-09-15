@@ -10,6 +10,7 @@ import java.time.format.FormatStyle;
 public class Note {
     //object properties
     private int noteID = -1;
+    private int animalID = -1;
     private String noteContent;
     private LocalDate noteCreationDate;
 
@@ -31,6 +32,15 @@ public class Note {
         this.noteContent = noteContent;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.noteCreationDate = LocalDate.parse(date, formatter);
+    }
+
+    //used when reading ALL existings Notes from the note table
+    public Note(int noteID, String noteContent, String date, int animalID) {
+        this.noteID = noteID;
+        this.noteContent = noteContent;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.noteCreationDate = LocalDate.parse(date, formatter);
+        this.animalID = animalID;
     }
 
     //methods

@@ -6,7 +6,6 @@ package com.andrewRnagel.animalshelter.servlet;
 
 import com.andrewRnagel.animalshelter.entity.Animal;
 import com.andrewRnagel.animalshelter.entity.Type;
-import com.andrewRnagel.animalshelter.entity.Note;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,21 +20,25 @@ public class WidgetListServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // get ArrayList of Types, Animals, and Notes
-        ArrayList<Animal> animalsArray;
-        ArrayList<Type> typesArray;
         try {
-            typesArray = animalsService.getAllTypesAsTypes();
-            animalsArray = animalsService.getAllAnimals();
-            for(Animal animal : animalsArray) {
-                animal.setAnimalNotes(animalsService.getAllAnimalNotesWithID(animal.getAnimalID()));
-            }
-        } catch (SQLException e) {
-            throw new ServletException("Something went wrong!", e);
-        }
+            String name = getParameterAsString(req, "name");
+            req.setAttribute("name", name);
 
-        // add it to the request as an attribute
-        req.setAttribute("typesList", typesArray);
-        req.setAttribute("animalsList", animalsArray);
+            Integer typeID = getParameterAsInt(req, "type");
+            req.setAttribute("type", typeID);
+
+            Integer animalID = getParameterAsInt(req, "id");
+            req.setAttribute("id", animalID);
+
+            ArrayList<Animal> animalsArray = animalsService.listAllAnimals(name, typeID, animalID);
+            req.setAttribute("animalsList", animalsArray);
+
+            ArrayList<Type> typesArray = animalsService.getAllTypesAsTypes();
+            req.setAttribute("typesList", typesArray);
+
+        } catch (SQLException e){
+            throw new ServletException("Something went wrong! I would panic, and then grab a fire extinguisher.", e);
+        }
 
         // forward the request to fortune.jsp
         req.getRequestDispatcher("/WEB-INF/ListAnimals.jsp").forward(req, resp);

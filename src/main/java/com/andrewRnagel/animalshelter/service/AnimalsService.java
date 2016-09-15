@@ -41,6 +41,43 @@ public class AnimalsService {
         return animals;
     }
 
+    //Return list meeting search criteria
+    public ArrayList<Animal> listAllAnimals(String name, Integer typeID, Integer animalID) throws SQLException {
+        ResultSet resultSet = animalRepository.listAllAnimals(name, typeID, animalID);
+        ArrayList<Animal> animals = new ArrayList<>();
+
+        while (resultSet.next()){
+            Animal animal = new Animal(
+                    resultSet.getInt("animalID"),
+                    resultSet.getString("name"),
+                    resultSet.getString("typename"),
+                    resultSet.getString("breed"),
+                    resultSet.getString("description")
+
+            );
+
+            // get the notes
+            ResultSet noteResults = noteRepository.listAllNotesByAnimal(animal.getAnimalID());
+
+            while(noteResults.next()){
+                Note note = new Note(
+                        noteResults.getInt("noteID"),
+                        noteResults.getString("text"),
+                        noteResults.getString("date")
+                );
+                animal.getAnimalNotes().add(note);
+            }
+            //This sets picture according to type
+            if(animal.getType().equals("Cat")) {
+                animal.setPicture("/images/Cat.png");
+            } else if(animal.getType().equals("Dog")) {
+                animal.setPicture("/images/Dog.jpg");
+            }
+            animals.add(animal);
+        }
+        return animals;
+    }
+
     //return list holding stored animal objects by type (sans notes)
     public ArrayList<Animal> listAllAnimalsWithType(String type) throws SQLException {
         ArrayList<Animal> animals = new ArrayList<>();
@@ -246,4 +283,6 @@ public class AnimalsService {
         }
         return animals;
     }
+
+
 }

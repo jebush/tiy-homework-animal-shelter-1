@@ -24,7 +24,7 @@
             </div>
             <article class="AnimalCard">
                 <div class="AnimalPicture">
-                    <img src="/images/CatSilhouette.png" alt="Cat"/>
+                    <img src="/images/Cat.png" alt="Cat"/>
                 </div>
                 <div class="AnimalStats">
                     <ul>

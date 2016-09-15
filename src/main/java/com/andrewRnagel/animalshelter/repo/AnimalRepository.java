@@ -26,6 +26,35 @@ public class AnimalRepository {
         //return stmt.executeQuery("SELECT * FROM animal");
     }
 
+    //return ResultSet of animals in animal table by(name, typeID, animalID)
+    public ResultSet listAllAnimals(String name, Integer typeID, Integer ID) throws SQLException {
+        String sql = "SELECT a.*, t.typename FROM animal as a LEFT JOIN type as t ON a.type = t.typeID WHERE 1 = 1 ";
+
+        if(name != null){
+            sql += " AND upper(a.name) LIKE upper(?) ";
+        }
+        if(typeID != null){
+            sql += " AND t.typeID = ? ";
+        }
+        if(ID != null){
+            sql += " AND a.animalID = ? ";
+        }
+
+        PreparedStatement statement = conn.prepareStatement(sql);
+        int indexOfQuestionMark = 0;
+
+        if(name != null){
+            statement.setString(++indexOfQuestionMark, "%" + name + "%");
+        }
+        if(typeID != null){
+            statement.setInt(++indexOfQuestionMark, typeID);
+        }
+        if(ID != null){
+            statement.setInt(++indexOfQuestionMark, ID);
+        }
+        return statement.executeQuery();
+    }
+
     //return ResultSet of animals in animal table (by type, String)
     public ResultSet listAllAnimalsByType(String type) throws SQLException {
         //Parameter/Sanitized SQL query

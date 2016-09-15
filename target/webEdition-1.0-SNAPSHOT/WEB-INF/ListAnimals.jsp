@@ -25,8 +25,8 @@
             <div class="AnimalSearch">
                 <h2>List Animals</h2>
                 <p>Search for an animal:</p>
-                    <form action="" method="post">
-                        <input type="text" placeholder="Name" id="name" name="name">
+                    <form action="" method="get">
+                        <input type="text" placeholder="Name" id="name" name="name" value="${name}">
                         <select name="type">
                             <option value="" disabled selected>Type</option>
                             <%--Populate the dropdown menu with Types from DB--%>
@@ -36,7 +36,8 @@
                             </option>
                             <% } %>
                         </select>
-                        <input type="number" placeholder="ID" id="id" name="id" min="1">
+                        <%--TODO: set max based on high DB number, lock to array of ints? --%>
+                        <input type="number" placeholder="ID" id="id" name="id" min="1" value="${id}">
                         <button>Search</button>
                     </form>
             </div>
@@ -44,7 +45,7 @@
             <% for (Animal animal : (ArrayList<Animal>) request.getAttribute("animalsList")) { %>
             <article class="AnimalCard">
                 <div class="AnimalPicture">
-                    <img src="/images/X.jpg" alt="Blank"/>
+                    <img src="<%= animal.getPicture() %>" alt=""/>
                 </div>
                 <div class="AnimalStats">
                     <ul>

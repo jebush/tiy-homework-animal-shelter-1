@@ -14,6 +14,7 @@ public class Animal {
     private int animalID = -1;
     private ArrayList<Note> animalNotes = new ArrayList<>();
     private Type animalType = new Type();
+    private String picture = "/images/X.jpg";
 
     //constructors
     //default constructor
@@ -37,6 +38,14 @@ public class Animal {
         this.description = desc;
         this.animalType.setType(type);
         this.animalType.setTypeID(typeID);
+    }
+
+    public Animal(int animalID, String name, String typename, String breed, String description) {
+        this.animalID = animalID;
+        this.name = name;
+        this.breed = breed;
+        this.description = description;
+        this.animalType.setType(typename);
     }
 
     //methods
@@ -97,6 +106,10 @@ public class Animal {
         return this.animalNotes;
     }
 
+    public String getPicture() {
+        return this.picture;
+    }
+
     //setters
     public void setName(String name) {
         this.name = name;
@@ -124,6 +137,10 @@ public class Animal {
 
     public void setAnimalNotes(ArrayList<Note> animalNotes) {
         this.animalNotes = animalNotes;
+    }
+
+    public void setPicture(String URL) {
+        this.picture = URL;
     }
 
     //legacy disk serialization operations

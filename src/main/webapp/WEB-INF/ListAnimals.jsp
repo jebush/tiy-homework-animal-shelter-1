@@ -55,7 +55,7 @@
                         <li><span class="LabelText">Type: </span><%= animal.getType() %></li>
                         <li><span class="LabelText">Breed: </span><%= animal.getBreed() %></li>
                         <li><span class="LabelText">Description: </span><%= animal.getDescription() %></li>
-                        <li><span class="LabelText">Notes: </span><a href="AnimalNotes.jsp"><%=animal.getAnimalNotes().size() %> notes</a> </li>
+                        <li><span class="LabelText">Notes: </span><a href="/AnimalNote?animalID=<%= animal.getAnimalID()%>"><%=animal.getAnimalNotes().size() %> notes</a> </li>
                     </ul>
                 </div>
             </article>

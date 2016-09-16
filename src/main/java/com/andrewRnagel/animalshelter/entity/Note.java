@@ -43,6 +43,13 @@ public class Note {
         this.animalID = animalID;
     }
 
+    //Constructor for note web servlet
+    public Note(int animalID, String noteContent) {
+        this.noteContent = noteContent;
+        this.animalID = animalID;
+        this.noteCreationDate = LocalDate.now();
+    }
+
     //methods
     //getters
     //SQL format yyyy-mm-dd

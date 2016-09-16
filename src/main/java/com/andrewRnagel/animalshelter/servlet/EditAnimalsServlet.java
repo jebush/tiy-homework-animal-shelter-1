@@ -75,7 +75,7 @@ public class EditAnimalsServlet extends AbstractServlet{
                 animal.setName(name);
                 animal.setType(type.getType());
                 if(breed != null || breed == "") {
-                    animal.setBreed(breed);
+                    animal.setBreed(breed.trim());
                 }
                 animal.setDescription(description);
                 animal.setAnimalTypeID(type.getTypeID());

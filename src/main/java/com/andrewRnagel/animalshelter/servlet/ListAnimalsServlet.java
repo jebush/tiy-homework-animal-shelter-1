@@ -40,7 +40,7 @@ public class ListAnimalsServlet extends AbstractServlet {
             throw new ServletException("Something went wrong! I would panic, and then grab a fire extinguisher.", e);
         }
 
-        // forward the request to fortune.jsp
+        // forward the request to ListAnimals.jsp
         req.getRequestDispatcher("/WEB-INF/ListAnimals.jsp").forward(req, resp);
     }
 }

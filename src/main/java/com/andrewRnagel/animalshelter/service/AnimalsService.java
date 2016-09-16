@@ -142,7 +142,15 @@ public class AnimalsService {
                 animal.setAnimalTypeID(results.getInt("type"));
                 animal.setType(this.typeRepository.getTypeNameByID(results.getInt("type")));
                 animal.setAnimalNotes(getAllAnimalNotesWithID(index));
+
+                //This sets picture according to type
+                if(animal.getType().equals("Cat")) {
+                    animal.setPicture("/images/Cat.png");
+                } else if(animal.getType().equals("Dog")) {
+                    animal.setPicture("/images/Dog.jpg");
+                }
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -177,6 +185,11 @@ public class AnimalsService {
     //add note associated with animal to note table
     public void addNote(Animal animal, Note note) throws SQLException {
         this.noteRepository.addAnimalNote(animal, note);
+    }
+
+    //add note associated with animal to note table
+    public void addNote(int animalID, Note note) throws SQLException {
+        this.noteRepository.addAnimalNote(animalID, note);
     }
 
     //remove note associated with animal from note table by noteID

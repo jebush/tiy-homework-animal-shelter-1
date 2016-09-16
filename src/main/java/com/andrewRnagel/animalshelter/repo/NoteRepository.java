@@ -51,6 +51,15 @@ public class NoteRepository {
         stmt.executeUpdate();
     }
 
+    public void addAnimalNote(int animalID, Note note) throws SQLException {
+        //Parameter/Sanitized SQL query
+        PreparedStatement stmt = this.conn.prepareStatement("INSERT INTO note (animal, date, text) VALUES (?, ?, ?)");
+        stmt.setInt(1, animalID);
+        stmt.setDate(2, Date.valueOf(note.getNoteCreationDateAsLocalDate()));
+        stmt.setString(3, note.getNoteContent());
+        stmt.executeUpdate();
+    }
+
     //remove an animal note from the note table
     public void removeNote(int noteID) throws SQLException {
         //Parameter/Sanitized SQL query

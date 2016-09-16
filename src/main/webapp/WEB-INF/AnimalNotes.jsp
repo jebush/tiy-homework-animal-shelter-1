@@ -1,9 +1,12 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.andrewRnagel.animalshelter.entity.Note" %>
+<%@ page import="com.andrewRnagel.animalshelter.entity.Animal" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Animal Shelter</title>
-        <link rel="stylesheet" href="css/AnimalShelter_AnimalNotes.css">
+        <link rel="stylesheet" href="/css/AnimalShelter_AnimalNotes.css">
         <link rel="icon" href="/images/doghouse512px.png">
         <header>
             <div class="HeaderText">
@@ -24,14 +27,14 @@
             </div>
             <article class="AnimalCard">
                 <div class="AnimalPicture">
-                    <img src="/images/Cat.png" alt="Cat"/>
+                    <img src="${animal.getPicture()}" alt=""/>
                 </div>
                 <div class="AnimalStats">
                     <ul>
-                        <h1><a href="EditAnimals.jsp" class="AnimalName">Bob</a></h1>
-                        <li><span class="LabelText">Type: </span>Cat</li>
-                        <li><span class="LabelText">Breed: </span>Tabby</li>
-                        <li><span class="LabelText">Description: </span>Big fat and fuzzy</li>
+                        <h1><a href="/EditAnimal?animalID=${animal.getAnimalID()}" class="AnimalName">${animal.getName()}</a></h1>
+                        <li><span class="LabelText">Type: </span>${animal.getType()}</li>
+                        <li><span class="LabelText">Breed: </span>${animal.getBreed()}</li>
+                        <li><span class="LabelText">Description: </span>${animal.getDescription()}</li>
                     </ul>
                 </div>
             </article>
@@ -43,29 +46,30 @@
                             <th>Note</th>
                             <th> </th>
                         </tr>
+                        <% Animal animal = (Animal)request.getAttribute("animal"); %>
+                        <% for (Note note : animal.getAnimalNotes()) { %>
                         <tr>
-                            <td>08/29/16</th>
-                            <td>Went to visit vet.</td>
-                            <td><button class="DeleteButton"></button></td>
+                            <td><%= note.getNoteCreationDateAsString() %></td>
+                            <td><%= note.getNoteContent() %></td>
+                            <td><button class="DeleteButton" id="delete" name="delete"><a href="/DeleteNote?animalID=<%= animal.getAnimalID() %>&noteID=<%= note.getNoteID() %>"></a></button></td>
                         </tr>
-                        <tr>
-                            <td>08/30/16</th>
-                            <td>Only eats filet mignon.</td>
-                            <td><button class="DeleteButton"></button></td>
-                        </tr>
+                       <% } %>
                     </table>
                 </div>
             </article>
             <article>
-                <div class="AddAnimalNote">
-                    Add a note:
-                    <p>
-                        <textarea class="AddAnimalNoteText">This cat seriously needs a bath. This means we need to buy some chainmail.</textarea>
-                    </p>
-                </div>
-                <div>
-                    <button class="AddNoteButton">Add Note</button>
-                </div>
+                <form class="AddNote" action="/AnimalNote" method="post">
+                    <input type="hidden" id="animalID" name="animalID" value="${animal.getAnimalID()}" />
+                    <div class="AddAnimalNote">
+                        Add a note:
+                        <p>
+                            <textarea class="AddAnimalNoteText" placeholder="Add A Note" id="animalNoteText" name="animalNoteText"></textarea>
+                        </p>
+                    </div>
+                    <div>
+                        <button class="AddNoteButton">Add Note</button>
+                    </div>
+                </form>
             </article>
         </section>
     </body>

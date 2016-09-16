@@ -12,8 +12,8 @@
         </header>
         <nav>
             <ul>
-                <li><a href="ListAnimals.jsp">List Animals</a></li>
-                <li><a href="EditAnimals.jsp">Add an Animal</a></li>
+                <li><a href="/">List Animals</a></li>
+                <li><a href="/EditAnimal">Add an Animal</a></li>
             </ul>
         </nav>
     </head>

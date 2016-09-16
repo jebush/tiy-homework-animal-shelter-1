@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.andrewRnagel.animalshelter.entity.Animal" %>
+<%@ page import="com.andrewRnagel.animalshelter.entity.Type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
     <head>
@@ -5,6 +8,7 @@
         <title>Animal Shelter</title>
         <link rel="stylesheet" href="css/AnimalShelter_EditAnimals.css">
         <link rel="icon" href="/images/doghouse512px.png">
+
         <header>
             <div class="HeaderText">
             <h1>Animal Shelter</h1>
@@ -12,8 +16,8 @@
         </header>
         <nav>
             <ul>
-                <li><a href="ListAnimals.jsp">List Animals</a></li>
-                <li><a href="EditAnimals.jsp">Add an Animal</a></li>
+                <li><a href="/">List Animals</a></li>
+                <li><a href="/EditAnimal">Add an Animal</a></li>
             </ul>
         </nav>
     </head>
@@ -23,34 +27,39 @@
                 <h2>Add/Edit An Animal</h2>
                 <p>Note: (*) indicates a required field!</p><br>
                     <div>
-                        <form class="AnimalDetails" action="ListAnimals.jsp" method="post">
+                        <form class="AnimalDetails" action="/EditAnimal" method="post">
+                            <input type="hidden" id="animalID" name="animalID" value="${animal.getAnimalID()}" />
                             <div class="LabelText">
                                 <label for="name">Name*: </label>
                             </div>
                             <div>
-                                <input type="text" placeholder="Name" id="name" name="name" value="Bob"><br>
+                                <input type="text" placeholder="Name" id="name" name="name" value="${animal.getName()}"><br>
                             </div>
                             <div class="LabelText">
-                                <label for="species">Species*: </label>
+                                <label for="type">Type*: </label>
                             </div>
                             <div>
-                                <select name="species" id="species">
+                                <select id="type" name="type">
                                     <option value="" disabled>Type</option>
-                                    <option value="" selected>Cat</option>
-                                    <option value="">Dog</option>
+                                    <%--Populate the dropdown menu with Types from DB--%>
+                                    <% for (Type type : (ArrayList<Type>) request.getAttribute("typesList")) { %>
+                                        <option value="<%= type.getTypeID() %>" <%= type.getType().equals(((Animal)request.getAttribute("animal")).getType()) ? "selected='true'" : "" %>>
+                                    <%= type.getType() %>
+                                    </option>
+                                    <% } %>
                                 </select><br>
                             </div>
                             <div class="LabelText">
                                 <label for="breed">Breed: </label>
                             </div>
                             <div>
-                                <input type="text" placeholder="" id="breed" name="breed"><br>
+                                <input type="text" placeholder="Breed(Opt.)" id="breed" name="breed" value="${animal.getBreed()}"><br>
                             </div>
                             <div class="LabelText">
-                                <label for="desc">Description*: </label>
+                                <label for="description">Description*: </label>
                             </div>
                             <div>
-                                <textarea id="desc" placeholder="Description" maxlength=64>Big fat and fuzzy</textarea><br>
+                                <textarea id="description" name="description" placeholder="Description" maxlength="64">${animal.getDescription()}</textarea><br>
                             </div>
                             <div class="LabelText">
                                 <label for="photo">Photo: </label>

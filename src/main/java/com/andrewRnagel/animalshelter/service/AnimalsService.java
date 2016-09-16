@@ -53,7 +53,6 @@ public class AnimalsService {
                     resultSet.getString("typename"),
                     resultSet.getString("breed"),
                     resultSet.getString("description")
-
             );
 
             // get the notes
@@ -264,6 +263,17 @@ public class AnimalsService {
             this.typeRepository.updateType(index, type);
     }
 
+    public Type getAnimalType(int typeID) throws SQLException {
+        ResultSet result = this.typeRepository.getAnimalType(typeID);
+        if(result.next()){
+            return new Type(
+                    result.getInt("typeID"),
+                    result.getString("typename")
+            );
+        }
+        return null;
+    }
+
     //supporting private functions
     //cycle through a given resultSet and return an ArrayList of Animals (sans notes)
     private ArrayList<Animal> populateAnimalResultsAsList(ResultSet results) throws SQLException {
@@ -283,6 +293,4 @@ public class AnimalsService {
         }
         return animals;
     }
-
-
 }

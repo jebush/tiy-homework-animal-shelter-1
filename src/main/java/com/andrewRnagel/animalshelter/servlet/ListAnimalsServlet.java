@@ -1,9 +1,5 @@
 package com.andrewRnagel.animalshelter.servlet;
 
-/**
- * Created by Andrew Nagel on 9/14/16 at 3:24 PM EST.
- */
-
 import com.andrewRnagel.animalshelter.entity.Animal;
 import com.andrewRnagel.animalshelter.entity.Type;
 
@@ -15,8 +11,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Created by Andrew Nagel and Jimmy Bush on 9/14/16 at 3:24 PM EST.
+ */
+
 @WebServlet("")
-public class WidgetListServlet extends AbstractServlet {
+public class ListAnimalsServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // get ArrayList of Types, Animals, and Notes
@@ -27,8 +27,8 @@ public class WidgetListServlet extends AbstractServlet {
             Integer typeID = getParameterAsInt(req, "type");
             req.setAttribute("type", typeID);
 
-            Integer animalID = getParameterAsInt(req, "id");
-            req.setAttribute("id", animalID);
+            Integer animalID = getParameterAsInt(req, "animalID");
+            req.setAttribute("animalID", animalID);
 
             ArrayList<Animal> animalsArray = animalsService.listAllAnimals(name, typeID, animalID);
             req.setAttribute("animalsList", animalsArray);

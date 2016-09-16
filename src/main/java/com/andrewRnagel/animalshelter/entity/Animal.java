@@ -10,7 +10,7 @@ import static java.lang.String.format;
 
 public class Animal {
     //object properties
-    private String name, breed, description;
+    private String name, breed = "", description;
     private int animalID = -1;
     private ArrayList<Note> animalNotes = new ArrayList<>();
     private Type animalType = new Type();
@@ -40,12 +40,22 @@ public class Animal {
         this.animalType.setTypeID(typeID);
     }
 
+    //constructor
     public Animal(int animalID, String name, String typename, String breed, String description) {
         this.animalID = animalID;
         this.name = name;
         this.breed = breed;
         this.description = description;
         this.animalType.setType(typename);
+    }
+
+    //constructor without breed (add new animal, web version)
+    public Animal(Integer animalID, String name, String type, String description, int typeID) {
+        this.animalID = animalID;
+        this.name = name;
+        this.description = description;
+        this.animalType.setType(type);
+        this.animalType.setTypeID(typeID);
     }
 
     //methods
